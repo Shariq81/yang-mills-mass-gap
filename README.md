@@ -83,16 +83,21 @@ MIT License
 
 ## Citation
 
+**BibTeX:**
 ```bibtex
 @article{yang_mills_mass_gap_2026,
   title={Machine-Verified Proof of Mass Gap Existence in
          Four-Dimensional SU(2) and SU(3) Yang-Mills Theory},
   author={Shariq M. Farooqui},
-  journal={arXiv preprint},
+  journal={Zenodo},
   year={2026},
+  doi={10.5281/zenodo.18675091},
   note={Coq 8.18.0, 8449 lines, 402 Qed, 0 Axioms}
 }
 ```
+
+**APA:**
+> Shariq81. (2026). Shariq81/yang-mills-mass-gap: Yang-Mills Mass Gap: Formal Proof in Coq (v1.0.0). Zenodo. https://doi.org/10.5281/zenodo.18675091
 
 ## Contact
 
