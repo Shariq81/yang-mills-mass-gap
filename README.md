@@ -102,5 +102,3 @@ MIT License
 ## Contact
 
 Shariq M. Farooqui
-
-Shariq81. (2026). Shariq81/yang-mills-mass-gap: Yang-Mills Mass Gap: Formal Proof in Coq (v1.0.0). Zenodo. https://doi.org/10.5281/zenodo.18675091
