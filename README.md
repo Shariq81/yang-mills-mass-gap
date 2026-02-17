@@ -1,4 +1,5 @@
 # Machine-Verified Yang-Mills Mass Gap
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18675091.svg)](https://doi.org/10.5281/zenodo.18675091)
 
 This repository contains the Coq formalization proving the existence of a positive mass gap in 4D SU(2) and SU(3) Yang-Mills quantum field theory.
 
@@ -96,3 +97,5 @@ MIT License
 ## Contact
 
 Shariq M. Farooqui
+
+Shariq81. (2026). Shariq81/yang-mills-mass-gap: Yang-Mills Mass Gap: Formal Proof in Coq (v1.0.0). Zenodo. https://doi.org/10.5281/zenodo.18675091
