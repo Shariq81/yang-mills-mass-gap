@@ -11,8 +11,8 @@ This repository contains the Coq formalization proving the existence of a positi
 **Steps:**
 ```bash
 # 1. Clone this repository
-git clone [repository-url]
-cd yang_mills_arxiv
+git clone https://github.com/Shariq81/yang-mills-mass-gap
+cd yang-mills-mass-gap
 
 # 2. Compile the proof
 coqc zylphorian_yang_mills.v
