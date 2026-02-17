@@ -1,0 +1,16 @@
+# Coq build artifacts
+*.glob
+*.vo
+*.vok
+*.vos
+.*.aux
+.lia.cache
+.nra.cache
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.fls
+*.fdb_latexmk

@@ -1,0 +1,98 @@
+# Counting Constant Optimization for Kotecky-Preiss Cluster Expansion
+# Yang-Mills Lattice Gauge Theory (d=4 dimensions)
+#
+# This file documents the derivation of C = 20 for self-excluded plaquettes.
+
+## Background
+
+The Kotecky-Preiss criterion for polymer convergence requires:
+    sum_{gamma containing P} |z(gamma)| * exp(a|gamma|) < a
+
+where gamma are polymers (connected sets of plaquettes) and P is a fixed plaquette.
+
+The counting constant C bounds the number of plaquettes sharing a link with P.
+
+## Historical Bounds
+
+| Bound Type | C Value | Formula | Convergence Region |
+|------------|---------|---------|-------------------|
+| Naive      | 56      | 4 * 14  | beta < 0.0179     |
+| Exact      | 24      | 4 * 6   | beta < 0.0417     |
+| Self-excluded | 20   | 4 * 5   | beta < 0.0500     |
+
+## Derivation of C = 24 (Exact Counting)
+
+In d=4 dimensions:
+- Each link belongs to exactly C(4,2) = 6 plaquettes
+- Each plaquette has 4 links
+- Therefore: C_exact = 4 * 6 = 24
+
+Coq theorem: plaquettes_per_link_exact 4 = 6
+
+## Derivation of C = 20 (Self-Excluded)
+
+The Kotecky-Preiss criterion sums over polymers gamma CONTAINING P.
+- The plaquette P itself is already fixed
+- We only count OTHER plaquettes sharing links with P
+- Per link: 6 - 1 = 5 other plaquettes
+- Total: 4 * 5 = 20
+
+Coq theorems:
+- self_excluded_plaquettes_per_link = 5
+- C_self_excluded = 20
+- C_self_excluded_optimal: C = 20 is optimal for single-plaquette polymers
+
+## Geometric Argument
+
+For distinct plaquettes P1 and P2 in a 4D hypercubic lattice:
+- If P1 and P2 share a link, they contribute to each other's count
+- If P1 and P2 share only a vertex (no common link), they are independent
+- Distinct plaquettes can share at most 1 link
+
+This ensures no double-counting: each neighboring plaquette is counted exactly once.
+
+## Impact on Convergence Region
+
+| Transition | Improvement Factor |
+|------------|-------------------|
+| 56 -> 24   | 2.33x             |
+| 24 -> 20   | 1.20x             |
+| 56 -> 20   | 2.80x (total)     |
+
+The convergence region beta < 1/C expands by 2.8x using C = 20 vs naive C = 56.
+
+## Further Optimization
+
+Going below C = 20 requires:
+- Multi-plaquette polymer correlations
+- Tree-graph inequality (Brydges, Battle, Federbush)
+- This is a separate technical challenge
+
+## Coq Line References
+
+- C_self_excluded definition: L.3456
+- self_excluded_beats_24: L.3502
+- self_excluded_beats_56: L.3534
+- C_self_excluded_optimal: L.3567
+- counting_constant_dim generalization: L.3612
+
+## Dimension Generalization
+
+Formula: C_exact(d) = d * 2*(d-1) = 2d(d-1)
+
+| Dimension | C_exact | C_self_excluded |
+|-----------|---------|-----------------|
+| d=3       | 12      | 8               |
+| d=4       | 24      | 20              |
+| d=5       | 40      | 36              |
+
+## References
+
+1. Kotecky, R., Preiss, D. (1986). Cluster expansion for abstract polymer models.
+   Communications in Mathematical Physics, 103(3), 491-498.
+
+2. Balaban, T. (1989). Large field renormalization. I: The basic step.
+   Communications in Mathematical Physics, 122(2), 175-202.
+
+3. Seiler, E. (1982). Gauge Theories as a Problem of Constructive Quantum Field Theory.
+   Lecture Notes in Physics, Vol. 159, Springer.
