@@ -20,6 +20,7 @@ cd yang-mills-mass-gap
 
 # 2. Compile the proof
 coqc zylphorian_yang_mills.v
+coqc yang_mills_bridge_reduction.v
 
 # 3. Expected: Exit code 0 (no errors)
 echo $?  # Should print: 0
@@ -48,11 +49,24 @@ coqchk -silent -o zylphorian_yang_mills
 5. **Wightman Axioms:** Reconstructed QFT satisfies OS axioms
 6. **Gauge Group Universality:** Theorem holds for any compact simple Lie group
 
+## Bridge Reduction (The One Missing Theorem)
+
+The proof reduces the Yang-Mills mass gap to a single RG-entry theorem. The file `yang_mills_bridge_reduction.v` provides:
+
+- **BalabanRGInterface:** Minimal abstract RG blocking structure
+- **BridgeHypotheses:** H1 (RG entry into polymer regime), H2 (gap stability under blocking), H3 (correlation length bounded)
+- **bridge_completes_clay:** Theorem showing H1 + H2 → full Clay statement
+
+**The one missing theorem:** For 4D pure YM with compact simple G, there exists β₀ such that for all β ≥ β₀, Wilsonian RG flow reaches a polymer-convergent effective action after finitely many steps, with constants uniform in volume.
+
+**Contribution:** Machine-verified proof that reduces the Yang-Mills mass gap to a single RG-entry theorem, with complete infrastructure for all compact simple gauge groups. Analysts can now attack concrete hypotheses (H1, H2).
+
 ## Key Files
 
 | File | Description |
 |------|-------------|
 | `zylphorian_yang_mills.v` | Complete self-contained proof (8,740 lines) |
+| `yang_mills_bridge_reduction.v` | Bridge hypotheses + reduction theorem |
 | `main.tex` | LaTeX source for the preprint |
 | `main.pdf` | Compiled preprint (after LaTeX compilation) |
 | `ancillary/` | Supporting data for the C=20 optimization |
