@@ -1,0 +1,1 @@
+Require Import zylphorian_yang_mills. Print Assumptions yang_mills_mass_gap_existence.
