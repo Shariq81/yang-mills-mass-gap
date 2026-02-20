@@ -6,6 +6,8 @@
 .*.aux
 .lia.cache
 .nra.cache
+.nia.cache
+_CoqProject
 
 # LaTeX build artifacts
 *.aux
