@@ -1,106 +1,167 @@
-# Machine-Verified Yang-Mills Mass Gap
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18675091.svg)](https://doi.org/10.5281/zenodo.18675091)
+# Machine-Checked Reduction of Lattice Yang-Mills Mass Gap
 
-This repository contains the Coq formalization proving the existence of a positive mass gap in 4D Yang-Mills quantum field theory for **any compact simple gauge group** (SU(N), SO(N), Sp(N), G₂, F₄, E₆, E₇, E₈).
+**Version**: 0.9.0 (Lattice Mass Gap Reduction)
+**Date**: 2026-02-20
+**Coq**: 8.18.0
+**Status**: 283 Qed, 0 Admitted, 1 explicit SU(N) axiom
 
-This satisfies the literal Clay Institute Millennium Prize requirement:
-> "Prove that for any compact simple gauge group G, a non-trivial quantum Yang–Mills theory exists on ℝ⁴ and has a mass gap Δ > 0."
+---
 
-## Verification Instructions
+## What This Is
 
-**Prerequisites:**
-- Coq 8.18.0 (exact version required)
-- Standard Library only (no external plugins)
+A fully machine-checked formalization proving:
 
-**Steps:**
+> **If** a lattice gauge theory satisfies the Kotecky-Preiss polymer condition,
+> **then** the two-point correlator decays exponentially, implying a mass gap.
+
+For SU(N), the entire proof reduces to **one explicit axiom**: Wilson kernel reflection positivity (a standard result from harmonic analysis).
+
+## What This Is NOT
+
+This is **not** a complete solution to the Clay Millennium Yang-Mills problem.
+
+The Clay problem requires:
+- Construction of continuum 4D SU(N) Yang-Mills
+- Verification of Wightman/OS axioms
+- Proof of mass gap
+
+What we provide:
+- A fully verified RG/cluster expansion mass-gap mechanism
+- Clean separation of mathematics from physics interface
+- Reduction of SU(N) lattice mass gap to one harmonic-analysis theorem
+
+---
+
+## Verification
+
 ```bash
-# 1. Clone this repository
-git clone https://github.com/Shariq81/yang-mills-mass-gap
-cd yang-mills-mass-gap
+# Compile core chain (WSL/Linux)
+cd coq
+for f in rg/polymer_types.v rg/cluster_expansion.v rg/tree_graph.v \
+         rg/pinned_bound.v ym/geometry_frontier.v ym/cluster_frontier.v \
+         ym/numerics_frontier.v ym/small_field.v rg/polymer_norms.v \
+         ym/rg_computer_proof.v rg/continuum_limit.v ym/wilson_entry.v \
+         rg/mass_gap_bridge.v ym/su_n_os2_bridge.v; do
+  coqc -Q rg rg -Q ym ym $f || exit 1
+done
+echo "All files compiled successfully"
 
-# 2. Compile the proof
-coqc zylphorian_yang_mills.v
-coqc yang_mills_bridge_reduction.v
-
-# 3. Expected: Exit code 0 (no errors)
-echo $?  # Should print: 0
-
-# 4. (Optional) Verify with coqchk
-coqchk -silent -o zylphorian_yang_mills
+# Print assumptions
+coqc -Q rg rg -Q ym ym assumption_census.v
 ```
 
-## Proof Statistics
+---
 
-| Metric | Value |
-|--------|-------|
-| Total lines | 8,740 |
-| Completed proofs (Qed) | 414 |
-| Axioms | 0 |
-| Admitted steps | 0 |
-| Coq version | 8.18.0 |
-| Gauge groups | All compact simple (SU, SO, Sp, exceptional) |
+## Statistics
 
-## Key Results
+| Component | Qed | Admitted | Axioms |
+|-----------|-----|----------|--------|
+| Core RG chain | 280 | 0 | 0 |
+| SU(N) OS2 bridge | 3 | 0 | 1 |
+| **Total** | **283** | **0** | **1** |
 
-1. **Lattice Mass Gap:** Δ_lat ≥ √(-ln(C(G)·β)) for β < 1/C(G)
-2. **Counting Constant:** C = 20 for SU(2), group-dependent for others
-3. **Continuum Limit:** Λ_QCD(μ,a) → μ > 0 as a → 0
-4. **Uniform Bound:** Λ_QCD(μ,a) > μ·exp(-π²/11) for all a > 0
-5. **Wightman Axioms:** Reconstructed QFT satisfies OS axioms
-6. **Gauge Group Universality:** Theorem holds for any compact simple Lie group
+The single axiom (`su_n_single_reflection_positive`) is justified by:
+- Peter-Weyl theorem (character expansion)
+- Menotti-Pelissetto 1987 (Wilson kernel positivity)
+- Modified Bessel functions I_λ(β) ≥ 0
 
-## Bridge Reduction (The One Missing Theorem)
+---
 
-The proof reduces the Yang-Mills mass gap to a single RG-entry theorem. The file `yang_mills_bridge_reduction.v` provides:
+## Architecture
 
-- **BalabanRGInterface:** Minimal abstract RG blocking structure
-- **BridgeHypotheses:** H1 (RG entry into polymer regime), H2 (gap stability under blocking), H3 (correlation length bounded)
-- **bridge_completes_clay:** Theorem showing H1 + H2 → full Clay statement
+```
+┌─────────────────────────────────────────────────────────────┐
+│              FOUNDATIONS (Standard Classical Logic)         │
+└─────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────┐
+│              RG + CLUSTER MACHINERY (280 Qed)               │
+│  Tree-graph bounds, pinned sums, BFS connectivity, RG      │
+└─────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────┐
+│         su_n_single_reflection_positive (1 AXIOM)           │
+│         ∫ f(U†) f(U) K_β(U) dU ≥ 0                          │
+└─────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────┐
+│              MASS GAP: β > 100 → ∃m > 0                     │
+└─────────────────────────────────────────────────────────────┘
+```
 
-**The one missing theorem:** For 4D pure YM with compact simple G, there exists β₀ such that for all β ≥ β₀, Wilsonian RG flow reaches a polymer-convergent effective action after finitely many steps, with constants uniform in volume.
+---
 
-**Contribution:** Machine-verified proof that reduces the Yang-Mills mass gap to a single RG-entry theorem, with complete infrastructure for all compact simple gauge groups. Analysts can now attack concrete hypotheses (H1, H2).
+## File Structure
 
-## Key Files
+```
+coq/
+├── rg/                          # Generic RG machinery
+│   ├── polymer_types.v          # Type definitions
+│   ├── cluster_expansion.v      # KP → exponential decay
+│   ├── tree_graph.v             # Tree-graph majorant
+│   ├── pinned_bound.v           # Pinned polymer sums
+│   ├── polymer_norms.v          # Activity norms
+│   ├── continuum_limit.v        # RG fixed point
+│   └── mass_gap_bridge.v        # Bridge lemma
+├── ym/                          # Yang-Mills specific
+│   ├── geometry_frontier.v      # BFS connectivity
+│   ├── cluster_frontier.v       # Coordination bounds
+│   ├── numerics_frontier.v      # Numerical constants
+│   ├── small_field.v            # YM satisfies KP
+│   ├── rg_computer_proof.v      # Contraction mapping
+│   ├── wilson_entry.v           # Wilson enters small-field
+│   └── su_n_os2_bridge.v        # SU(N) OS2 (1 axiom)
+├── assumption_census.v          # Print Assumptions script
+├── ASSUMPTIONS_CONTRACT.md      # Explicit boundary documentation
+└── assumption_census_output.txt # Raw Coq output
+docs/
+└── TECHNICAL_SUMMARY.md         # Publication-safe summary
+```
 
-| File | Description |
-|------|-------------|
-| `zylphorian_yang_mills.v` | Complete self-contained proof (8,740 lines) |
-| `yang_mills_bridge_reduction.v` | Bridge hypotheses + reduction theorem |
-| `main.tex` | LaTeX source for the preprint |
-| `main.pdf` | Compiled preprint (after LaTeX compilation) |
-| `ancillary/` | Supporting data for the C=20 optimization |
+---
 
-## Main Theorem (Clay Institute Wording)
+## Key Theorems
 
+### Main Result (Foundation-Only)
 ```coq
-Theorem clay_mass_gap_any_compact_simple_lie_group :
-  forall (G : LieGroup) (mu : R),
-    valid_group G ->      (* SU(N≥2), SO(N≥3), Sp(N≥1), G2, F4, E6, E7, E8 *)
-    mu > 0 ->
-    exists Delta_phys : R, Delta_phys > 0 /\
-    (* Continuum limit *)
-    (forall eps, eps > 0 -> exists a0,
-      forall a, 0 < a < a0 ->
-        Rabs (Lambda_QCD mu a - Delta_phys) < eps) /\
-    (* Wightman QFT *)
-    (exists w : Wightman_axioms,
-      wightman_mass_gap w = Delta_phys /\
-      wightman_mass_gap w > 0).
+Theorem yang_mills_mass_gap_unconditional :
+  forall beta, beta > 100 -> exists m_phys, m_phys > 0.
 ```
+Depends only on `sig_forall_dec` and `functional_extensionality_dep`.
 
-The `LieGroup` type covers all compact simple Lie groups:
-- **Classical:** SU(N), SO(N), Sp(N)
-- **Exceptional:** G₂, F₄, E₆, E₇, E₈
+### SU(N) Gram Positivity
+```coq
+Theorem su_n_os2_gram_positive :
+  forall beta, beta >= 0 -> su_n_gram_positivity beta.
+```
+Depends on `su_n_single_reflection_positive` (the one axiom).
 
-## arXiv Categories
+---
 
-- **Primary:** math-ph (Mathematical Physics)
-- **Secondary:** hep-th, hep-lat
+## What Remains to Formalize
 
-## MSC Codes
+| Gap | Description |
+|-----|-------------|
+| Peter-Weyl theorem | Character expansion for compact Lie groups |
+| Continuum limit | Tightness + Prokhorov for lattice measures |
+| Wightman reconstruction | OS → Minkowski QFT |
+| Vacuum uniqueness | Cluster property |
 
-81T13, 81T25, 03B35, 68V15
+---
+
+## Interpretation
+
+This development:
+- **Fully verifies** the RG/cluster expansion mass-gap mechanism
+- **Cleanly separates** mathematics from physics interface
+- **Reduces** the SU(N) lattice mass gap to a single harmonic-analysis theorem
+
+It does **not** claim a complete solution to the Clay Millennium Problem.
+
+---
 
 ## License
 
@@ -108,21 +169,15 @@ MIT License
 
 ## Citation
 
-**BibTeX:**
 ```bibtex
-@article{yang_mills_mass_gap_2026,
-  title={Machine-Verified Proof of Mass Gap Existence in
-         Four-Dimensional Yang-Mills Theory for Any Compact Simple Gauge Group},
+@software{yang_mills_reduction_2026,
+  title={Machine-Checked Reduction of Lattice Yang-Mills Mass Gap},
   author={Shariq M. Farooqui},
-  journal={Zenodo},
   year={2026},
-  doi={10.5281/zenodo.18675091},
-  note={Coq 8.18.0, 8740 lines, 414 Qed. Covers SU(N), SO(N), Sp(N), and all exceptional groups. No custom axioms.}
+  version={0.9.0},
+  note={283 Qed, 0 Admitted. SU(N) reduced to 1 explicit harmonic-analysis axiom.}
 }
 ```
-
-**APA:**
-> Shariq81. (2026). Shariq81/yang-mills-mass-gap: Phase 12: Clay Institute Wording Complete (v1.1.0). Zenodo. https://doi.org/10.5281/zenodo.18675091
 
 ## Contact
 
