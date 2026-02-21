@@ -231,6 +231,15 @@ Section ClusterExpansion.
     | p :: rest => activity p * prod_activity rest
     end.
 
+  (* Multiplicativity of prod_activity over concatenation *)
+  Lemma prod_activity_app : forall (X Y : Cluster P),
+    prod_activity (X ++ Y) = prod_activity X * prod_activity Y.
+  Proof.
+    induction X as [|p X' IH]; intro Y; simpl.
+    - lra.
+    - rewrite IH. ring.
+  Qed.
+
   Definition cluster_weight (c : Cluster P) : R :=
     ursell_factor c * prod_activity c.
 
@@ -239,6 +248,15 @@ Section ClusterExpansion.
     | [] => 0
     | p :: rest => size p + cluster_size rest
     end.
+
+  (* Additivity of cluster_size over concatenation *)
+  Lemma cluster_size_app : forall (X Y : Cluster P),
+    cluster_size (X ++ Y) = cluster_size X + cluster_size Y.
+  Proof.
+    induction X as [|p X' IH]; intro Y; simpl.
+    - lra.
+    - rewrite IH. ring.
+  Qed.
 
   (* Key geometric lemma: connecting clusters span the distance. *)
   Hypothesis connects_implies_dist_bound :
