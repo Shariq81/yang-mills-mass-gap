@@ -1,9 +1,12 @@
 # Machine-Verified Proof of the Yang-Mills Mass Gap
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18726858.svg)](https://doi.org/10.5281/zenodo.18726858)
+[![Coq](https://img.shields.io/badge/Coq-8.18.0-blue)](https://coq.inria.fr/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 **Version**: 2.1.0 (Clay-Ready)
 **Date**: 2026-02-21
-**Coq**: 8.18.0
-**Status**: 657 Qed, 0 Admitted (main chain), 4 textbook hypotheses
+**Status**: **657 Qed, 0 Admitted (main chain), 4 textbook hypotheses**
 
 ---
 
@@ -175,11 +178,12 @@ MIT License
 ## Citation
 
 ```bibtex
-@article{farooqui2026yangmills,
+@software{farooqui2026yangmills,
   title={Machine-Verified Proof of the Yang-Mills Mass Gap},
   author={Farooqui, Shariq M.},
-  journal={arXiv preprint},
   year={2026},
+  doi={10.5281/zenodo.18726858},
+  url={https://github.com/Shariq81/yang-mills-mass-gap},
   note={657 Qed, 0 Admitted. Clay-ready with 4 textbook hypotheses.}
 }
 ```
