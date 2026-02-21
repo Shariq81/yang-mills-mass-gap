@@ -33,7 +33,7 @@ Theorem lattice_mass_gap :
   has_mass_gap
     (correlator small_field.ym_polymers_Λ
                 small_field.ym_N_max
-                small_field.ym_connects_dec) 1.
+                small_field.ym_connects_dec) small_field.ym_optimal_a.
 Proof. exact small_field.ym_polymer_mass_gap_from_kp. Qed.
 
 (* =========================================================================

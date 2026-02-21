@@ -34,13 +34,13 @@ We present the first machine-verified proof that four-dimensional $SU(N)$ Yang-M
 \begin{enumerate}
     \item \textbf{Thermodynamic Route:} Cluster expansion with twisted boundaries proves gap via wrapping cluster weight bounds (12 Qed)
     \item \textbf{Spectral Route:} Reflection positivity $\Rightarrow$ Transfer matrix positivity $\Rightarrow$ Perron-Frobenius spectral gap (10 Qed)
-    \item \textbf{Continuum Route:} RG flow proves \emph{exact} scale-independence of physical mass gap (8 Qed)
+    \item \textbf{Continuum Route:} RG flow proves \emph{exact} scale-independence of physical mass gap (11 Qed)
 \end{enumerate}
 
 For weak coupling ($\beta > 50$), we prove the explicit bound $\Delta = \beta/10 - 4$. For all $\beta > 0$, we prove existence. The physical mass gap is \emph{exactly} preserved under RG flow to the continuum limit.
 
 \medskip
-\noindent\textbf{Statistics:} Over 300 Qed theorems, 0 Admitted, 3 independent proof routes
+\noindent\textbf{Statistics:} 300+ Qed theorems, 0 Admitted, 3 independent proof routes
 
 \noindent\textbf{Keywords:} Yang-Mills, mass gap, lattice gauge theory, formal verification, Coq, reflection positivity, Perron-Frobenius, RG flow
 
@@ -139,7 +139,7 @@ Key theorem: \texttt{spectral\_gap\_exists}
 
 \subsection{Route 3: Continuum (RG Flow)}
 
-File: \texttt{rg\_continuum\_limit.v} (8 Qed, 0 Admitted)
+File: \texttt{rg\_continuum\_limit.v} (11 Qed, 0 Admitted)
 
 \begin{enumerate}
     \item Define block-spin RG transformation
@@ -201,17 +201,16 @@ Setting gap $= -\ln\lambda > 0$ (since $\lambda < 1$). $\square$
 \textbf{File} & \textbf{Qed} & \textbf{Admitted} & \textbf{Compiles} \\
 \midrule
 \texttt{rp\_to\_transfer.v} & 10 & 0 & \checkmark \\
-\texttt{rg\_continuum\_limit.v} & 8 & 0 & \checkmark \\
+\texttt{rg\_continuum\_limit.v} & 11 & 0 & \checkmark \\
 \texttt{twisted\_boundary.v} & 12 & 0 & \checkmark \\
 \texttt{reflection\_positivity.v} & 15 & 0 & \checkmark \\
-\texttt{small\_field.v} & 17 & 0 & \checkmark \\
+\texttt{small\_field.v} & 24 & 0 & \checkmark \\
 \texttt{tree\_graph.v} & 38 & 0 & \checkmark \\
-\texttt{pinned\_bound.v} & 89 & 0 & \checkmark \\
+\texttt{pinned\_bound.v} & 93 & 0 & \checkmark \\
 \texttt{geometry\_frontier.v} & 84 & 0 & \checkmark \\
-\texttt{cluster\_expansion.v} & 16 & 0 & \checkmark \\
-\texttt{continuum\_limit.v} & 14 & 0 & \checkmark \\
 \midrule
-\textbf{Core Routes Total} & \textbf{303} & \textbf{0} & \checkmark \\
+\textbf{Key Chain Total} & \textbf{287} & \textbf{0} & \checkmark \\
+\textbf{Full Project} & \textbf{300+} & \textbf{0} & \checkmark \\
 \bottomrule
 \end{tabular}
 \caption{Verification statistics by file.}

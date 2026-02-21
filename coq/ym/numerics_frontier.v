@@ -72,6 +72,23 @@ Proof.
   lra.
 Qed.
 
+(* Prove exp 3 > 20 using 9 Taylor terms (n=0..8) *)
+(* exp_partial 3 8 = 1 + 3 + 4.5 + 4.5 + 3.375 + 2.025 + 1.0125 + 0.434 + 0.163 ≈ 20.01 > 20 *)
+Lemma exp_partial_3_8_gt_20 : exp_partial 3 8 > 20.
+Proof.
+  unfold exp_partial, pow, fact_R.
+  (* Compute: sum of 3^k/k! for k=0..8 *)
+  simpl.
+  lra.
+Qed.
+
+Lemma exp_3_gt_20_proved : exp 3 > 20.
+Proof.
+  assert (H1 : exp 3 >= exp_partial 3 8) by (apply exp_ge_partial; lra).
+  assert (H2 : exp_partial 3 8 > 20) by exact exp_partial_3_8_gt_20.
+  lra.
+Qed.
+
 (* Typeclass instance with proved fact *)
 Class YMNumericsFrontier : Prop := {
   exp_4_ge_24_frontier : exp 4 >= 24
