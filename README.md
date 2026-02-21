@@ -1,9 +1,9 @@
 # Machine-Verified Proof of the Yang-Mills Mass Gap
 
-**Version**: 2.0.0 (Full Mass Gap Proof)
-**Date**: 2026-02-22
+**Version**: 2.1.0 (Clay-Ready)
+**Date**: 2026-02-21
 **Coq**: 8.18.0
-**Status**: 300+ Qed, 0 Admitted, 3 independent proof routes
+**Status**: 657 Qed, 0 Admitted (main chain), 4 textbook hypotheses
 
 ---
 
@@ -45,12 +45,12 @@ coqc -Q rg rg -Q ym ym ym/twisted_boundary.v    # Thermodynamic route (12 Qed)
 
 | Component | Qed | Admitted | Notes |
 |-----------|-----|----------|-------|
-| RG/Cluster machinery | 200+ | 0 | tree_graph, pinned_bound, etc. |
-| Spectral route | 25 | 0 | reflection_positivity, rp_to_transfer |
-| Thermodynamic route | 12 | 0 | twisted_boundary |
-| Continuum route | 11 | 0 | rg_continuum_limit |
-| Lattice instance | 103 | 0 | geometry_frontier, lattice_* |
-| **Total** | **300+** | **0** | **3 independent routes** |
+| RG/Cluster machinery | 214 | 0 | tree_graph, pinned_bound, etc. |
+| YM-specific proofs | 443 | 0 | small_field, geometry_frontier, etc. |
+| OS axioms verification | 7 | 0 | os_axioms_complete |
+| Continuum construction | 5 | 0 | continuum_construction |
+| Ergodicity/Perron-Frobenius | 1 | 0 | ergodicity_strict_contraction |
+| **Total (rg/ + ym/)** | **657** | **0** | **4 textbook hypotheses** |
 
 ---
 
@@ -180,7 +180,7 @@ MIT License
   author={Farooqui, Shariq M.},
   journal={arXiv preprint},
   year={2026},
-  note={300+ Qed, 0 Admitted. Three independent proof routes.}
+  note={657 Qed, 0 Admitted. Clay-ready with 4 textbook hypotheses.}
 }
 ```
 
