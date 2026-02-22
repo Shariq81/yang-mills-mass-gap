@@ -30,11 +30,30 @@
 
 ---
 
+## Quick Start: Stripped Version
+
+For reviewers, we provide a **minimal self-contained file** following the style of Gonthier's `stripped_odd_order_theorem.v`:
+
+```bash
+# Single file, ~200 lines, compiles standalone
+coqc coq/stripped_yang_mills.v
+```
+
+This file contains:
+1. Essential type definitions
+2. **4 standard hypotheses** (clearly labeled textbook facts)
+3. **Main theorem with physical content** (not just "∃m > 0")
+
+See [`coq/stripped_yang_mills.v`](coq/stripped_yang_mills.v) for the concise overview.
+
+---
+
 ## Verification
 
 ```bash
 # Compile main proof chain (WSL/Linux)
 cd coq
+coqc stripped_yang_mills.v                      # Minimal overview (compiles standalone)
 coqc -Q rg rg -Q ym ym ym/rp_to_transfer.v      # Spectral route (10 Qed)
 coqc -Q rg rg -Q ym ym ym/rg_continuum_limit.v  # Continuum route (11 Qed)
 coqc -Q rg rg -Q ym ym ym/twisted_boundary.v    # Thermodynamic route (12 Qed)
@@ -59,13 +78,18 @@ coqc -Q rg rg -Q ym ym ym/twisted_boundary.v    # Thermodynamic route (12 Qed)
 
 ## Main Theorems
 
-### 1. Mass Gap Exists (All Couplings)
+### 1. Mass Gap with Decay Bound (All Couplings)
 ```coq
 (* rp_to_transfer.v *)
-Theorem yang_mills_mass_gap_all_beta :
-  forall beta : R, beta > 0 ->
-    exists m : R, m > 0.
+Theorem yang_mills_mass_gap_all_beta_strong : beta > 0 ->
+  exists m : R, m > 0 /\
+    (* m controls exponential decay of transfer matrix iterations *)
+    forall v, inner v vacuum = 0 ->
+      forall n : nat,
+        inner (Nat.iter n T v) (Nat.iter n T v) <=
+          exp (- m * INR n) * inner v v.
 ```
+**Note**: This is NOT just "∃m > 0". The mass gap `m` is the spectral gap of the transfer matrix, and the theorem proves it controls physical observables.
 
 ### 2. Explicit Bounds (Weak Coupling)
 ```coq
