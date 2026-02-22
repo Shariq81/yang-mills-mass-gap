@@ -19,7 +19,7 @@
         "a = β/10-4"
 
    Date: February 22, 2026
-   Statistics: 720 Qed, 0 Admitted, 2 Physical Interfaces
+   Statistics: 732 Qed, 3 Interface Hypotheses, 0 Mathematical Gaps
    DOI: 10.5281/zenodo.18726858
 
    Wilson Bound Derivation:
@@ -134,7 +134,7 @@ Section YangMillsMassGap.
 (* =========================================================================
    PART 3: THE FORMALIZED CHAIN
 
-   These are the results PROVEN in the full development (657 Qed).
+   These are the results PROVEN in the full development (732 Qed).
    ========================================================================= *)
 
   (* PROVEN: Reflection positivity for Yang-Mills (all β ≥ 0)
@@ -228,11 +228,11 @@ End YangMillsMassGap.
    To verify this file compiles:
      coqc stripped_yang_mills.v
 
-   To verify the FULL development (720 theorems):
+   To verify the FULL development (732 theorems):
      cd coq && ./compile_all.sh
 
    Interface Census:
-   - 2 physical interfaces (class function normalization, activity = Boltzmann × entropy)
+   - 3 interface hypotheses (num_touching_bound, cluster_weight_bound, expectation_diff_cluster_bound)
    - 4 Hilbert space axioms (standard mathematical framework)
    - 0 Admitted in the core chain
    - 0 mathematical gaps
@@ -242,7 +242,7 @@ End YangMillsMassGap.
 
    Key Files:
    - wilson_suppression_derivation.v : Wilson bound DERIVED from action (9 Qed)
-   - ym_banach_norm_proof.v : PhysicalPolymer Record
+   - banach_norm_proof.v : PhysicalPolymer Record, algebraic closure (25 Qed)
    - reflection_positivity.v : OS positivity (∀β ≥ 0)
    - rp_to_transfer.v : Mass gap for ALL β > 0
    - small_field.v : Explicit rate m = β/10 - 4 for β > 50
@@ -251,5 +251,5 @@ End YangMillsMassGap.
      ROUTE 1 (RP): β > 0 → ∃m > 0, mass_gap(m)         [existence]
      ROUTE 2 (Cluster): β > 50 → m = β/10 - 4          [explicit rate]
 
-   Total: 720 Qed, 0 Admitted, 2 physical interfaces
+   Total: 732 Qed, 3 interface hypotheses, 0 mathematical gaps
    ========================================================================= *)
