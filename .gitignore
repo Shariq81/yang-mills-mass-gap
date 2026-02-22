@@ -16,3 +16,7 @@ _CoqProject
 *.synctex.gz
 *.fls
 *.fdb_latexmk
+
+# Internal tracking files
+docs/YANG_MILLS_MILESTONES.md
+PUSH_CHECKLIST.md
