@@ -71,7 +71,7 @@ We present a machine-verified proof addressing this challenge. Our key achieveme
 \begin{tabular}{ccc}
 \textbf{ORACLE} & $\longrightarrow$ & \textbf{SCRIBE} $\longrightarrow$ \textbf{VERIFIER} \\
 APEX Daemon & & LLM Backend $\rightarrow$ coqc 8.18.0 \\
-10 modules, 280M params & & Translation $\rightarrow$ Exit code 0 \\
+Neural reasoning & & Translation $\rightarrow$ Exit code 0 \\
 ``$a = \beta/10 - 4$'' & & Qed. Qed. $\rightarrow$ Certified \\
 \end{tabular}
 \end{center}
@@ -327,10 +327,12 @@ OS reconstruction & Euclidean $\to$ Minkowski QFT & Standard theorem \\
     \item \textbf{Definition}: Yang-Mills via lattice gauge theory (the standard rigorous definition)
     \item \textbf{Proof}: Mass gap $> 0$ in this theory (1306 Qed, machine-verified)
     \item \textbf{Continuum}: The gap survives the $\mathbb{R}^4$ limit (RG-invariance)
-    \item \textbf{Zero external hypotheses}: Type-theoretic closure via PhysicalPolymer Record
+    \item \textbf{12 explicit axioms}: Physical boundary conditions (Balaban hypothesis for YM$_4$ made explicit)
 \end{enumerate}
 
-This \textbf{fully satisfies} Clay's requirement for a mathematical proof. Clay does not ask for experimental verification or an alternative (non-existent) axiomatic construction.
+\textbf{Conditionality:} The proof is conditional on Balaban pointwise convergence---proven for YM$_3$ (Balaban 1980s), explicit hypothesis for YM$_4$. This is THE research frontier; all other mathematics is machine-verified.
+
+This \textbf{addresses} Clay's requirement for a mathematical proof. The remaining hypothesis is the core open problem in constructive QFT.
 
 \section{Conclusion}
 
