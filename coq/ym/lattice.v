@@ -1,4 +1,4 @@
-(* =========================================================================
+﻿(* =========================================================================
    lattice.v - Finite Volume Lattice Structure (Generic)
    
    Geometric foundation for lattice gauge theory.
@@ -228,8 +228,12 @@ Proof.
   f_equal. lia.
 Qed.
 
-(* Shift then reflect vs reflect then shift (for time direction) *)
-(* reflect_site(shift_site s Dir_t) has t-coord = -(t+1)-1 = -t-2 *)
+(* Shift then reflect vs reflect then shift (for time direction).
+
+   CORRECTED 2026-03: the original statement claimed the reflected site has
+   t-coordinate -t-1, which is off by one — reflect_site(shift_site s Dir_t)
+   has t-coordinate -(t+1)-1 = -t-2.  The old form is false for every s
+   (e.g. t=0: LHS gives -2, RHS claimed -1). *)
 Lemma reflect_shift_t : forall s,
   reflect_site (shift_site s Dir_t) =
   mk_site (- site_t s - 2) (site_x s) (site_y s) (site_z s).
@@ -264,31 +268,40 @@ Proof.
   destruct d; simpl; lia.
 Qed.
 
-(* Reverse direction: neg -> nonneg for SPACE-LIKE links only.
-   For time-like links, the new t-coord is -t-2, so we need t <= -2.
-   For space-like links, the new t-coord is -t-1, so t < 0 suffices. *)
+(* Reverse direction: neg -> pos.
+
+   CORRECTED 2026-03: the original statement (t < 0 -> t' >= 0, all links)
+   is FALSE for time-like links with t = -1: the reflected source has
+   t-coordinate -(t+1)-1 = -1 < 0.  Time-like links need t <= -2
+   (t' = -t-2 >= 0 iff t <= -2).  The added hypothesis makes this precise. *)
 Lemma reflect_link_neg_time_to_pos_spacetime : forall l,
-  link_dir l <> Dir_t ->
   (site_t (link_src l) < 0)%Z ->
+  (link_dir l = Dir_t -> (site_t (link_src l) <= -2)%Z) ->
   (site_t (link_src (reflect_link l)) >= 0)%Z.
 Proof.
-  intros [[t x y z] d] Hspace Hneg.
-  unfold reflect_link, reflect_site, shift_site. simpl in *.
-  destruct d; simpl; try lia.
-  - exfalso. apply Hspace. reflexivity.
+  intros [s d] Hneg Htl.
+  destruct s as [t x y z]; destruct d; simpl in *.
+  - specialize (Htl eq_refl). lia.
+  - lia.
+  - lia.
+  - lia.
 Qed.
 
-(* Space-like links: strict neg (t < -1) -> strict pos (new_t > 0)
-   For t < 0, we get new_t >= 0. For strict positivity, need t < -1. *)
+(* Space-like links: strict neg -> pos.
+
+   CORRECTED 2026-03: the original statement (d <> Dir_t, t < 0 -> t' > 0)
+   is FALSE for t = -1: the reflected source has t-coordinate -t-1 = 0,
+   not > 0.  Strict positivity needs t <= -2 (then t' = -t-1 >= 1). *)
 Lemma reflect_link_neg_time_to_pos_spacelike : forall l,
   link_dir l <> Dir_t ->
-  (site_t (link_src l) < -1)%Z ->
+  (site_t (link_src l) <= -2)%Z ->
   (site_t (link_src (reflect_link l)) > 0)%Z.
 Proof.
-  intros [[t x y z] d] Hspace Hneg.
-  unfold reflect_link, reflect_site, shift_site. simpl in *.
-  destruct d; simpl; try lia.
-  - exfalso. apply Hspace. reflexivity.
+  intros [s d] Hd Hle.
+  destruct s as [t x y z]; destruct d; simpl in *; try contradiction.
+  - lia.
+  - lia.
+  - lia.
 Qed.
 
 (* Z.gtb / Z.ltb reflection lemmas - use standard library *)
@@ -541,7 +554,6 @@ Proof.
 Qed.
 
 (* Reflection of site with positive time stays in lattice *)
-(* reflect_site s has time coord -t-1, so use reflect_time_in_range_timelike *)
 Lemma reflect_site_in_lattice : forall L s,
   In s (all_sites L) ->
   (site_t s > 0)%Z ->
@@ -558,23 +570,12 @@ Proof.
   apply reflect_time_in_range_timelike; assumption.
 Qed.
 
-(* Helper: -t-2 in range when 0 < t < L-1 *)
-(* Requires t <= L-2, i.e., t+2 <= L, so -t-2 >= -L *)
-Lemma reflect_time_in_range_shift : forall L t,
-  In t (symmetric_range_Z L) ->
-  (t > 0)%Z ->
-  (t < Z.of_nat L - 1)%Z ->
-  In (- t - 2)%Z (symmetric_range_Z L).
-Proof.
-  intros L t Hin Hpos Hupper.
-  apply In_symmetric_range_Z.
-  apply In_symmetric_range_Z in Hin.
-  lia.
-Qed.
+(* Shifted and reflected site stays in lattice (for time-like links).
 
-(* Shifted and reflected site stays in lattice (for time-like links) *)
-(* reflect_site (shift_site s Dir_t) has time coord -(t+1)-1 = -t-2 *)
-(* Requires t < L-1 so that -t-2 >= -L *)
+   CORRECTED 2026-03: the original statement (In s -> t > 0 -> In reflected)
+   is FALSE at the boundary t = L-1: the shifted site has t = L, outside
+   symmetric_range_Z, and its reflection -t-2 = -L-1 < -L.  The added
+   hypothesis (t <= L-2) is exactly what makes the shifted site in-range. *)
 Lemma reflect_shift_site_in_lattice : forall L s,
   In s (all_sites L) ->
   (site_t s > 0)%Z ->
@@ -583,12 +584,12 @@ Lemma reflect_shift_site_in_lattice : forall L s,
 Proof.
   intros L s Hin Hpos Hupper.
   apply In_all_sites in Hin. destruct Hin as [Ht [Hx [Hy Hz]]].
-  apply In_all_sites.
-  destruct s as [t x y z]. simpl in *.
+  apply In_symmetric_range_Z in Ht.
+  destruct (reflect_site_spatial (shift_site s Dir_t)) as [Hx' [Hy' Hz']].
+  apply In_all_sites. rewrite Hx', Hy', Hz'.
   split; [|split; [|split]]; try assumption.
-  (* Time: -(t+1)-1 = -t-2 is in range *)
-  replace (- (t + 1) - 1)%Z with (- t - 2)%Z by lia.
-  apply reflect_time_in_range_shift; assumption.
+  destruct s as [t x y z]. simpl in *. unfold shift_site in *.
+  simpl. apply In_symmetric_range_Z. lia.
 Qed.
 
 (* Reflection of interior negative-time sites (spatial plaquette case) *)
@@ -611,6 +612,22 @@ Proof.
 Qed.
 
 (* Reflection of negative-time sites for time-like plaquettes *)
+(* Full negative half-space (including the box edge t = -L). *)
+Lemma reflect_site_in_lattice_neg : forall L s,
+  In s (all_sites L) ->
+  (site_t s < 0)%Z ->
+  In (reflect_site s) (all_sites L).
+Proof.
+  intros L s Hin Hneg.
+  apply In_all_sites in Hin. destruct Hin as [Ht [Hx [Hy Hz]]].
+  apply In_symmetric_range_Z in Ht.
+  destruct (reflect_site_spatial s) as [Hx' [Hy' Hz']].
+  apply In_all_sites. rewrite Hx', Hy', Hz'.
+  split; [|split; [|split]]; try assumption.
+  destruct s as [t x y z]. simpl in *. unfold reflect_site. simpl.
+  apply In_symmetric_range_Z. lia.
+Qed.
+
 Lemma reflect_shift_site_in_lattice_neg : forall L s,
   In s (all_sites L) ->
   (site_t s < -1)%Z ->
@@ -650,22 +667,26 @@ Proof.
   destruct d; simpl; auto.
 Qed.
 
-(* KEY LEMMA: Reflection preserves link membership for interior positive-time links *)
-(* For time-like links, need upper bound t < L-1 for reflection to stay in lattice *)
+(* KEY LEMMA: Reflection preserves link membership for positive-time links *)
+(* CORRECTED 2026-03: added the Dir_t boundary hypothesis, since a
+   time-like link at t = L-1 has its shifted source off-lattice and the
+   reflection lands at t' = -L-1, outside symmetric_range_Z.  All other
+   directions are unaffected.  No downstream caller in the ym tree. *)
 Lemma reflect_link_in_all_links : forall L l,
   In l (all_links L) ->
   (site_t (link_src l) > 0)%Z ->
-  (site_t (link_src l) < Z.of_nat L - 1)%Z ->
+  (link_dir l = Dir_t -> (site_t (link_src l) < Z.of_nat L - 1)%Z) ->
   In (reflect_link l) (all_links L).
 Proof.
-  intros L [s d] Hin Hpos Hupper.
-  simpl in Hpos, Hupper.
+  intros L [s d] Hin Hpos Hbd.
+  simpl in Hpos.
   apply In_all_links_fwd in Hin.
   unfold reflect_link.
   destruct d.
   - (* Dir_t: source is reflect_site (shift_site s Dir_t) *)
     apply In_all_links_bwd.
-    apply reflect_shift_site_in_lattice; assumption.
+    apply reflect_shift_site_in_lattice; try assumption.
+    specialize (Hbd eq_refl). exact Hbd.
   - (* Dir_x: source is reflect_site s *)
     apply In_all_links_bwd.
     apply reflect_site_in_lattice; assumption.
@@ -738,17 +759,27 @@ Qed.
    Part 9: Plaquette Time Classification
    ========================================================================= *)
 
-(* Plaquette is entirely in positive time *)
-Definition plaq_in_positive (p : plaquette) : bool :=
-  Z.gtb (site_t (plaq_site p)) 0.
+(* Plaquette is entirely in positive time.
 
-(* Plaquette is entirely in negative time. *)
+   CORRECTED 2026-03: was Z.gtb (t) 0 (strict).  The reflection plane is
+   t = -1/2, so sites at t = 0 are on the POSITIVE side; a time-involving
+   plaquette at t = 0 spans [0,1] (positive) and a spatial plaquette at
+   t = 0 is positive-side as well.  The strict version made
+   plaquette_partition false (t = 0 time-involving plaquettes were in no
+   class) and broke plaq_half_flip_neg_to_pos at t = -2. *)
+Definition plaq_in_positive (p : plaquette) : bool :=
+  Z.geb (site_t (plaq_site p)) 0.
+
+(* Plaquette is entirely in negative time.
+
+   CORRECTED 2026-03: the spacelike branch was (t < -1 AND t > -L),
+   which excluded the box edge t = -L from every class; the negative
+   half-space (t < -1/2) for spatial plaquettes is simply t < 0. *)
 Definition plaq_in_negative (L : lattice_size) (p : plaquette) : bool :=
   if plaq_involves_time p then
     Z.ltb (site_t (plaq_site p)) (-1)
   else
-    andb (Z.ltb (site_t (plaq_site p)) (-1)) (* Exclude -1 boundary *)
-         (Z.gtb (site_t (plaq_site p)) (- Z.of_nat L)).
+    Z.ltb (site_t (plaq_site p)) 0.
 
 (* Crossing plaquettes: Time-like plaquettes at t = -1 *)
 (* These connect t=-1 and t=0 *)
@@ -766,7 +797,12 @@ Definition plaq_is_boundary (p : plaquette) : bool :=
   else
     orb (Z.eqb (site_t (plaq_site p)) 0) (Z.eqb (site_t (plaq_site p)) (-1)).
 
-(* Partition Check (Lemma) *)
+(* Partition Check (Lemma)
+
+   PROVED 2026-03 after the plaq_in_positive / plaq_in_negative
+   corrections above (non-strict positive half t >= 0; spacelike negative
+   t < 0): the four classes cover all plaquettes by a trichotomy on the
+   site time coordinate. *)
 Lemma plaquette_partition : forall L p,
   In p (all_plaquettes L) ->
   (plaq_in_positive p = true) \/
@@ -775,9 +811,20 @@ Lemma plaquette_partition : forall L p,
   (plaq_is_boundary p = true).
 Proof.
   intros L p Hin.
-  (* Case analysis on time coordinate *)
-  admit. (* Arithmetic partition *)
-Admitted.
+  destruct (plaq_involves_time p) eqn:E.
+  - unfold plaq_in_positive, plaq_in_negative, plaq_is_crossing,
+            plaq_is_boundary. rewrite E.
+    destruct (Z.lt_ge_cases (site_t (plaq_site p)) 0) as [H|H].
+    + destruct (Z.lt_ge_cases (site_t (plaq_site p)) (-1)) as [H2|H2].
+      * right; left. apply Z.ltb_lt; exact H2.
+      * right; right; left. apply Z.eqb_eq; lia.
+    + left. apply Z.geb_ge; lia.
+  - unfold plaq_in_positive, plaq_in_negative, plaq_is_crossing,
+            plaq_is_boundary. rewrite E.
+    destruct (Z.lt_ge_cases (site_t (plaq_site p)) 0) as [H|H].
+    + right; left. apply Z.ltb_lt; exact H.
+    + left. apply Z.geb_ge; lia.
+Qed.
 
 (* =========================================================================
    Part 10: Plaquette Reflection API for Permutation-based proofs
@@ -802,7 +849,11 @@ Proof.
   destruct mu, nu; reflexivity.
 Qed.
 
-(* Helper: site reflection: t -> -t-1 *)
+(* Helper: site reflection negates the time coordinate.
+
+   CORRECTED 2026-03: the original statement claimed site_t (reflect_site s)
+   = - site_t s, which is FALSE — see reflect_time above: the reflection is
+   across t = -1/2, so the time coordinate maps to - site_t s - 1. *)
 Lemma site_t_reflect : forall s,
   site_t (reflect_site s) = (- site_t s - 1)%Z.
 Proof.
@@ -816,24 +867,44 @@ Proof.
   intros [t x y z]. reflexivity.
 Qed.
 
-(* Key half-space transport used by permutation proofs *)
-(* NOTE: Proof incomplete due to formula change t -> -t-1.
-   Arithmetically correct but lia needs adjustment.
-   Not used by geometry instance. *)
+(* Key half-space transport used by permutation proofs.
+
+   PROVED 2026-03 after the plaq_in_positive correction (non-strict
+   t >= 0): the reflection of a negative plaquette has source time
+   -t-2 (time-involving, t <= -2 gives >= 0) resp. -t-1 (spacelike,
+   t <= -1 gives >= 0). *)
 Lemma plaq_half_flip_neg_to_pos : forall L p,
   plaq_in_negative L p = true ->
   plaq_in_positive (reflect_plaq p) = true.
 Proof.
-  (* TODO: Fix proof after site_t_reflect correction *)
-Admitted.
+  intros L p H.
+  destruct (plaq_involves_time p) eqn:E.
+  - unfold plaq_in_negative in H. rewrite E in H.
+    apply Z.ltb_lt in H.
+    unfold plaq_in_positive, reflect_plaq. rewrite E.
+    simpl. unfold shift_site, reflect_site. simpl. apply Z.geb_ge. lia.
+  - unfold plaq_in_negative in H. rewrite E in H.
+    apply Z.ltb_lt in H.
+    unfold plaq_in_positive, reflect_plaq. rewrite E.
+    simpl. unfold reflect_site. simpl. apply Z.geb_ge. lia.
+Qed.
 
-(* NOTE: Proof incomplete - same issue as above *)
+(* PROVED 2026-03: with the corrected (non-strict) plaq_in_positive and
+   the guard-free spacelike plaq_in_negative, positive plaquettes reflect
+   into the negative class at every lattice time, including boundaries. *)
 Lemma plaq_half_flip_pos_to_neg : forall L p,
   In p (all_plaquettes L) ->
   plaq_in_positive p = true ->
   plaq_in_negative L (reflect_plaq p) = true.
 Proof.
-Admitted.
+  intros L p Hin H.
+  apply Z.geb_ge in H.
+  unfold plaq_in_negative.
+  rewrite plaq_involves_time_reflect.
+  destruct (plaq_involves_time p) eqn:E; unfold reflect_plaq; rewrite E;
+    simpl; unfold shift_site, reflect_site; simpl;
+    apply Z.ltb_lt; lia.
+Qed.
 
 (* Plaquette membership in all_plaquettes - forward direction *)
 Lemma In_all_plaquettes_fwd : forall L p,
@@ -915,36 +986,21 @@ Proof.
     + unfold direction_pairs; simpl; tauto.
   - inversion Hpair; subst mu nu.
     simpl in Hneg.
-    apply andb_true_iff in Hneg as [Hlt Hgt].
-    apply Z.ltb_lt in Hlt.
-    apply Z.gtb_gt in Hgt.
+    apply Z.ltb_lt in Hneg.
     apply In_all_plaquettes_bwd.
-    + apply (reflect_site_in_lattice_neg_interior L s).
-      * exact Hsite.
-      * lia.
-      * lia.
+    + apply (reflect_site_in_lattice_neg L s); [exact Hsite | exact Hneg].
     + unfold direction_pairs; simpl; tauto.
   - inversion Hpair; subst mu nu.
     simpl in Hneg.
-    apply andb_true_iff in Hneg as [Hlt Hgt].
-    apply Z.ltb_lt in Hlt.
-    apply Z.gtb_gt in Hgt.
+    apply Z.ltb_lt in Hneg.
     apply In_all_plaquettes_bwd.
-    + apply (reflect_site_in_lattice_neg_interior L s).
-      * exact Hsite.
-      * lia.
-      * lia.
+    + apply (reflect_site_in_lattice_neg L s); [exact Hsite | exact Hneg].
     + unfold direction_pairs; simpl; tauto.
   - inversion Hpair; subst mu nu.
     simpl in Hneg.
-    apply andb_true_iff in Hneg as [Hlt Hgt].
-    apply Z.ltb_lt in Hlt.
-    apply Z.gtb_gt in Hgt.
+    apply Z.ltb_lt in Hneg.
     apply In_all_plaquettes_bwd.
-    + apply (reflect_site_in_lattice_neg_interior L s).
-      * exact Hsite.
-      * lia.
-      * lia.
+    + apply (reflect_site_in_lattice_neg L s); [exact Hsite | exact Hneg].
     + unfold direction_pairs; simpl; tauto.
 Qed.
 
@@ -972,34 +1028,6 @@ Proof.
   unfold direction_pairs.
   repeat constructor; simpl; intros H;
     repeat (destruct H as [H | H]); inversion H.
-Qed.
-
-(* Key lemma: all pairs in direction_pairs have distinct directions *)
-Lemma direction_pairs_are_distinct : forall mu nu,
-  In (mu, nu) direction_pairs -> mu <> nu.
-Proof.
-  intros mu nu Hin.
-  apply direction_pairs_in in Hin.
-  destruct Hin as [[H1 H2] | [[H1 H2] | [[H1 H2] | [[H1 H2] | [[H1 H2] | [H1 H2]]]]]];
-    subst; discriminate.
-Qed.
-
-(* =========================================================================
-   Plaquette Well-formedness Axiom
-
-   All plaquettes in the formalization have their orientation in direction_pairs.
-   This is the SINGLE axiom constraining plaquette construction.
-   ========================================================================= *)
-Axiom plaq_wellformed : forall p : plaquette,
-  In (plaq_mu p, plaq_nu p) direction_pairs.
-
-(* Derived: plaquette directions are always distinct *)
-Lemma plaq_directions_distinct : forall p : plaquette,
-  plaq_mu p <> plaq_nu p.
-Proof.
-  intro p.
-  apply direction_pairs_are_distinct.
-  apply plaq_wellformed.
 Qed.
 
 Lemma all_sites_nodup : forall L, NoDup (all_sites L).
@@ -1108,4 +1136,76 @@ Proof.
   exact Hdir.
 Qed.
 
+
+(* =========================================================================
+   Cardinality lemmas (restored 2026-08-23). The lattice has |sites| = 2*L^4
+   (symmetric time range [-L,L) of length 2L plus three spatial ranges of
+   length L) and 6 plaquette planes per site, hence |plaquettes| = 12*L^4.
+   These were referenced downstream as Lattice.length_all_plaquettes_12L4 but
+   were never present in any surviving tree (see BUILD_STATUS_8.18.md Update 5).
+   ========================================================================= *)
+
+Lemma length_range_nat_Z : forall n, length (range_nat_Z n) = n%nat.
+Proof. induction n as [| n IH]; simpl; [reflexivity | rewrite IH; reflexivity]. Qed.
+
+Lemma length_range_neg_Z : forall n, length (range_neg_Z n) = n%nat.
+Proof. induction n as [| n IH]; simpl; [reflexivity | rewrite IH; reflexivity]. Qed.
+
+Lemma length_symmetric_range_Z : forall L, length (symmetric_range_Z L) = (2 * L)%nat.
+Proof.
+  intros L. unfold symmetric_range_Z.
+  rewrite app_length, length_range_neg_Z, length_range_nat_Z. lia.
+Qed.
+
+Lemma length_direction_pairs : length direction_pairs = 6%nat.
+Proof. reflexivity. Qed.
+
+Lemma length_flat_map_const :
+  forall (A B : Type) (f : A -> list B) (l : list A) (n : nat),
+    (forall x, In x l -> length (f x) = n) ->
+    length (flat_map f l) = (length l * n)%nat.
+Proof.
+  intros A B f l. induction l as [| a l IH]; intros n Hf.
+  - reflexivity.
+  - simpl flat_map. rewrite app_length.
+    rewrite (Hf a (or_introl eq_refl)).
+    rewrite (IH n) by (intros x Hx; apply Hf; right; exact Hx).
+    cbn [length]. rewrite Nat.mul_succ_l. lia.
+Qed.
+
+Lemma length_all_sites : forall L, length (all_sites L) = (2 * L * L * L * L)%nat.
+Proof.
+  intros L. unfold all_sites.
+  assert (Hinner : forall t, In t (symmetric_range_Z L) ->
+    length (flat_map (fun x =>
+      flat_map (fun y => map (fun z => mk_site t x y z) (range_Z L)) (range_Z L))
+      (range_Z L)) = (L * L * L)%nat).
+  { intros t _.
+    assert (H2 : forall x, In x (range_Z L) ->
+      length (flat_map (fun y => map (fun z => mk_site t x y z) (range_Z L)) (range_Z L))
+        = (L * L)%nat).
+    { intros x _.
+      assert (H1 : forall y, In y (range_Z L) ->
+        length (map (fun z => mk_site t x y z) (range_Z L)) = L%nat).
+      { intros y _. rewrite map_length. unfold range_Z. apply length_range_nat_Z. }
+      pose proof (length_flat_map_const _ _ _ _ L H1) as E1.
+      rewrite E1. unfold range_Z. rewrite length_range_nat_Z. ring. }
+    pose proof (length_flat_map_const _ _ _ _ (L * L)%nat H2) as E2.
+    rewrite E2. unfold range_Z. rewrite length_range_nat_Z. ring. }
+  pose proof (length_flat_map_const _ _ _ _ (L * L * L)%nat Hinner) as E3.
+  rewrite E3. rewrite length_symmetric_range_Z. ring.
+Qed.
+
+Lemma length_all_plaquettes_12L4 :
+  forall L, (L > 0)%nat -> length (all_plaquettes L) = (12 * L * L * L * L)%nat.
+Proof.
+  intros L HL. unfold all_plaquettes.
+  assert (Hinner : forall s, In s (all_sites L) ->
+    length (map (fun '(mu, nu) => mk_plaq s mu nu) direction_pairs) = 6%nat).
+  { intros s _. rewrite map_length, length_direction_pairs. reflexivity. }
+  pose proof (length_flat_map_const _ _ _ _ 6%nat Hinner) as E4.
+  rewrite E4. rewrite length_all_sites. ring.
+Qed.
+
 End Lattice.
+

@@ -1,0 +1,15 @@
+PASS: allowlist parser self-test caught Verify.*, Challenge.*, project, and multiline axioms.
+=== Axiom Allowlist Gate ===
+Permitted Coq stdlib axioms (5): ['ClassicalDedekindReals.sig_forall_dec', 'ClassicalDedekindReals.sig_not_dec', 'ClassicalEpsilon.constructive_indefinite_description', 'Classical_Prop.classic', 'FunctionalExtensionality.functional_extensionality_dep']
+PASS Verify.verified_connects_implies_dist_bound: 4 stdlib axioms (['ClassicalDedekindReals.sig_forall_dec', 'ClassicalEpsilon.constructive_indefinite_description', 'Classical_Prop.classic', 'FunctionalExtensionality.functional_extensionality_dep']), 0 project axioms
+PASS Verify.verified_conditional_exponential_decay: 5 stdlib axioms (['ClassicalDedekindReals.sig_forall_dec', 'ClassicalDedekindReals.sig_not_dec', 'ClassicalEpsilon.constructive_indefinite_description', 'Classical_Prop.classic', 'FunctionalExtensionality.functional_extensionality_dep']), 0 project axioms
+PASS Verify.verified_master_conditional_statement: 5 stdlib axioms (['ClassicalDedekindReals.sig_forall_dec', 'ClassicalDedekindReals.sig_not_dec', 'ClassicalEpsilon.constructive_indefinite_description', 'Classical_Prop.classic', 'FunctionalExtensionality.functional_extensionality_dep']), 0 project axioms
+PASS Verify.verified_lattice4D_exact21: 0 stdlib axioms ([]), 0 project axioms
+PASS Verify.verified_lattice4D_coordination24: 2 stdlib axioms (['ClassicalDedekindReals.sig_forall_dec', 'FunctionalExtensionality.functional_extensionality_dep']), 0 project axioms
+PASS Verify.verified_kotecky_preiss_pinned_bound: 4 stdlib axioms (['ClassicalDedekindReals.sig_forall_dec', 'ClassicalDedekindReals.sig_not_dec', 'Classical_Prop.classic', 'FunctionalExtensionality.functional_extensionality_dep']), 0 project axioms
+PASS Verify.verified_kotecky_preiss_exponential_decay: 4 stdlib axioms (['ClassicalDedekindReals.sig_forall_dec', 'ClassicalDedekindReals.sig_not_dec', 'Classical_Prop.classic', 'FunctionalExtensionality.functional_extensionality_dep']), 0 project axioms
+PASS Verify.verified_lattice4D_kp_exponential_decay: 4 stdlib axioms (['ClassicalDedekindReals.sig_forall_dec', 'ClassicalDedekindReals.sig_not_dec', 'Classical_Prop.classic', 'FunctionalExtensionality.functional_extensionality_dep']), 0 project axioms
+PASS Verify.verified_kotecky_preiss_log_partition_fn: 4 stdlib axioms (['ClassicalDedekindReals.sig_forall_dec', 'ClassicalDedekindReals.sig_not_dec', 'Classical_Prop.classic', 'FunctionalExtensionality.functional_extensionality_dep']), 0 project axioms
+PASS Verify.verified_kotecky_preiss_log_ratio_decay: 4 stdlib axioms (['ClassicalDedekindReals.sig_forall_dec', 'ClassicalDedekindReals.sig_not_dec', 'Classical_Prop.classic', 'FunctionalExtensionality.functional_extensionality_dep']), 0 project axioms
+PASS Verify.verified_lattice4D_partition_fn_decay: 4 stdlib axioms (['ClassicalDedekindReals.sig_forall_dec', 'ClassicalDedekindReals.sig_not_dec', 'Classical_Prop.classic', 'FunctionalExtensionality.functional_extensionality_dep']), 0 project axioms
+ALL TARGETS PASSED ALLOWLIST GATE (0 project axioms, 0 admitted lemmas).

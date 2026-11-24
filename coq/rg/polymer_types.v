@@ -1,4 +1,4 @@
-(* =========================================================================
+﻿(* =========================================================================
    polymer_types.v - Abstract Interface for Cluster Expansions
 
    Defines the input structure for the Cluster Expansion Machine (Phase E).
@@ -119,3 +119,22 @@ Definition has_mass_gap
   exists C, C > 0 /\
   forall p1 p2,
     Rabs (correlator p1 p2) <= C * exp (- m * dist p1 p2).
+
+(* =========================================================================
+   RESTORED 2026-08-22 (build repair): minimal UrsellSystem.
+   The original declaration was lost from every surviving copy; this
+   reconstruction is constrained by every on-disk usage:
+     @rg.polymer_types.ursell_factor YMPolymer YM_UrsellSystem X : R
+   (ym_native_tree_bound.v:3692 etc.) and `Existing Instance YM_UrsellSystem`
+   (test_cw.v, thermo_limit_defs.v). If the original class had more fields,
+   files relying on them will fail loudly rather than silently.
+   ========================================================================= *)
+
+Class UrsellSystem
+  (P : Type) := {
+  ursell_factor : list P -> R;
+  ursell_bounded : forall c : list P, Rabs (ursell_factor c) <= 1
+}.
+
+
+

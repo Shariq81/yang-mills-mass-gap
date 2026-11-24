@@ -12,6 +12,7 @@ _CoqProject
 # LaTeX build artifacts
 *.aux
 *.log
+!coq/verification/receipts/*.log
 *.out
 *.synctex.gz
 *.fls

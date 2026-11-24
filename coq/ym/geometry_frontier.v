@@ -47,6 +47,19 @@ Arguments adj_path_list {P} {_} _ _ _ _.
 Arguments adj_path_single {P} {_} _ _ _.
 Arguments adj_path_cons {P} {_} _ _ _ _ _ _ _ _.
 
+(* Bridge: adj_path_list (Type) -> path_in_cluster (Prop). Iteration 16. *)
+Section AdjPathToPathInCluster.
+  Context {P : Type} `{ConnectivitySystem P}.
+  Lemma adj_path_list_path_in_cluster : forall X p1 p2 l,
+    adj_path_list X p1 p2 l -> path_in_cluster X p1 p2.
+  Proof.
+    intros X p1 p2 l Hpath.
+    induction Hpath as [X' p Hin | X' p q r l' Hin Hadj Hpath' IH].
+    - apply path_refl. exact Hin.
+    - apply path_step with q; [exact Hin | exact Hadj | exact IH].
+  Qed.
+End AdjPathToPathInCluster.
+
 (* =========================================================================
    Simple Paths and NoDup Machinery
 

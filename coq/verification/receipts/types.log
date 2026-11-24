@@ -1,0 +1,42 @@
+Verify.verified_connects_implies_dist_bound
+:
+Challenge.Challenge_ConnectsImpliesDistBound
+     : Challenge.Challenge_ConnectsImpliesDistBound
+Verify.verified_conditional_exponential_decay
+:
+Challenge.Challenge_ConditionalExponentialDecay
+     : Challenge.Challenge_ConditionalExponentialDecay
+Verify.verified_master_conditional_statement
+:
+Challenge.Challenge_MasterConditionalStatement
+     : Challenge.Challenge_MasterConditionalStatement
+Verify.verified_lattice4D_exact21 : Challenge.Challenge_Lattice4D_Exact21
+     : Challenge.Challenge_Lattice4D_Exact21
+Verify.verified_lattice4D_coordination24
+:
+Challenge.Challenge_Lattice4D_Coordination24
+     : Challenge.Challenge_Lattice4D_Coordination24
+Verify.verified_kotecky_preiss_pinned_bound
+:
+Challenge.Challenge_KoteckyPreiss_PinnedBound
+     : Challenge.Challenge_KoteckyPreiss_PinnedBound
+Verify.verified_kotecky_preiss_exponential_decay
+:
+Challenge.Challenge_KoteckyPreiss_ExponentialDecay
+     : Challenge.Challenge_KoteckyPreiss_ExponentialDecay
+Verify.verified_lattice4D_kp_exponential_decay
+:
+Challenge.Challenge_Lattice4D_KP_ExponentialDecay
+     : Challenge.Challenge_Lattice4D_KP_ExponentialDecay
+Verify.verified_kotecky_preiss_log_partition_fn
+:
+Challenge.Challenge_KoteckyPreiss_LogPartitionFn
+     : Challenge.Challenge_KoteckyPreiss_LogPartitionFn
+Verify.verified_kotecky_preiss_log_ratio_decay
+:
+Challenge.Challenge_KoteckyPreiss_LogRatioDecay
+     : Challenge.Challenge_KoteckyPreiss_LogRatioDecay
+Verify.verified_lattice4D_partition_fn_decay
+:
+Challenge.Challenge_Lattice4D_PartitionFn_Decay
+     : Challenge.Challenge_Lattice4D_PartitionFn_Decay
