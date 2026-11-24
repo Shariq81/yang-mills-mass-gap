@@ -1,17 +1,20 @@
 Welcome to Chicken 8.18.0
-[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/verification/Verify.vo ...
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/verification/VerifyZ2Gauge.vo ...
  done]
 
-[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/lattice_4d_kp.vo ...
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/z2_free_energy.vo ...
  done]
 
-[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/rg/cluster_log_partition.vo ...
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/z2_polymer_gas.vo ...
  done]
 
-[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/rg/exp_series_limit.vo ...
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/z2_gauge_clustering.vo ...
  done]
 
-[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/rg/poly_exp_bound.vo ...
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/z2_gauge_expansion.vo ...
+ done]
+
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/rg/dup_clustering.vo ...
  done]
 
 [intern /usr/lib/ocaml/coq/theories/Reals/Reals.vo ...
@@ -917,6 +920,27 @@ Welcome to Chicken 8.18.0
 [intern /usr/lib/ocaml/coq/theories/Reals/Rtrigo_facts.vo ...
  done]
 
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/verification/ChallengeZ2Gauge.vo ...
+ done]
+
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/verification/Challenge.vo ...
+ done]
+
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/verification/Verify.vo ...
+ done]
+
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/lattice_4d_kp.vo ...
+ done]
+
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/rg/cluster_log_partition.vo ...
+ done]
+
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/rg/exp_series_limit.vo ...
+ done]
+
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/rg/poly_exp_bound.vo ...
+ done]
+
 [intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/rg/kotecky_preiss.vo ...
  done]
 
@@ -962,7 +986,10 @@ Welcome to Chicken 8.18.0
 [intern /usr/lib/ocaml/coq/theories/Logic/Classical.vo ...
  done]
 
-[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/verification/Challenge.vo ...
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/rg/polymer_representation.vo ...
+ done]
+
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/rg/connected_subset_bound.vo ...
  done]
 
 
@@ -1268,6 +1295,10 @@ Ordered list:
   Coq.Reals.NewtonInt
   Coq.Reals.Integration
   Coq.Reals.Reals
+  rg.dup_clustering
+  verification.Challenge
+  verification.ChallengeZ2Gauge
+  ym.z2_gauge_expansion
   rg.poly_exp_bound
   rg.exp_series_limit
   Coq.Lists.ListDec
@@ -1287,8 +1318,13 @@ Ordered list:
   Coq.Logic.Classical
   Coq.Logic.ClassicalEpsilon
   ym.geometry_frontier
-  verification.Challenge
   verification.Verify
+  ym.z2_gauge_clustering
+  rg.polymer_representation
+  ym.z2_polymer_gas
+  rg.connected_subset_bound
+  ym.z2_free_energy
+  verification.VerifyZ2Gauge
   
 Checking library: Coq.Init.Ltac
   checking module: Coq.Init.Ltac
@@ -48814,6 +48850,254 @@ Checking library: Coq.Reals.Integration
   checking module: Coq.Reals.Integration
 Checking library: Coq.Reals.Reals
   checking module: Coq.Reals.Reals
+Checking library: rg.dup_clustering
+  checking module: rg.dup_clustering
+  checking module: rg.dup_clustering.DupClustering
+  checking cst:rg.dup_clustering.DupClustering.rsum
+  checking cst:rg.dup_clustering.DupClustering.rprod
+  checking cst:rg.dup_clustering.DupClustering.rsum_nil
+  checking cst:rg.dup_clustering.DupClustering.rsum_cons
+  checking cst:rg.dup_clustering.DupClustering.rsum_app
+  checking cst:rg.dup_clustering.DupClustering.rsum_ext
+  checking cst:rg.dup_clustering.DupClustering.rsum_plus
+  checking cst:rg.dup_clustering.DupClustering.rsum_scal
+  checking cst:rg.dup_clustering.DupClustering.rsum_scal_r
+  checking cst:rg.dup_clustering.DupClustering.rsum_le
+  checking cst:rg.dup_clustering.DupClustering.rsum_nonneg
+  checking cst:rg.dup_clustering.DupClustering.rsum_zero
+  checking cst:rg.dup_clustering.DupClustering.rsum_abs
+  checking cst:rg.dup_clustering.DupClustering.rsum_swap
+  checking cst:rg.dup_clustering.DupClustering.rsum_mult
+  checking cst:rg.dup_clustering.DupClustering.rsum_ge_term
+  checking cst:rg.dup_clustering.DupClustering.rsum_flat_map
+  checking cst:rg.dup_clustering.DupClustering.rsum_map
+  checking cst:rg.dup_clustering.DupClustering.rsum_filter
+  checking cst:rg.dup_clustering.DupClustering.rsum_pos
+  checking cst:rg.dup_clustering.DupClustering.rsum_indicator_const
+  checking cst:rg.dup_clustering.DupClustering.rprod_nil
+  checking cst:rg.dup_clustering.DupClustering.rprod_cons
+  checking cst:rg.dup_clustering.DupClustering.rprod_app
+  checking cst:rg.dup_clustering.DupClustering.rprod_ext
+  checking cst:rg.dup_clustering.DupClustering.rprod_mult
+  checking cst:rg.dup_clustering.DupClustering.rprod_nonneg
+  checking cst:rg.dup_clustering.DupClustering.rprod_pos
+  checking cst:rg.dup_clustering.DupClustering.rprod_le
+  checking cst:rg.dup_clustering.DupClustering.rprod_indicator_pow
+  checking cst:rg.dup_clustering.DupClustering.rprod_const
+  checking cst:rg.dup_clustering.DupClustering.sublists
+  checking cst:rg.dup_clustering.DupClustering.sublists_incl
+  checking cst:rg.dup_clustering.DupClustering.rprod_one_plus
+  checking cst:rg.dup_clustering.DupClustering.NoDup_app_l
+  checking cst:rg.dup_clustering.DupClustering.NoDup_snoc
+  checking cst:rg.dup_clustering.DupClustering.NoDup_prefix_snoc
+  checking cst:rg.dup_clustering.DupClustering.memb
+  checking cst:rg.dup_clustering.DupClustering.memb_In
+  checking cst:rg.dup_clustering.DupClustering.memb_false
+  checking cst:rg.dup_clustering.DupClustering.nodupb
+  checking cst:rg.dup_clustering.DupClustering.nodupb_NoDup
+  checking cst:rg.dup_clustering.DupClustering.prod_expand
+  checking cst:rg.dup_clustering.DupClustering.filter_memb_length
+  checking cst:rg.dup_clustering.DupClustering.cfg
+  checking cst:rg.dup_clustering.DupClustering.upd
+  checking cst:rg.dup_clustering.DupClustering.csum
+  checking cst:rg.dup_clustering.DupClustering.dsum
+  checking cst:rg.dup_clustering.DupClustering.csum_ext
+  checking cst:rg.dup_clustering.DupClustering.csum_plus
+  checking cst:rg.dup_clustering.DupClustering.csum_scal
+  checking cst:rg.dup_clustering.DupClustering.csum_pos
+  checking cst:rg.dup_clustering.DupClustering.dsum_ext
+  checking cst:rg.dup_clustering.DupClustering.dsum_plus
+  checking cst:rg.dup_clustering.DupClustering.dsum_scal
+  checking cst:rg.dup_clustering.DupClustering.dsum_le
+  checking cst:rg.dup_clustering.DupClustering.dsum_nonneg
+  checking cst:rg.dup_clustering.DupClustering.dsum_abs
+  checking cst:rg.dup_clustering.DupClustering.dsum_zero
+  checking cst:rg.dup_clustering.DupClustering.dsum_rsum
+  checking cst:rg.dup_clustering.DupClustering.dsum_prod
+  checking cst:rg.dup_clustering.DupClustering.dsum_prod4
+  checking cst:rg.dup_clustering.DupClustering.sw1
+  checking cst:rg.dup_clustering.DupClustering.sw2
+  checking cst:rg.dup_clustering.DupClustering.sw1_upd
+  checking cst:rg.dup_clustering.DupClustering.sw2_upd
+  checking cst:rg.dup_clustering.DupClustering.dsum_swap
+  checking cst:rg.dup_clustering.DupClustering.dsum_swap_same
+  checking cst:rg.dup_clustering.DupClustering.tuples
+  checking cst:rg.dup_clustering.DupClustering.tuples_In
+  checking cst:rg.dup_clustering.DupClustering.cand
+  checking cst:rg.dup_clustering.DupClustering.cand_In
+  checking cst:rg.dup_clustering.DupClustering.touchb
+  checking cst:rg.dup_clustering.DupClustering.touchb_true
+  checking cst:rg.dup_clustering.DupClustering.touchb_single
+  checking cst:rg.dup_clustering.DupClustering.chainf
+  checking cst:rg.dup_clustering.DupClustering.endS
+  checking cst:rg.dup_clustering.DupClustering.chainf_app
+  checking cst:rg.dup_clustering.DupClustering.endS_app
+  checking cst:rg.dup_clustering.DupClustering.chain_extend
+  checking cst:rg.dup_clustering.DupClustering.goodchain
+  checking cst:rg.dup_clustering.DupClustering.has_chain_to
+  checking cst:rg.dup_clustering.DupClustering.has_chain_to_true
+  checking cst:rg.dup_clustering.DupClustering.inK
+  checking cst:rg.dup_clustering.DupClustering.inK_seed
+  checking cst:rg.dup_clustering.DupClustering.inK_block
+  checking cst:rg.dup_clustering.DupClustering.inK_target
+  checking cst:rg.dup_clustering.DupClustering.W
+  checking cst:rg.dup_clustering.DupClustering.psi
+  checking cst:rg.dup_clustering.DupClustering.wR
+  checking cst:rg.dup_clustering.DupClustering.wR2
+  checking cst:rg.dup_clustering.DupClustering.F0
+  checking cst:rg.dup_clustering.DupClustering.Zf
+  checking cst:rg.dup_clustering.DupClustering.Nf
+  checking cst:rg.dup_clustering.DupClustering.W_pos
+  checking cst:rg.dup_clustering.DupClustering.Zf_pos
+  checking cst:rg.dup_clustering.DupClustering.WW_expand
+  checking cst:rg.dup_clustering.DupClustering.cov_dup
+  checking cst:rg.dup_clustering.DupClustering.psi_ge_m
+  checking cst:rg.dup_clustering.DupClustering.wR_nonneg
+  checking cst:rg.dup_clustering.DupClustering.wR2_nonneg
+  checking cst:rg.dup_clustering.DupClustering.DfDg_nonneg
+  checking cst:rg.dup_clustering.DupClustering.F0_bound
+  checking cst:rg.dup_clustering.DupClustering.vanish
+  checking cst:rg.dup_clustering.DupClustering.Chains
+  checking cst:rg.dup_clustering.DupClustering.Chains_In
+  checking cst:rg.dup_clustering.DupClustering.term_bound
+  checking cst:rg.dup_clustering.DupClustering.chain_weight_bound
+  checking cst:rg.dup_clustering.DupClustering.cov_bound
+  checking cst:rg.dup_clustering.DupClustering.reach
+  checking cst:rg.dup_clustering.DupClustering.conn
+  checking cst:rg.dup_clustering.DupClustering.tuples_reach
+  checking cst:rg.dup_clustering.DupClustering.chains_le_reach
+  checking cst:rg.dup_clustering.DupClustering.dup_clustering
+Checking library: verification.Challenge
+  checking module: verification.Challenge
+  checking module: verification.Challenge.Challenge
+  checking cst:verification.Challenge.Challenge.Cluster
+  checking cst:verification.Challenge.Challenge.path_in_cluster_ind
+  checking cst:verification.Challenge.Challenge.path_in_cluster_sind
+  checking cst:verification.Challenge.Challenge.connects
+  checking cst:verification.Challenge.Challenge.lists_of_length
+  checking cst:verification.Challenge.Challenge.lists_up_to_length
+  checking cst:verification.Challenge.Challenge.clusters_Λ_N
+  checking cst:verification.Challenge.Challenge.sum_connecting
+  checking cst:verification.Challenge.Challenge.prod_activity
+  checking cst:verification.Challenge.Challenge.cluster_weight
+  checking cst:verification.Challenge.Challenge.cluster_size
+  checking cst:verification.Challenge.Challenge.correlator
+  checking cst:verification.Challenge.Challenge.kotecky_preiss_condition
+  checking cst:verification.Challenge.Challenge.has_mass_gap
+  checking cst:verification.Challenge.Challenge.Challenge_ConnectsImpliesDistBound
+  checking cst:verification.Challenge.Challenge.Challenge_ConditionalExponentialDecay
+  checking cst:verification.Challenge.Challenge.Challenge_MasterConditionalStatement
+  checking cst:verification.Challenge.Challenge.s4_t
+  checking cst:verification.Challenge.Challenge.s4_x
+  checking cst:verification.Challenge.Challenge.s4_y
+  checking cst:verification.Challenge.Challenge.s4_z
+  checking cst:verification.Challenge.Challenge.Dir4D_rect
+  checking cst:verification.Challenge.Challenge.Dir4D_ind
+  checking cst:verification.Challenge.Challenge.Dir4D_rec
+  checking cst:verification.Challenge.Challenge.Dir4D_sind
+  checking cst:verification.Challenge.Challenge.shift4D
+  checking cst:verification.Challenge.Challenge.p4_site
+  checking cst:verification.Challenge.Challenge.p4_mu
+  checking cst:verification.Challenge.Challenge.p4_nu
+  checking cst:verification.Challenge.Challenge.canonical_planes_4D
+  checking cst:verification.Challenge.Challenge.wf_plaq_4D
+  checking cst:verification.Challenge.Challenge.plaq4D_edges
+  checking cst:verification.Challenge.Challenge.same_undirected_edge
+  checking cst:verification.Challenge.Challenge.plaq4D_shares_edge
+  checking cst:verification.Challenge.Challenge.plaq4D_overlap
+  checking cst:verification.Challenge.Challenge.Challenge_Lattice4D_Exact21
+  checking cst:verification.Challenge.Challenge.Challenge_Lattice4D_Coordination24
+  checking cst:verification.Challenge.Challenge.kp_tuples_of_length
+  checking cst:verification.Challenge.Challenge.kp_sum_over_tuples
+  checking cst:verification.Challenge.Challenge.kp_prod_weight
+  checking cst:verification.Challenge.Challenge.kp_series
+  checking cst:verification.Challenge.Challenge.kp_root_series
+  checking cst:verification.Challenge.Challenge.kp_sum_overlap
+  checking cst:verification.Challenge.Challenge.kp_condition_at
+  checking cst:verification.Challenge.Challenge.kp_sublists
+  checking cst:verification.Challenge.Challenge.kp_expand_once
+  checking cst:verification.Challenge.Challenge.kp_expand_iter
+  checking cst:verification.Challenge.Challenge.kp_is_connectedb
+  checking cst:verification.Challenge.Challenge.kp_pairs_with_head
+  checking cst:verification.Challenge.Challenge.kp_graph_edges_from
+  checking cst:verification.Challenge.Challenge.kp_graph_edges
+  checking cst:verification.Challenge.Challenge.kp_ursell_fn
+  checking cst:verification.Challenge.Challenge.kp_ursell_correlator
+  checking cst:verification.Challenge.Challenge.site4D_manhattan
+  checking cst:verification.Challenge.Challenge.plaq4D_dist
+  checking cst:verification.Challenge.Challenge.Challenge_KoteckyPreiss_PinnedBound
+  checking cst:verification.Challenge.Challenge.Challenge_KoteckyPreiss_ExponentialDecay
+  checking cst:verification.Challenge.Challenge.Challenge_Lattice4D_KP_ExponentialDecay
+  checking cst:verification.Challenge.Challenge.kp_pairwise_compat
+  checking cst:verification.Challenge.Challenge.kp_partition_fn
+  checking cst:verification.Challenge.Challenge.kp_ursell_order
+  checking cst:verification.Challenge.Challenge.Challenge_KoteckyPreiss_LogPartitionFn
+  checking cst:verification.Challenge.Challenge.Challenge_KoteckyPreiss_LogRatioDecay
+  checking cst:verification.Challenge.Challenge.Challenge_Lattice4D_PartitionFn_Decay
+Checking library: verification.ChallengeZ2Gauge
+  checking module: verification.ChallengeZ2Gauge
+  checking module: verification.ChallengeZ2Gauge.ChallengeZ2Gauge
+  checking cst:verification.ChallengeZ2Gauge.ChallengeZ2Gauge.Link4D
+  checking cst:verification.ChallengeZ2Gauge.ChallengeZ2Gauge.site4D_eqb
+  checking cst:verification.ChallengeZ2Gauge.ChallengeZ2Gauge.dir4D_eqb
+  checking cst:verification.ChallengeZ2Gauge.ChallengeZ2Gauge.link4D_eqb
+  checking cst:verification.ChallengeZ2Gauge.ChallengeZ2Gauge.plaq4D_links
+  checking cst:verification.ChallengeZ2Gauge.ChallengeZ2Gauge.link4D_count
+  checking cst:verification.ChallengeZ2Gauge.ChallengeZ2Gauge.link4D_dedup
+  checking cst:verification.ChallengeZ2Gauge.ChallengeZ2Gauge.z2_links
+  checking cst:verification.ChallengeZ2Gauge.ChallengeZ2Gauge.Z2Config
+  checking cst:verification.ChallengeZ2Gauge.ChallengeZ2Gauge.z2_sign
+  checking cst:verification.ChallengeZ2Gauge.ChallengeZ2Gauge.z2_update
+  checking cst:verification.ChallengeZ2Gauge.ChallengeZ2Gauge.z2_holonomy
+  checking cst:verification.ChallengeZ2Gauge.ChallengeZ2Gauge.z2_plaq
+  checking cst:verification.ChallengeZ2Gauge.ChallengeZ2Gauge.z2_wilson_action
+  checking cst:verification.ChallengeZ2Gauge.ChallengeZ2Gauge.z2_configs_from
+  checking cst:verification.ChallengeZ2Gauge.ChallengeZ2Gauge.z2_configs
+  checking cst:verification.ChallengeZ2Gauge.ChallengeZ2Gauge.z2_haar
+  checking cst:verification.ChallengeZ2Gauge.ChallengeZ2Gauge.z2_partition_fn
+  checking cst:verification.ChallengeZ2Gauge.ChallengeZ2Gauge.z2_expect
+  checking cst:verification.ChallengeZ2Gauge.ChallengeZ2Gauge.z2_bdry_is
+  checking cst:verification.ChallengeZ2Gauge.ChallengeZ2Gauge.z2_surface_sum
+  checking cst:verification.ChallengeZ2Gauge.ChallengeZ2Gauge.Challenge_Z2Gauge4D_StrongCouplingExpansion
+  checking cst:verification.ChallengeZ2Gauge.ChallengeZ2Gauge.z2_plaq_truncated
+  checking cst:verification.ChallengeZ2Gauge.ChallengeZ2Gauge.Challenge_Z2Gauge4D_StrongCouplingClustering
+  checking cst:verification.ChallengeZ2Gauge.ChallengeZ2Gauge.plaq4D_touch
+  checking cst:verification.ChallengeZ2Gauge.ChallengeZ2Gauge.z2_closed
+  checking cst:verification.ChallengeZ2Gauge.ChallengeZ2Gauge.z2_connected
+  checking cst:verification.ChallengeZ2Gauge.ChallengeZ2Gauge.z2_polymers
+  checking cst:verification.ChallengeZ2Gauge.ChallengeZ2Gauge.z2_poly_incompat
+  checking cst:verification.ChallengeZ2Gauge.ChallengeZ2Gauge.z2_poly_activity
+  checking cst:verification.ChallengeZ2Gauge.ChallengeZ2Gauge.Challenge_Z2Gauge4D_SurfacePolymerGas
+  checking cst:verification.ChallengeZ2Gauge.ChallengeZ2Gauge.Challenge_Z2Gauge4D_FreeEnergyClusterExpansion
+Checking library: ym.z2_gauge_expansion
+  checking module: ym.z2_gauge_expansion
+  checking module: ym.z2_gauge_expansion.Z2GaugeExpansion
+  checking cst:ym.z2_gauge_expansion.Z2GaugeExpansion.site4D_eqb_spec
+  checking cst:ym.z2_gauge_expansion.Z2GaugeExpansion.dir4D_eqb_spec
+  checking cst:ym.z2_gauge_expansion.Z2GaugeExpansion.link4D_eqb_spec
+  checking cst:ym.z2_gauge_expansion.Z2GaugeExpansion.holonomy_nil
+  checking cst:ym.z2_gauge_expansion.Z2GaugeExpansion.holonomy_cons
+  checking cst:ym.z2_gauge_expansion.Z2GaugeExpansion.holonomy_app
+  checking cst:ym.z2_gauge_expansion.Z2GaugeExpansion.z2_sign_sq
+  checking cst:ym.z2_gauge_expansion.Z2GaugeExpansion.holonomy_pm1
+  checking cst:ym.z2_gauge_expansion.Z2GaugeExpansion.holonomy_local
+  checking cst:ym.z2_gauge_expansion.Z2GaugeExpansion.holonomy_base
+  checking cst:ym.z2_gauge_expansion.Z2GaugeExpansion.holonomy_update
+  checking cst:ym.z2_gauge_expansion.Z2GaugeExpansion.pow_m1
+  checking cst:ym.z2_gauge_expansion.Z2GaugeExpansion.holonomy_update_sum
+  checking cst:ym.z2_gauge_expansion.Z2GaugeExpansion.configs_holonomy_sum
+  checking cst:ym.z2_gauge_expansion.Z2GaugeExpansion.rprod_even_indicator
+  checking cst:ym.z2_gauge_expansion.Z2GaugeExpansion.configs_nonempty
+  checking cst:ym.z2_gauge_expansion.Z2GaugeExpansion.boltzmann_rprod
+  checking cst:ym.z2_gauge_expansion.Z2GaugeExpansion.cosh_pos
+  checking cst:ym.z2_gauge_expansion.Z2GaugeExpansion.exp_cosh_tanh
+  checking cst:ym.z2_gauge_expansion.Z2GaugeExpansion.plaq_prod_expand
+  checking cst:ym.z2_gauge_expansion.Z2GaugeExpansion.boltzmann_expand
+  checking cst:ym.z2_gauge_expansion.Z2GaugeExpansion.kp_sublists_eq
+  checking cst:ym.z2_gauge_expansion.Z2GaugeExpansion.haar_insert
+  checking cst:ym.z2_gauge_expansion.Z2GaugeExpansion.partition_fn_pos
+  checking cst:ym.z2_gauge_expansion.Z2GaugeExpansion.partition_fn_expand
+  checking cst:ym.z2_gauge_expansion.Z2GaugeExpansion.z2_strong_coupling_expansion
 Checking library: rg.poly_exp_bound
   checking module: rg.poly_exp_bound
   checking module: rg.poly_exp_bound.PolyExpBound
@@ -49856,73 +50140,6 @@ Checking library: ym.geometry_frontier
   checking cst:ym.geometry_frontier.ym_path_witness_frontier
   checking cst:ym.geometry_frontier.ym_simple_path_length_bound
   checking cst:ym.geometry_frontier.ym_connects_implies_dist_bound_from_frontier
-Checking library: verification.Challenge
-  checking module: verification.Challenge
-  checking module: verification.Challenge.Challenge
-  checking cst:verification.Challenge.Challenge.Cluster
-  checking cst:verification.Challenge.Challenge.path_in_cluster_ind
-  checking cst:verification.Challenge.Challenge.path_in_cluster_sind
-  checking cst:verification.Challenge.Challenge.connects
-  checking cst:verification.Challenge.Challenge.lists_of_length
-  checking cst:verification.Challenge.Challenge.lists_up_to_length
-  checking cst:verification.Challenge.Challenge.clusters_Λ_N
-  checking cst:verification.Challenge.Challenge.sum_connecting
-  checking cst:verification.Challenge.Challenge.prod_activity
-  checking cst:verification.Challenge.Challenge.cluster_weight
-  checking cst:verification.Challenge.Challenge.cluster_size
-  checking cst:verification.Challenge.Challenge.correlator
-  checking cst:verification.Challenge.Challenge.kotecky_preiss_condition
-  checking cst:verification.Challenge.Challenge.has_mass_gap
-  checking cst:verification.Challenge.Challenge.Challenge_ConnectsImpliesDistBound
-  checking cst:verification.Challenge.Challenge.Challenge_ConditionalExponentialDecay
-  checking cst:verification.Challenge.Challenge.Challenge_MasterConditionalStatement
-  checking cst:verification.Challenge.Challenge.s4_t
-  checking cst:verification.Challenge.Challenge.s4_x
-  checking cst:verification.Challenge.Challenge.s4_y
-  checking cst:verification.Challenge.Challenge.s4_z
-  checking cst:verification.Challenge.Challenge.Dir4D_rect
-  checking cst:verification.Challenge.Challenge.Dir4D_ind
-  checking cst:verification.Challenge.Challenge.Dir4D_rec
-  checking cst:verification.Challenge.Challenge.Dir4D_sind
-  checking cst:verification.Challenge.Challenge.shift4D
-  checking cst:verification.Challenge.Challenge.p4_site
-  checking cst:verification.Challenge.Challenge.p4_mu
-  checking cst:verification.Challenge.Challenge.p4_nu
-  checking cst:verification.Challenge.Challenge.canonical_planes_4D
-  checking cst:verification.Challenge.Challenge.wf_plaq_4D
-  checking cst:verification.Challenge.Challenge.plaq4D_edges
-  checking cst:verification.Challenge.Challenge.same_undirected_edge
-  checking cst:verification.Challenge.Challenge.plaq4D_shares_edge
-  checking cst:verification.Challenge.Challenge.plaq4D_overlap
-  checking cst:verification.Challenge.Challenge.Challenge_Lattice4D_Exact21
-  checking cst:verification.Challenge.Challenge.Challenge_Lattice4D_Coordination24
-  checking cst:verification.Challenge.Challenge.kp_tuples_of_length
-  checking cst:verification.Challenge.Challenge.kp_sum_over_tuples
-  checking cst:verification.Challenge.Challenge.kp_prod_weight
-  checking cst:verification.Challenge.Challenge.kp_series
-  checking cst:verification.Challenge.Challenge.kp_root_series
-  checking cst:verification.Challenge.Challenge.kp_sum_overlap
-  checking cst:verification.Challenge.Challenge.kp_condition_at
-  checking cst:verification.Challenge.Challenge.kp_sublists
-  checking cst:verification.Challenge.Challenge.kp_expand_once
-  checking cst:verification.Challenge.Challenge.kp_expand_iter
-  checking cst:verification.Challenge.Challenge.kp_is_connectedb
-  checking cst:verification.Challenge.Challenge.kp_pairs_with_head
-  checking cst:verification.Challenge.Challenge.kp_graph_edges_from
-  checking cst:verification.Challenge.Challenge.kp_graph_edges
-  checking cst:verification.Challenge.Challenge.kp_ursell_fn
-  checking cst:verification.Challenge.Challenge.kp_ursell_correlator
-  checking cst:verification.Challenge.Challenge.site4D_manhattan
-  checking cst:verification.Challenge.Challenge.plaq4D_dist
-  checking cst:verification.Challenge.Challenge.Challenge_KoteckyPreiss_PinnedBound
-  checking cst:verification.Challenge.Challenge.Challenge_KoteckyPreiss_ExponentialDecay
-  checking cst:verification.Challenge.Challenge.Challenge_Lattice4D_KP_ExponentialDecay
-  checking cst:verification.Challenge.Challenge.kp_pairwise_compat
-  checking cst:verification.Challenge.Challenge.kp_partition_fn
-  checking cst:verification.Challenge.Challenge.kp_ursell_order
-  checking cst:verification.Challenge.Challenge.Challenge_KoteckyPreiss_LogPartitionFn
-  checking cst:verification.Challenge.Challenge.Challenge_KoteckyPreiss_LogRatioDecay
-  checking cst:verification.Challenge.Challenge.Challenge_Lattice4D_PartitionFn_Decay
 Checking library: verification.Verify
   checking module: verification.Verify
   checking module: verification.Verify.Verify
@@ -49998,4 +50215,207 @@ Checking library: verification.Verify
   checking cst:verification.Verify.Verify.filter_map_compat
   checking cst:verification.Verify.Verify.partition_fn_const_map
   checking cst:verification.Verify.Verify.verified_lattice4D_partition_fn_decay
+Checking library: ym.z2_gauge_clustering
+  checking module: ym.z2_gauge_clustering
+  checking module: ym.z2_gauge_clustering.Z2GaugeClustering
+  checking cst:ym.z2_gauge_clustering.Z2GaugeClustering.plaq4D_eqb
+  checking cst:ym.z2_gauge_clustering.Z2GaugeClustering.plaq4D_eqb_spec
+  checking cst:ym.z2_gauge_clustering.Z2GaugeClustering.shift4D_comm
+  checking cst:ym.z2_gauge_clustering.Z2GaugeClustering.link_in_edges
+  checking cst:ym.z2_gauge_clustering.Z2GaugeClustering.share_link_overlap
+  checking cst:ym.z2_gauge_clustering.Z2GaugeClustering.manhattan_refl
+  checking cst:ym.z2_gauge_clustering.Z2GaugeClustering.manhattan_sym
+  checking cst:ym.z2_gauge_clustering.Z2GaugeClustering.manhattan_triangle
+  checking cst:ym.z2_gauge_clustering.Z2GaugeClustering.manhattan_shift
+  checking cst:ym.z2_gauge_clustering.Z2GaugeClustering.link_site_near
+  checking cst:ym.z2_gauge_clustering.Z2GaugeClustering.share_link_dist
+  checking cst:ym.z2_gauge_clustering.Z2GaugeClustering.plaq4D_dist_triangle
+  checking cst:ym.z2_gauge_clustering.Z2GaugeClustering.exp_le
+  checking cst:ym.z2_gauge_clustering.Z2GaugeClustering.exp_pow_INR
+  checking cst:ym.z2_gauge_clustering.Z2GaugeClustering.pm1_times_bound
+  checking cst:ym.z2_gauge_clustering.Z2GaugeClustering.pm1_diff_bound
+  checking cst:ym.z2_gauge_clustering.Z2GaugeClustering.geom_half_sum
+  checking cst:ym.z2_gauge_clustering.Z2GaugeClustering.phi
+  checking cst:ym.z2_gauge_clustering.Z2GaugeClustering.mlow
+  checking cst:ym.z2_gauge_clustering.Z2GaugeClustering.epsv
+  checking cst:ym.z2_gauge_clustering.Z2GaugeClustering.base
+  checking cst:ym.z2_gauge_clustering.Z2GaugeClustering.configs_csum
+  checking cst:ym.z2_gauge_clustering.Z2GaugeClustering.weight_W
+  checking cst:ym.z2_gauge_clustering.Z2GaugeClustering.haar_csum
+  checking cst:ym.z2_gauge_clustering.Z2GaugeClustering.expect_bridge
+  checking cst:ym.z2_gauge_clustering.Z2GaugeClustering.phi_local
+  checking cst:ym.z2_gauge_clustering.Z2GaugeClustering.phi_pos
+  checking cst:ym.z2_gauge_clustering.Z2GaugeClustering.mlow_pos
+  checking cst:ym.z2_gauge_clustering.Z2GaugeClustering.epsv_nonneg
+  checking cst:ym.z2_gauge_clustering.Z2GaugeClustering.epsv_le
+  checking cst:ym.z2_gauge_clustering.Z2GaugeClustering.phi_prod_bounds
+  checking cst:ym.z2_gauge_clustering.Z2GaugeClustering.phi_osc_lo
+  checking cst:ym.z2_gauge_clustering.Z2GaugeClustering.phi_osc_hi
+  checking cst:ym.z2_gauge_clustering.Z2GaugeClustering.plaq_local
+  checking cst:ym.z2_gauge_clustering.Z2GaugeClustering.plaq_osc
+  checking cst:ym.z2_gauge_clustering.Z2GaugeClustering.touch_share
+  checking cst:ym.z2_gauge_clustering.Z2GaugeClustering.touch_count_21
+  checking cst:ym.z2_gauge_clustering.Z2GaugeClustering.reach_far
+  checking cst:ym.z2_gauge_clustering.Z2GaugeClustering.reach_le
+  checking cst:ym.z2_gauge_clustering.Z2GaugeClustering.reach_term_bound
+  checking cst:ym.z2_gauge_clustering.Z2GaugeClustering.reach_sum_bound
+  checking cst:ym.z2_gauge_clustering.Z2GaugeClustering.instance_clustering
+  checking cst:ym.z2_gauge_clustering.Z2GaugeClustering.z2_strong_coupling_clustering
+Checking library: rg.polymer_representation
+  checking module: rg.polymer_representation
+  checking module: rg.polymer_representation.PolymerRepresentation
+  checking cst:rg.polymer_representation.PolymerRepresentation.filter_comm
+  checking cst:rg.polymer_representation.PolymerRepresentation.filter_map_swap
+  checking cst:rg.polymer_representation.PolymerRepresentation.filter_all_false
+  checking cst:rg.polymer_representation.PolymerRepresentation.existsb_swap
+  checking cst:rg.polymer_representation.PolymerRepresentation.existsb_false_In
+  checking cst:rg.polymer_representation.PolymerRepresentation.rsum_sublists_cons
+  checking cst:rg.polymer_representation.PolymerRepresentation.rsum_unique
+  checking cst:rg.polymer_representation.PolymerRepresentation.filter_forallb_sublists
+  checking cst:rg.polymer_representation.PolymerRepresentation.pf_clique
+  checking cst:rg.polymer_representation.PolymerRepresentation.pf_app_clique
+  checking cst:rg.polymer_representation.PolymerRepresentation.pf_ext
+  checking cst:rg.polymer_representation.PolymerRepresentation.pf_drop_zero
+  checking cst:rg.polymer_representation.PolymerRepresentation.touch
+  checking cst:rg.polymer_representation.PolymerRepresentation.touch_true
+  checking cst:rg.polymer_representation.PolymerRepresentation.touch_sym
+  checking cst:rg.polymer_representation.PolymerRepresentation.touch_refl
+  checking cst:rg.polymer_representation.PolymerRepresentation.ptouch
+  checking cst:rg.polymer_representation.PolymerRepresentation.incompat
+  checking cst:rg.polymer_representation.PolymerRepresentation.incompat_cons
+  checking cst:rg.polymer_representation.PolymerRepresentation.incompat_sym
+  checking cst:rg.polymer_representation.PolymerRepresentation.incompat_refl
+  checking cst:rg.polymer_representation.PolymerRepresentation.connb
+  checking cst:rg.polymer_representation.PolymerRepresentation.cmpl
+  checking cst:rg.polymer_representation.PolymerRepresentation.cmpl_In
+  checking cst:rg.polymer_representation.PolymerRepresentation.cmpl_cons_out
+  checking cst:rg.polymer_representation.PolymerRepresentation.cmpl_cons_in
+  checking cst:rg.polymer_representation.PolymerRepresentation.epath_ind
+  checking cst:rg.polymer_representation.PolymerRepresentation.epath_sind
+  checking cst:rg.polymer_representation.PolymerRepresentation.index_edge
+  checking cst:rg.polymer_representation.PolymerRepresentation.epath_reachable
+  checking cst:rg.polymer_representation.PolymerRepresentation.reachable_epath
+  checking cst:rg.polymer_representation.PolymerRepresentation.connb_iff
+  checking cst:rg.polymer_representation.PolymerRepresentation.chain_elems_inK
+  checking cst:rg.polymer_representation.PolymerRepresentation.chain_epath
+  checking cst:rg.polymer_representation.PolymerRepresentation.inC
+  checking cst:rg.polymer_representation.PolymerRepresentation.comp
+  checking cst:rg.polymer_representation.PolymerRepresentation.inC_all
+  checking cst:rg.polymer_representation.PolymerRepresentation.all_inC
+  checking cst:rg.polymer_representation.PolymerRepresentation.comp_notouch
+  checking cst:rg.polymer_representation.PolymerRepresentation.comp_epath
+  checking cst:rg.polymer_representation.PolymerRepresentation.epath_inK
+  checking cst:rg.polymer_representation.PolymerRepresentation.valid_sub_comp
+  checking cst:rg.polymer_representation.PolymerRepresentation.touch_in_G
+  checking cst:rg.polymer_representation.PolymerRepresentation.chain_in_G
+  checking cst:rg.polymer_representation.PolymerRepresentation.valid_comp_sub
+  checking cst:rg.polymer_representation.PolymerRepresentation.validb
+  checking cst:rg.polymer_representation.PolymerRepresentation.validb_notouch
+  checking cst:rg.polymer_representation.PolymerRepresentation.comp_valid
+  checking cst:rg.polymer_representation.PolymerRepresentation.valid_unique
+  checking cst:rg.polymer_representation.PolymerRepresentation.filter_memb_sublist
+  checking cst:rg.polymer_representation.PolymerRepresentation.valid_factor
+  checking cst:rg.polymer_representation.PolymerRepresentation.split_sum
+  checking cst:rg.polymer_representation.PolymerRepresentation.merge_sum
+  checking cst:rg.polymer_representation.PolymerRepresentation.polys
+  checking cst:rg.polymer_representation.PolymerRepresentation.polys_cons
+  checking cst:rg.polymer_representation.PolymerRepresentation.polys_nil
+  checking cst:rg.polymer_representation.PolymerRepresentation.compat_filter_polys
+  checking cst:rg.polymer_representation.PolymerRepresentation.polymer_representation_aux
+  checking cst:rg.polymer_representation.PolymerRepresentation.polymer_representation
+Checking library: ym.z2_polymer_gas
+  checking module: ym.z2_polymer_gas
+  checking module: ym.z2_polymer_gas.Z2PolymerGas
+  checking cst:ym.z2_polymer_gas.Z2PolymerGas.links_of
+  checking cst:ym.z2_polymer_gas.Z2PolymerGas.count_app
+  checking cst:ym.z2_polymer_gas.Z2PolymerGas.count_zero
+  checking cst:ym.z2_polymer_gas.Z2PolymerGas.count_pos_In
+  checking cst:ym.z2_polymer_gas.Z2PolymerGas.dedup_In
+  checking cst:ym.z2_polymer_gas.Z2PolymerGas.closed_iff
+  checking cst:ym.z2_polymer_gas.Z2PolymerGas.bdry_closed
+  checking cst:ym.z2_polymer_gas.Z2PolymerGas.count_filter_split
+  checking cst:ym.z2_polymer_gas.Z2PolymerGas.length_filter_split
+  checking cst:ym.z2_polymer_gas.Z2PolymerGas.filter_andb
+  checking cst:ym.z2_polymer_gas.Z2PolymerGas.closed_split
+  checking cst:ym.z2_polymer_gas.Z2PolymerGas.rho
+  checking cst:ym.z2_polymer_gas.Z2PolymerGas.rho_nil
+  checking cst:ym.z2_polymer_gas.Z2PolymerGas.rho_factor
+  checking cst:ym.z2_polymer_gas.Z2PolymerGas.links_nonempty
+  checking cst:ym.z2_polymer_gas.Z2PolymerGas.incompat_eq
+  checking cst:ym.z2_polymer_gas.Z2PolymerGas.connb_eq
+  checking cst:ym.z2_polymer_gas.Z2PolymerGas.polymers_eq
+  checking cst:ym.z2_polymer_gas.Z2PolymerGas.surface_sum_polymer
+  checking cst:ym.z2_polymer_gas.Z2PolymerGas.z2_surface_polymer_gas
+Checking library: rg.connected_subset_bound
+  checking module: rg.connected_subset_bound
+  checking module: rg.connected_subset_bound.ConnectedSubsetBound
+  checking cst:rg.connected_subset_bound.ConnectedSubsetBound.kp_tree_pinned_bound
+  checking cst:rg.connected_subset_bound.ConnectedSubsetBound.self_in_sublists
+  checking cst:rg.connected_subset_bound.ConnectedSubsetBound.connected_tree_count_pos
+  checking cst:rg.connected_subset_bound.ConnectedSubsetBound.at_inv
+  checking cst:rg.connected_subset_bound.ConnectedSubsetBound.at_inv_cons
+  checking cst:rg.connected_subset_bound.ConnectedSubsetBound.existsb_adj_swap
+  checking cst:rg.connected_subset_bound.ConnectedSubsetBound.prod_weight_adj_swap
+  checking cst:rg.connected_subset_bound.ConnectedSubsetBound.prod_weight_ext
+  checking cst:rg.connected_subset_bound.ConnectedSubsetBound.nth_error_adj_swap
+  checking cst:rg.connected_subset_bound.ConnectedSubsetBound.tree_count_relabel
+  checking cst:rg.connected_subset_bound.ConnectedSubsetBound.tree_count_adj_swap
+  checking cst:rg.connected_subset_bound.ConnectedSubsetBound.kp_series_S
+  checking cst:rg.connected_subset_bound.ConnectedSubsetBound.kp_series_nonneg
+  checking cst:rg.connected_subset_bound.ConnectedSubsetBound.sum_over_tuples_1
+  checking cst:rg.connected_subset_bound.ConnectedSubsetBound.sum_over_tuples_S_cons
+  checking cst:rg.connected_subset_bound.ConnectedSubsetBound.sum_over_tuples_cons_ge
+  checking cst:rg.connected_subset_bound.ConnectedSubsetBound.sum_over_tuples_cons_decomp
+  checking cst:rg.connected_subset_bound.ConnectedSubsetBound.kp_order_cons
+  checking cst:rg.connected_subset_bound.ConnectedSubsetBound.kp_series_cons
+  checking cst:rg.connected_subset_bound.ConnectedSubsetBound.sublists_sum_le_kp_series
+  checking cst:rg.connected_subset_bound.ConnectedSubsetBound.kp_connected_subset_pinned_bound_weighted
+  checking cst:rg.connected_subset_bound.ConnectedSubsetBound.kp_connected_subset_pinned_bound
+Checking library: ym.z2_free_energy
+  checking module: ym.z2_free_energy
+  checking module: ym.z2_free_energy.Z2FreeEnergy
+  checking cst:ym.z2_free_energy.Z2FreeEnergy.kp_series_ext
+  checking cst:ym.z2_free_energy.Z2FreeEnergy.kp_series_plus
+  checking cst:ym.z2_free_energy.Z2FreeEnergy.kp_series_zero
+  checking cst:ym.z2_free_energy.Z2FreeEnergy.kp_series_le
+  checking cst:ym.z2_free_energy.Z2FreeEnergy.kp_series_abs
+  checking cst:ym.z2_free_energy.Z2FreeEnergy.kp_series_rsum
+  checking cst:ym.z2_free_energy.Z2FreeEnergy.kp_series_pins_bound
+  checking cst:ym.z2_free_energy.Z2FreeEnergy.rsum_const_fun
+  checking cst:ym.z2_free_energy.Z2FreeEnergy.prod_weight_const
+  checking cst:ym.z2_free_energy.Z2FreeEnergy.ln_pow_INR
+  checking cst:ym.z2_free_energy.Z2FreeEnergy.touch_sym
+  checking cst:ym.z2_free_energy.Z2FreeEnergy.touch_refl
+  checking cst:ym.z2_free_energy.Z2FreeEnergy.poly_incompat_refl
+  checking cst:ym.z2_free_energy.Z2FreeEnergy.poly_incompat_sym
+  checking cst:ym.z2_free_energy.Z2FreeEnergy.connP
+  checking cst:ym.z2_free_energy.Z2FreeEnergy.connP_eq
+  checking cst:ym.z2_free_energy.Z2FreeEnergy.tabs
+  checking cst:ym.z2_free_energy.Z2FreeEnergy.alpha
+  checking cst:ym.z2_free_energy.Z2FreeEnergy.xw
+  checking cst:ym.z2_free_energy.Z2FreeEnergy.a0
+  checking cst:ym.z2_free_energy.Z2FreeEnergy.wP
+  checking cst:ym.z2_free_energy.Z2FreeEnergy.aP
+  checking cst:ym.z2_free_energy.Z2FreeEnergy.tabs_nonneg
+  checking cst:ym.z2_free_energy.Z2FreeEnergy.alpha_bounds
+  checking cst:ym.z2_free_energy.Z2FreeEnergy.exp_alpha_le_3
+  checking cst:ym.z2_free_energy.Z2FreeEnergy.xw_bounds
+  checking cst:ym.z2_free_energy.Z2FreeEnergy.a0_bounds
+  checking cst:ym.z2_free_energy.Z2FreeEnergy.unit_kp_num
+  checking cst:ym.z2_free_energy.Z2FreeEnergy.unit_kp
+  checking cst:ym.z2_free_energy.Z2FreeEnergy.animal_bound
+  checking cst:ym.z2_free_energy.Z2FreeEnergy.weight_pow
+  checking cst:ym.z2_free_energy.Z2FreeEnergy.aP_nonneg
+  checking cst:ym.z2_free_energy.Z2FreeEnergy.polymer_kp
+  checking cst:ym.z2_free_energy.Z2FreeEnergy.polymer_facts
+  checking cst:ym.z2_free_energy.Z2FreeEnergy.incl_wf
+  checking cst:ym.z2_free_energy.Z2FreeEnergy.free_energy_expansion
+  checking cst:ym.z2_free_energy.Z2FreeEnergy.z2_free_energy_cluster_expansion
+Checking library: verification.VerifyZ2Gauge
+  checking module: verification.VerifyZ2Gauge
+  checking module: verification.VerifyZ2Gauge.VerifyZ2Gauge
+  checking cst:verification.VerifyZ2Gauge.VerifyZ2Gauge.verified_z2gauge4D_strong_coupling_expansion
+  checking cst:verification.VerifyZ2Gauge.VerifyZ2Gauge.verified_z2gauge4D_strong_coupling_clustering
+  checking cst:verification.VerifyZ2Gauge.VerifyZ2Gauge.verified_z2gauge4D_surface_polymer_gas
+  checking cst:verification.VerifyZ2Gauge.VerifyZ2Gauge.verified_z2gauge4D_free_energy_cluster_expansion
 Modules were successfully checked

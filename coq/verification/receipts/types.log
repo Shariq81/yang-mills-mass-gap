@@ -40,3 +40,19 @@ Verify.verified_lattice4D_partition_fn_decay
 :
 Challenge.Challenge_Lattice4D_PartitionFn_Decay
      : Challenge.Challenge_Lattice4D_PartitionFn_Decay
+VerifyZ2Gauge.verified_z2gauge4D_strong_coupling_expansion
+:
+ChallengeZ2Gauge.Challenge_Z2Gauge4D_StrongCouplingExpansion
+     : ChallengeZ2Gauge.Challenge_Z2Gauge4D_StrongCouplingExpansion
+VerifyZ2Gauge.verified_z2gauge4D_strong_coupling_clustering
+:
+ChallengeZ2Gauge.Challenge_Z2Gauge4D_StrongCouplingClustering
+     : ChallengeZ2Gauge.Challenge_Z2Gauge4D_StrongCouplingClustering
+VerifyZ2Gauge.verified_z2gauge4D_surface_polymer_gas
+:
+ChallengeZ2Gauge.Challenge_Z2Gauge4D_SurfacePolymerGas
+     : ChallengeZ2Gauge.Challenge_Z2Gauge4D_SurfacePolymerGas
+VerifyZ2Gauge.verified_z2gauge4D_free_energy_cluster_expansion
+:
+ChallengeZ2Gauge.Challenge_Z2Gauge4D_FreeEnergyClusterExpansion
+     : ChallengeZ2Gauge.Challenge_Z2Gauge4D_FreeEnergyClusterExpansion

@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 """
-Strict Coq stdlib-only axiom allowlist gate for `verification/CheckAxioms.v`.
+Strict Coq stdlib-only axiom allowlist gate for `verification/CheckAxioms.v`
+followed by `verification/CheckAxiomsZ2Gauge.v` (their outputs are concatenated
+in that order by `replay.sh` / `replay.py`).
 
-Because `CheckAxioms.v` emits ONLY `Print Assumptions` output (type checks live
-in `CheckTypes.v`), this parser NEVER ignores `Verify.*` or `Challenge.*`
-identifiers inside an `Axioms:` block. Any unindented line inside an `Axioms:`
+Because the `CheckAxioms*.v` files emit ONLY `Print Assumptions` output (type
+checks live in `CheckTypes*.v`), this parser NEVER ignores `Verify.*` or
+`Challenge.*` identifiers inside an `Axioms:` block. Any unindented line inside an `Axioms:`
 block that is not a new block header (`Axioms:` / `Closed under the global context`)
 is parsed as an axiom name and MUST belong to `ALLOWLIST`.
 """
@@ -31,6 +33,10 @@ EXPECTED_THEOREMS = [
     "Verify.verified_kotecky_preiss_log_partition_fn",
     "Verify.verified_kotecky_preiss_log_ratio_decay",
     "Verify.verified_lattice4D_partition_fn_decay",
+    "VerifyZ2Gauge.verified_z2gauge4D_strong_coupling_expansion",
+    "VerifyZ2Gauge.verified_z2gauge4D_strong_coupling_clustering",
+    "VerifyZ2Gauge.verified_z2gauge4D_surface_polymer_gas",
+    "VerifyZ2Gauge.verified_z2gauge4D_free_energy_cluster_expansion",
 ]
 
 
