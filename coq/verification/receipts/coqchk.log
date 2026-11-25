@@ -1,17 +1,11 @@
 Welcome to Chicken 8.18.0
-[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/verification/VerifyZ2AreaLaw.vo ...
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/verification/VerifySU2InfiniteVolume.vo ...
  done]
 
-[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/z2_area_law.vo ...
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/su2_infinite_volume.vo ...
  done]
 
-[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/z2_min_area.vo ...
- done]
-
-[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/z2_even_holonomy.vo ...
- done]
-
-[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/z2_polymer_gas.vo ...
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/lattice_boxes.vo ...
  done]
 
 [intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/z2_gauge_clustering.vo ...
@@ -992,10 +986,43 @@ Welcome to Chicken 8.18.0
 [intern /usr/lib/ocaml/coq/theories/Logic/Classical.vo ...
  done]
 
-[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/rg/polymer_representation.vo ...
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/verification/ChallengeSU2InfiniteVolume.vo ...
+ done]
+
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/verification/ChallengeSU2Gauge.vo ...
  done]
 
 [intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/verification/ChallengeZ2AreaLaw.vo ...
+ done]
+
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/su2_volume.vo ...
+ done]
+
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/su2_area_law.vo ...
+ done]
+
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/su2_clustering.vo ...
+ done]
+
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/su2_algebra.vo ...
+ done]
+
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/z2_polymer_gas.vo ...
+ done]
+
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/rg/polymer_representation.vo ...
+ done]
+
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/rg/product_measure.vo ...
+ done]
+
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/z2_area_law.vo ...
+ done]
+
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/z2_min_area.vo ...
+ done]
+
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/z2_even_holonomy.vo ...
  done]
 
 [intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/z2_free_energy.vo ...
@@ -1005,6 +1032,24 @@ Welcome to Chicken 8.18.0
  done]
 
 [intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/rg/rooted_polymer_bound.vo ...
+ done]
+
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/rg/product_measure_perm.vo ...
+ done]
+
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/su2_haar_limit.vo ...
+ done]
+
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/su2_haar_grid.vo ...
+ done]
+
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/su2_continuity.vo ...
+ done]
+
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/verification/VerifySU2Gauge.vo ...
+ done]
+
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/verification/VerifyZ2AreaLaw.vo ...
  done]
 
 [intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/verification/VerifyZ2Gauge.vo ...
@@ -1338,15 +1383,30 @@ Ordered list:
   ym.geometry_frontier
   verification.Verify
   ym.z2_gauge_clustering
+  verification.ChallengeZ2AreaLaw
+  verification.ChallengeSU2Gauge
+  verification.ChallengeSU2InfiniteVolume
+  ym.lattice_boxes
   rg.polymer_representation
   ym.z2_polymer_gas
+  ym.su2_algebra
+  rg.product_measure
+  ym.su2_clustering
   ym.z2_even_holonomy
-  verification.ChallengeZ2AreaLaw
   ym.z2_min_area
   rg.connected_subset_bound
   ym.z2_free_energy
   rg.rooted_polymer_bound
   ym.z2_area_law
+  ym.su2_area_law
+  rg.product_measure_perm
+  ym.su2_volume
+  ym.su2_haar_grid
+  ym.su2_continuity
+  ym.su2_haar_limit
+  ym.su2_infinite_volume
+  verification.VerifySU2InfiniteVolume
+  verification.VerifySU2Gauge
   verification.VerifyZ2AreaLaw
   verification.VerifyZ2Gauge
   
@@ -50285,6 +50345,93 @@ Checking library: ym.z2_gauge_clustering
   checking cst:ym.z2_gauge_clustering.Z2GaugeClustering.reach_sum_bound
   checking cst:ym.z2_gauge_clustering.Z2GaugeClustering.instance_clustering
   checking cst:ym.z2_gauge_clustering.Z2GaugeClustering.z2_strong_coupling_clustering
+Checking library: verification.ChallengeZ2AreaLaw
+  checking module: verification.ChallengeZ2AreaLaw
+  checking module: verification.ChallengeZ2AreaLaw.ChallengeZ2AreaLaw
+  checking cst:verification.ChallengeZ2AreaLaw.ChallengeZ2AreaLaw.shift4D_n
+  checking cst:verification.ChallengeZ2AreaLaw.ChallengeZ2AreaLaw.z2_segment
+  checking cst:verification.ChallengeZ2AreaLaw.ChallengeZ2AreaLaw.z2_rect_loop
+  checking cst:verification.ChallengeZ2AreaLaw.ChallengeZ2AreaLaw.Challenge_Z2Gauge4D_WilsonLoopAreaLaw
+Checking library: verification.ChallengeSU2Gauge
+  checking module: verification.ChallengeSU2Gauge
+  checking module: verification.ChallengeSU2Gauge.ChallengeSU2Gauge
+  checking cst:verification.ChallengeSU2Gauge.ChallengeSU2Gauge.qr
+  checking cst:verification.ChallengeSU2Gauge.ChallengeSU2Gauge.qi
+  checking cst:verification.ChallengeSU2Gauge.ChallengeSU2Gauge.qj
+  checking cst:verification.ChallengeSU2Gauge.ChallengeSU2Gauge.qk
+  checking cst:verification.ChallengeSU2Gauge.ChallengeSU2Gauge.qmul
+  checking cst:verification.ChallengeSU2Gauge.ChallengeSU2Gauge.qconj
+  checking cst:verification.ChallengeSU2Gauge.ChallengeSU2Gauge.qone
+  checking cst:verification.ChallengeSU2Gauge.ChallengeSU2Gauge.qneg
+  checking cst:verification.ChallengeSU2Gauge.ChallengeSU2Gauge.qnorm2
+  checking cst:verification.ChallengeSU2Gauge.ChallengeSU2Gauge.su2_unit
+  checking cst:verification.ChallengeSU2Gauge.ChallengeSU2Gauge.SU2Config
+  checking cst:verification.ChallengeSU2Gauge.ChallengeSU2Gauge.su2_unit_config
+  checking cst:verification.ChallengeSU2Gauge.ChallengeSU2Gauge.su2_update
+  checking cst:verification.ChallengeSU2Gauge.ChallengeSU2Gauge.su2_path
+  checking cst:verification.ChallengeSU2Gauge.ChallengeSU2Gauge.su2_rect_holonomy
+  checking cst:verification.ChallengeSU2Gauge.ChallengeSU2Gauge.su2_wilson_loop
+  checking cst:verification.ChallengeSU2Gauge.ChallengeSU2Gauge.su2_plaq
+  checking cst:verification.ChallengeSU2Gauge.ChallengeSU2Gauge.su2_wilson_action
+  checking cst:verification.ChallengeSU2Gauge.ChallengeSU2Gauge.su2_sum
+  checking cst:verification.ChallengeSU2Gauge.ChallengeSU2Gauge.su2_expect_on
+  checking cst:verification.ChallengeSU2Gauge.ChallengeSU2Gauge.su2_hopf
+  checking cst:verification.ChallengeSU2Gauge.ChallengeSU2Gauge.su2_grid
+  checking cst:verification.ChallengeSU2Gauge.ChallengeSU2Gauge.su2_haar_expect_is
+  checking cst:verification.ChallengeSU2Gauge.ChallengeSU2Gauge.su2_close
+  checking cst:verification.ChallengeSU2Gauge.ChallengeSU2Gauge.su2_bounded_continuous
+  checking cst:verification.ChallengeSU2Gauge.ChallengeSU2Gauge.su2_local_at
+  checking cst:verification.ChallengeSU2Gauge.ChallengeSU2Gauge.su2_truncated_on
+  checking cst:verification.ChallengeSU2Gauge.ChallengeSU2Gauge.Challenge_SU2Gauge4D_StrongCouplingClustering
+  checking cst:verification.ChallengeSU2Gauge.ChallengeSU2Gauge.Challenge_SU2Gauge4D_WilsonLoopAreaLaw
+  checking cst:verification.ChallengeSU2Gauge.ChallengeSU2Gauge.Challenge_SU2Gauge4D_HaarStateExists
+  checking cst:verification.ChallengeSU2Gauge.ChallengeSU2Gauge.Challenge_SU2Gauge4D_HaarClustering
+  checking cst:verification.ChallengeSU2Gauge.ChallengeSU2Gauge.Challenge_SU2Gauge4D_HaarWilsonLoopAreaLaw
+Checking library: verification.ChallengeSU2InfiniteVolume
+  checking module: verification.ChallengeSU2InfiniteVolume
+  checking module: verification.ChallengeSU2InfiniteVolume.ChallengeSU2InfiniteVolume
+  checking cst:verification.ChallengeSU2InfiniteVolume.ChallengeSU2InfiniteVolume.z_range
+  checking cst:verification.ChallengeSU2InfiniteVolume.ChallengeSU2InfiniteVolume.cube_sites
+  checking cst:verification.ChallengeSU2InfiniteVolume.ChallengeSU2InfiniteVolume.su2_box
+  checking cst:verification.ChallengeSU2InfiniteVolume.ChallengeSU2InfiniteVolume.su2_local_on
+  checking cst:verification.ChallengeSU2InfiniteVolume.ChallengeSU2InfiniteVolume.su2_infinite_volume_expect_is
+  checking cst:verification.ChallengeSU2InfiniteVolume.ChallengeSU2InfiniteVolume.Challenge_SU2Gauge4D_VolumeDependence
+  checking cst:verification.ChallengeSU2InfiniteVolume.ChallengeSU2InfiniteVolume.Challenge_SU2Gauge4D_ThermodynamicLimit
+  checking cst:verification.ChallengeSU2InfiniteVolume.ChallengeSU2InfiniteVolume.Challenge_SU2Gauge4D_InfiniteVolumeClustering
+  checking cst:verification.ChallengeSU2InfiniteVolume.ChallengeSU2InfiniteVolume.Challenge_SU2Gauge4D_InfiniteVolumeAreaLaw
+Checking library: ym.lattice_boxes
+  checking module: ym.lattice_boxes
+  checking module: ym.lattice_boxes.LatticeBoxes
+  checking cst:ym.lattice_boxes.LatticeBoxes.NoDup_map_inj_on
+  checking cst:ym.lattice_boxes.LatticeBoxes.NoDup_app_disj
+  checking cst:ym.lattice_boxes.LatticeBoxes.NoDup_flat_map_disj
+  checking cst:ym.lattice_boxes.LatticeBoxes.flat_map_length_uniform
+  checking cst:ym.lattice_boxes.LatticeBoxes.z_range_In
+  checking cst:ym.lattice_boxes.LatticeBoxes.z_range_NoDup
+  checking cst:ym.lattice_boxes.LatticeBoxes.z_range_length
+  checking cst:ym.lattice_boxes.LatticeBoxes.site_in_cube
+  checking cst:ym.lattice_boxes.LatticeBoxes.in_sites_z
+  checking cst:ym.lattice_boxes.LatticeBoxes.in_sites_y
+  checking cst:ym.lattice_boxes.LatticeBoxes.in_sites_x
+  checking cst:ym.lattice_boxes.LatticeBoxes.cube_sites_In
+  checking cst:ym.lattice_boxes.LatticeBoxes.cube_sites_NoDup
+  checking cst:ym.lattice_boxes.LatticeBoxes.cube_sites_length
+  checking cst:ym.lattice_boxes.LatticeBoxes.site_in_cube_mono
+  checking cst:ym.lattice_boxes.LatticeBoxes.canonical_planes_NoDup
+  checking cst:ym.lattice_boxes.LatticeBoxes.box_In
+  checking cst:ym.lattice_boxes.LatticeBoxes.box_nodup
+  checking cst:ym.lattice_boxes.LatticeBoxes.box_wf
+  checking cst:ym.lattice_boxes.LatticeBoxes.box_mono
+  checking cst:ym.lattice_boxes.LatticeBoxes.box_length
+  checking cst:ym.lattice_boxes.LatticeBoxes.site_radius
+  checking cst:ym.lattice_boxes.LatticeBoxes.site_in_cube_radius
+  checking cst:ym.lattice_boxes.LatticeBoxes.box_exhaust
+  checking cst:ym.lattice_boxes.LatticeBoxes.box_split
+  checking cst:ym.lattice_boxes.LatticeBoxes.cube_shell_manhattan
+  checking cst:ym.lattice_boxes.LatticeBoxes.shell_far
+  checking cst:ym.lattice_boxes.LatticeBoxes.pow4_step
+  checking cst:ym.lattice_boxes.LatticeBoxes.pow4_bound
+  checking cst:ym.lattice_boxes.LatticeBoxes.box_card_bound
 Checking library: rg.polymer_representation
   checking module: rg.polymer_representation
   checking module: rg.polymer_representation.PolymerRepresentation
@@ -50370,6 +50517,114 @@ Checking library: ym.z2_polymer_gas
   checking cst:ym.z2_polymer_gas.Z2PolymerGas.polymers_eq
   checking cst:ym.z2_polymer_gas.Z2PolymerGas.surface_sum_polymer
   checking cst:ym.z2_polymer_gas.Z2PolymerGas.z2_surface_polymer_gas
+Checking library: ym.su2_algebra
+  checking module: ym.su2_algebra
+  checking module: ym.su2_algebra.SU2Algebra
+  checking cst:ym.su2_algebra.SU2Algebra.quat_eq
+  checking cst:ym.su2_algebra.SU2Algebra.qscale
+  checking cst:ym.su2_algebra.SU2Algebra.qmul_one_r
+  checking cst:ym.su2_algebra.SU2Algebra.qmul_one_l
+  checking cst:ym.su2_algebra.SU2Algebra.qmul_assoc
+  checking cst:ym.su2_algebra.SU2Algebra.qconj_one
+  checking cst:ym.su2_algebra.SU2Algebra.qneg_scale
+  checking cst:ym.su2_algebra.SU2Algebra.qscale_one
+  checking cst:ym.su2_algebra.SU2Algebra.qscale_scale
+  checking cst:ym.su2_algebra.SU2Algebra.qmul_scale_l
+  checking cst:ym.su2_algebra.SU2Algebra.qmul_scale_r
+  checking cst:ym.su2_algebra.SU2Algebra.qconj_scale
+  checking cst:ym.su2_algebra.SU2Algebra.qr_scale
+  checking cst:ym.su2_algebra.SU2Algebra.qnorm2_mul
+  checking cst:ym.su2_algebra.SU2Algebra.qnorm2_conj
+  checking cst:ym.su2_algebra.SU2Algebra.qnorm2_neg
+  checking cst:ym.su2_algebra.SU2Algebra.unit_one
+  checking cst:ym.su2_algebra.SU2Algebra.unit_mul
+  checking cst:ym.su2_algebra.SU2Algebra.unit_conj
+  checking cst:ym.su2_algebra.SU2Algebra.unit_neg
+  checking cst:ym.su2_algebra.SU2Algebra.unit_components
+  checking cst:ym.su2_algebra.SU2Algebra.unit_qr_bound
+  checking cst:ym.su2_algebra.SU2Algebra.unit_config_one
+  checking cst:ym.su2_algebra.SU2Algebra.unit_config_update
+  checking cst:ym.su2_algebra.SU2Algebra.path_nil
+  checking cst:ym.su2_algebra.SU2Algebra.path_cons
+  checking cst:ym.su2_algebra.SU2Algebra.path_unit
+  checking cst:ym.su2_algebra.SU2Algebra.rect_unit
+  checking cst:ym.su2_algebra.SU2Algebra.wilson_bound
+  checking cst:ym.su2_algebra.SU2Algebra.plaq_bound
+  checking cst:ym.su2_algebra.SU2Algebra.path_local
+  checking cst:ym.su2_algebra.SU2Algebra.wilson_local
+  checking cst:ym.su2_algebra.SU2Algebra.rect11_In
+  checking cst:ym.su2_algebra.SU2Algebra.rect11_count
+  checking cst:ym.su2_algebra.SU2Algebra.plaq_local
+  checking cst:ym.su2_algebra.SU2Algebra.flipU
+  checking cst:ym.su2_algebra.SU2Algebra.path_flip
+  checking cst:ym.su2_algebra.SU2Algebra.wilson_flip
+  checking cst:ym.su2_algebra.SU2Algebra.plaq_flip
+  checking cst:ym.su2_algebra.SU2Algebra.flip_unit_config
+  checking cst:ym.su2_algebra.SU2Algebra.boltzmann_rprod
+  checking cst:ym.su2_algebra.SU2Algebra.su2_sum_csum
+  checking cst:ym.su2_algebra.SU2Algebra.expect_csum
+Checking library: rg.product_measure
+  checking module: rg.product_measure
+  checking module: rg.product_measure.ProductMeasure
+  checking cst:rg.product_measure.ProductMeasure.rsum_const
+  checking cst:rg.product_measure.ProductMeasure.rsum_perm
+  checking cst:rg.product_measure.ProductMeasure.rprod_abs
+  checking cst:rg.product_measure.ProductMeasure.rprod_ge_1
+  checking cst:rg.product_measure.ProductMeasure.rprod_filter_le
+  checking cst:rg.product_measure.ProductMeasure.splits
+  checking cst:rg.product_measure.ProductMeasure.splits_spec
+  checking cst:rg.product_measure.ProductMeasure.rprod_plus_splits
+  checking cst:rg.product_measure.ProductMeasure.eqbL_refl
+  checking cst:rg.product_measure.ProductMeasure.eqbL_neq
+  checking cst:rg.product_measure.ProductMeasure.upd_same
+  checking cst:rg.product_measure.ProductMeasure.upd_other
+  checking cst:rg.product_measure.ProductMeasure.upd_twice
+  checking cst:rg.product_measure.ProductMeasure.upd_comm
+  checking cst:rg.product_measure.ProductMeasure.csum_rsum
+  checking cst:rg.product_measure.ProductMeasure.csum_const
+  checking cst:rg.product_measure.ProductMeasure.csum_abs
+  checking cst:rg.product_measure.ProductMeasure.gcfg
+  checking cst:rg.product_measure.ProductMeasure.gcfg_upd
+  checking cst:rg.product_measure.ProductMeasure.csum_ext_good
+  checking cst:rg.product_measure.ProductMeasure.csum_le_good
+  checking cst:rg.product_measure.ProductMeasure.csum_bound_good
+  checking cst:rg.product_measure.ProductMeasure.local_on
+  checking cst:rg.product_measure.ProductMeasure.csum_upd_out
+  checking cst:rg.product_measure.ProductMeasure.csum_indep_step
+  checking cst:rg.product_measure.ProductMeasure.csum_indep
+  checking cst:rg.product_measure.ProductMeasure.flip
+  checking cst:rg.product_measure.ProductMeasure.csum_push_upd
+  checking cst:rg.product_measure.ProductMeasure.csum_val_out
+  checking cst:rg.product_measure.ProductMeasure.csum_flip
+Checking library: ym.su2_clustering
+  checking module: ym.su2_clustering
+  checking module: ym.su2_clustering.SU2Clustering
+  checking cst:ym.su2_clustering.SU2Clustering.clamp
+  checking cst:ym.su2_clustering.SU2Clustering.clamp_bound
+  checking cst:ym.su2_clustering.SU2Clustering.clamp_id
+  checking cst:ym.su2_clustering.SU2Clustering.clamp_id_abs
+  checking cst:ym.su2_clustering.SU2Clustering.clamp_diff
+  checking cst:ym.su2_clustering.SU2Clustering.times_bound
+  checking cst:ym.su2_clustering.SU2Clustering.base
+  checking cst:ym.su2_clustering.SU2Clustering.phi
+  checking cst:ym.su2_clustering.SU2Clustering.fc
+  checking cst:ym.su2_clustering.SU2Clustering.gc
+  checking cst:ym.su2_clustering.SU2Clustering.G_good
+  checking cst:ym.su2_clustering.SU2Clustering.phi_local
+  checking cst:ym.su2_clustering.SU2Clustering.phi_pos
+  checking cst:ym.su2_clustering.SU2Clustering.phi_prod_bounds
+  checking cst:ym.su2_clustering.SU2Clustering.phi_osc_lo
+  checking cst:ym.su2_clustering.SU2Clustering.phi_osc_hi
+  checking cst:ym.su2_clustering.SU2Clustering.fc_local
+  checking cst:ym.su2_clustering.SU2Clustering.gc_local
+  checking cst:ym.su2_clustering.SU2Clustering.fc_osc
+  checking cst:ym.su2_clustering.SU2Clustering.gc_osc
+  checking cst:ym.su2_clustering.SU2Clustering.weight_W
+  checking cst:ym.su2_clustering.SU2Clustering.base_unit
+  checking cst:ym.su2_clustering.SU2Clustering.csum_unit_ext
+  checking cst:ym.su2_clustering.SU2Clustering.expect_bridge
+  checking cst:ym.su2_clustering.SU2Clustering.instance_clustering
+  checking cst:ym.su2_clustering.SU2Clustering.su2_strong_coupling_clustering
 Checking library: ym.z2_even_holonomy
   checking module: ym.z2_even_holonomy
   checking module: ym.z2_even_holonomy.Z2EvenHolonomy
@@ -50387,13 +50642,6 @@ Checking library: ym.z2_even_holonomy
   checking cst:ym.z2_even_holonomy.Z2EvenHolonomy.allEven_holonomy
   checking cst:ym.z2_even_holonomy.Z2EvenHolonomy.holonomy_flat_map
   checking cst:ym.z2_even_holonomy.Z2EvenHolonomy.rprod_minus_one_exists
-Checking library: verification.ChallengeZ2AreaLaw
-  checking module: verification.ChallengeZ2AreaLaw
-  checking module: verification.ChallengeZ2AreaLaw.ChallengeZ2AreaLaw
-  checking cst:verification.ChallengeZ2AreaLaw.ChallengeZ2AreaLaw.shift4D_n
-  checking cst:verification.ChallengeZ2AreaLaw.ChallengeZ2AreaLaw.z2_segment
-  checking cst:verification.ChallengeZ2AreaLaw.ChallengeZ2AreaLaw.z2_rect_loop
-  checking cst:verification.ChallengeZ2AreaLaw.ChallengeZ2AreaLaw.Challenge_Z2Gauge4D_WilsonLoopAreaLaw
 Checking library: ym.z2_min_area
   checking module: ym.z2_min_area
   checking module: ym.z2_min_area.Z2MinArea
@@ -50543,6 +50791,278 @@ Checking library: ym.z2_area_law
   checking cst:ym.z2_area_law.Z2AreaLaw.rect_loop_length
   checking cst:ym.z2_area_law.Z2AreaLaw.surface_area_law
   checking cst:ym.z2_area_law.Z2AreaLaw.z2_wilson_loop_area_law
+Checking library: ym.su2_area_law
+  checking module: ym.su2_area_law
+  checking module: ym.su2_area_law.SU2AreaLaw
+  checking cst:ym.su2_area_law.SU2AreaLaw.dedup_NoDup
+  checking cst:ym.su2_area_law.SU2AreaLaw.forallb_false_ex
+  checking cst:ym.su2_area_law.SU2AreaLaw.sgn_cases
+  checking cst:ym.su2_area_law.SU2AreaLaw.sign_prod
+  checking cst:ym.su2_area_law.SU2AreaLaw.wilson_00
+  checking cst:ym.su2_area_law.SU2AreaLaw.U1
+  checking cst:ym.su2_area_law.SU2AreaLaw.NG
+  checking cst:ym.su2_area_law.SU2AreaLaw.delta
+  checking cst:ym.su2_area_law.SU2AreaLaw.Wobs
+  checking cst:ym.su2_area_law.SU2AreaLaw.rr
+  checking cst:ym.su2_area_law.SU2AreaLaw.rp
+  checking cst:ym.su2_area_law.SU2AreaLaw.rm
+  checking cst:ym.su2_area_law.SU2AreaLaw.NG_pos
+  checking cst:ym.su2_area_law.SU2AreaLaw.NGE_pos
+  checking cst:ym.su2_area_law.SU2AreaLaw.G_good
+  checking cst:ym.su2_area_law.SU2AreaLaw.U1_unit
+  checking cst:ym.su2_area_law.SU2AreaLaw.sigma_sum
+  checking cst:ym.su2_area_law.SU2AreaLaw.E_nodup
+  checking cst:ym.su2_area_law.SU2AreaLaw.links_in_E
+  checking cst:ym.su2_area_law.SU2AreaLaw.delta_nonneg
+  checking cst:ym.su2_area_law.SU2AreaLaw.rr_bounds
+  checking cst:ym.su2_area_law.SU2AreaLaw.rr_split
+  checking cst:ym.su2_area_law.SU2AreaLaw.rp_neg
+  checking cst:ym.su2_area_law.SU2AreaLaw.rm_neg
+  checking cst:ym.su2_area_law.SU2AreaLaw.rp_nonneg
+  checking cst:ym.su2_area_law.SU2AreaLaw.rp_rm_bound
+  checking cst:ym.su2_area_law.SU2AreaLaw.rp_sgn
+  checking cst:ym.su2_area_law.SU2AreaLaw.rm_sgn
+  checking cst:ym.su2_area_law.SU2AreaLaw.efun
+  checking cst:ym.su2_area_law.SU2AreaLaw.rhoE
+  checking cst:ym.su2_area_law.SU2AreaLaw.efun_local
+  checking cst:ym.su2_area_law.SU2AreaLaw.rprod_local
+  checking cst:ym.su2_area_law.SU2AreaLaw.rhoE_factor
+  checking cst:ym.su2_area_law.SU2AreaLaw.wfac
+  checking cst:ym.su2_area_law.SU2AreaLaw.ZZ
+  checking cst:ym.su2_area_law.SU2AreaLaw.NN
+  checking cst:ym.su2_area_law.SU2AreaLaw.rprod_map_some
+  checking cst:ym.su2_area_law.SU2AreaLaw.sum_closed
+  checking cst:ym.su2_area_law.SU2AreaLaw.sum_rooted
+  checking cst:ym.su2_area_law.SU2AreaLaw.wfac_pos
+  checking cst:ym.su2_area_law.SU2AreaLaw.wfac_ge_1
+  checking cst:ym.su2_area_law.SU2AreaLaw.ZZ_pos
+  checking cst:ym.su2_area_law.SU2AreaLaw.ZZ_mono
+  checking cst:ym.su2_area_law.SU2AreaLaw.weight_wfac
+  checking cst:ym.su2_area_law.SU2AreaLaw.expect_ratio
+  checking cst:ym.su2_area_law.SU2AreaLaw.term
+  checking cst:ym.su2_area_law.SU2AreaLaw.aterm
+  checking cst:ym.su2_area_law.SU2AreaLaw.rhoE_root_eq
+  checking cst:ym.su2_area_law.SU2AreaLaw.term_flip
+  checking cst:ym.su2_area_law.SU2AreaLaw.term_vanish
+  checking cst:ym.su2_area_law.SU2AreaLaw.term_abs
+  checking cst:ym.su2_area_law.SU2AreaLaw.aterm_sum
+  checking cst:ym.su2_area_law.SU2AreaLaw.gbound
+  checking cst:ym.su2_area_law.SU2AreaLaw.gbound_nonneg
+  checking cst:ym.su2_area_law.SU2AreaLaw.rooted_bound
+  checking cst:ym.su2_area_law.SU2AreaLaw.NN_expansion
+  checking cst:ym.su2_area_law.SU2AreaLaw.numerator_bound
+  checking cst:ym.su2_area_law.SU2AreaLaw.entropy_bound
+  checking cst:ym.su2_area_law.SU2AreaLaw.instance_area_law
+  checking cst:ym.su2_area_law.SU2AreaLaw.su2_wilson_loop_area_law
+Checking library: rg.product_measure_perm
+  checking module: rg.product_measure_perm
+  checking module: rg.product_measure_perm.ProductMeasurePerm
+  checking cst:rg.product_measure_perm.ProductMeasurePerm.nodup_app
+  checking cst:rg.product_measure_perm.ProductMeasurePerm.csum_app
+  checking cst:rg.product_measure_perm.ProductMeasurePerm.csum_perm
+  checking cst:rg.product_measure_perm.ProductMeasurePerm.csum_local_const
+  checking cst:rg.product_measure_perm.ProductMeasurePerm.csum_extra
+Checking library: ym.su2_volume
+  checking module: ym.su2_volume
+  checking module: ym.su2_volume.SU2Volume
+  checking cst:ym.su2_volume.SU2Volume.links_in
+  checking cst:ym.su2_volume.SU2Volume.links_incl_cons
+  checking cst:ym.su2_volume.SU2Volume.action_local
+  checking cst:ym.su2_volume.SU2Volume.touchb_app
+  checking cst:ym.su2_volume.SU2Volume.reach_nonneg
+  checking cst:ym.su2_volume.SU2Volume.reach_app
+  checking cst:ym.su2_volume.SU2Volume.reach_nil
+  checking cst:ym.su2_volume.SU2Volume.reach_flat
+  checking cst:ym.su2_volume.SU2Volume.base
+  checking cst:ym.su2_volume.SU2Volume.wgt
+  checking cst:ym.su2_volume.SU2Volume.expE
+  checking cst:ym.su2_volume.SU2Volume.gq
+  checking cst:ym.su2_volume.SU2Volume.G_good
+  checking cst:ym.su2_volume.SU2Volume.base_unit
+  checking cst:ym.su2_volume.SU2Volume.NG_pos
+  checking cst:ym.su2_volume.SU2Volume.wgt_pos
+  checking cst:ym.su2_volume.SU2Volume.Zpos
+  checking cst:ym.su2_volume.SU2Volume.cs_unit_ext
+  checking cst:ym.su2_volume.SU2Volume.cs_unit_le
+  checking cst:ym.su2_volume.SU2Volume.expE_links
+  checking cst:ym.su2_volume.SU2Volume.wgt_local
+  checking cst:ym.su2_volume.SU2Volume.expE_extra
+  checking cst:ym.su2_volume.SU2Volume.wgt_cons
+  checking cst:ym.su2_volume.SU2Volume.expect_cons
+  checking cst:ym.su2_volume.SU2Volume.gq_lower
+  checking cst:ym.su2_volume.SU2Volume.expE_gq_lower
+  checking cst:ym.su2_volume.SU2Volume.fc
+  checking cst:ym.su2_volume.SU2Volume.gc
+  checking cst:ym.su2_volume.SU2Volume.fc_local
+  checking cst:ym.su2_volume.SU2Volume.gc_local
+  checking cst:ym.su2_volume.SU2Volume.gc_range
+  checking cst:ym.su2_volume.SU2Volume.fc_osc
+  checking cst:ym.su2_volume.SU2Volume.gc_osc
+  checking cst:ym.su2_volume.SU2Volume.bridge
+  checking cst:ym.su2_volume.SU2Volume.cov_bound
+  checking cst:ym.su2_volume.SU2Volume.one_step
+  checking cst:ym.su2_volume.SU2Volume.volume_dependence
+  checking cst:ym.su2_volume.SU2Volume.su2_volume_dependence
+Checking library: ym.su2_haar_grid
+  checking module: ym.su2_haar_grid
+  checking module: ym.su2_haar_grid.SU2HaarGrid
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.gpt
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.gridN
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.grid_gridN
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.pow2_pos
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.flat_map_length_const
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.gridN_length
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.grid_length
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.gridN_length_pos
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.grid_length_pos
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.grid_nonempty
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.gridN_In
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.hopf_unit
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.frac_range
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.gpt_unit
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.grid_unit
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.trig_half_shift
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.hopf_neg
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.hshift
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.hshift_frac
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.map_add_seq
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.map_sub_seq
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.hshift_perm
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.map_flat_map_comm
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.flat_map_map_comm
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.Permutation_flat_map_pointwise
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.gpt_neg
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.gridN_center
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.grid_center
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.mean
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.rsum_const_length
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.rsum_minus
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.mean_ext
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.mean_const
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.mean_bounds
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.mean_close
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.mean_close_const
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.rsum_seq_shift
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.rsum_seq_split
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.mean_split
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.mean_refine
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.rsum_gridN
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.gridN_mean
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.avgR
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.avgR_eq
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.avgR_bounds
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.grid_average_bounds
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.avgR_refine
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.sqrt_close
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.cos_lip
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.sin_lip
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.angle_close
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.prod_close
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.sqrt_abs_le_1
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.hopf_close
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.frac_close
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.gpt_close
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.pow2_inv_small
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.hopf_modulus
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.su2_close_same
+  checking cst:ym.su2_haar_grid.SU2HaarGrid.grid_average_converges
+Checking library: ym.su2_continuity
+  checking module: ym.su2_continuity
+  checking module: ym.su2_continuity.SU2Continuity
+  checking cst:ym.su2_continuity.SU2Continuity.close_refl
+  checking cst:ym.su2_continuity.SU2Continuity.close_mono
+  checking cst:ym.su2_continuity.SU2Continuity.close_conj
+  checking cst:ym.su2_continuity.SU2Continuity.abs_prod_close
+  checking cst:ym.su2_continuity.SU2Continuity.close_mul
+  checking cst:ym.su2_continuity.SU2Continuity.close_path
+  checking cst:ym.su2_continuity.SU2Continuity.segment_length
+  checking cst:ym.su2_continuity.SU2Continuity.close_rect
+  checking cst:ym.su2_continuity.SU2Continuity.wilson_lipschitz
+  checking cst:ym.su2_continuity.SU2Continuity.bc_ext
+  checking cst:ym.su2_continuity.SU2Continuity.bc_const
+  checking cst:ym.su2_continuity.SU2Continuity.bc_plus
+  checking cst:ym.su2_continuity.SU2Continuity.bc_mult
+  checking cst:ym.su2_continuity.SU2Continuity.bc_scal
+  checking cst:ym.su2_continuity.SU2Continuity.bc_opp
+  checking cst:ym.su2_continuity.SU2Continuity.bc_minus
+  checking cst:ym.su2_continuity.SU2Continuity.bc_fold_sum
+  checking cst:ym.su2_continuity.SU2Continuity.bc_rsum
+  checking cst:ym.su2_continuity.SU2Continuity.bc_rprod
+  checking cst:ym.su2_continuity.SU2Continuity.exp_le_mono
+  checking cst:ym.su2_continuity.SU2Continuity.exp_minus_one_bound
+  checking cst:ym.su2_continuity.SU2Continuity.bc_exp
+  checking cst:ym.su2_continuity.SU2Continuity.bc_wilson_loop
+  checking cst:ym.su2_continuity.SU2Continuity.bc_plaq
+  checking cst:ym.su2_continuity.SU2Continuity.bc_neg_action
+  checking cst:ym.su2_continuity.SU2Continuity.bc_action
+  checking cst:ym.su2_continuity.SU2Continuity.bc_boltzmann
+Checking library: ym.su2_haar_limit
+  checking module: ym.su2_haar_limit
+  checking module: ym.su2_haar_limit.SU2HaarLimit
+  checking cst:ym.su2_haar_limit.SU2HaarLimit.cv_ext
+  checking cst:ym.su2_haar_limit.SU2HaarLimit.cv_bound
+  checking cst:ym.su2_haar_limit.SU2HaarLimit.cv_lower
+  checking cst:ym.su2_haar_limit.SU2HaarLimit.cv_div
+  checking cst:ym.su2_haar_limit.SU2HaarLimit.plaq_sum_bound
+  checking cst:ym.su2_haar_limit.SU2HaarLimit.action_bound
+  checking cst:ym.su2_haar_limit.SU2HaarLimit.avgn
+  checking cst:ym.su2_haar_limit.SU2HaarLimit.grid_card_pos
+  checking cst:ym.su2_haar_limit.SU2HaarLimit.grid_good
+  checking cst:ym.su2_haar_limit.SU2HaarLimit.den_pos
+  checking cst:ym.su2_haar_limit.SU2HaarLimit.expect_avg
+  checking cst:ym.su2_haar_limit.SU2HaarLimit.avg_den_lower
+  checking cst:ym.su2_haar_limit.SU2HaarLimit.haar_state_exists
+  checking cst:ym.su2_haar_limit.SU2HaarLimit.su2_haar_state_exists
+  checking cst:ym.su2_haar_limit.SU2HaarLimit.su2_haar_clustering
+  checking cst:ym.su2_haar_limit.SU2HaarLimit.su2_haar_wilson_loop_area_law
+  checking cst:ym.su2_haar_limit.SU2HaarLimit.su2_haar_plaquette_clustering
+Checking library: ym.su2_infinite_volume
+  checking module: ym.su2_infinite_volume
+  checking module: ym.su2_infinite_volume.SU2InfiniteVolume
+  checking cst:ym.su2_infinite_volume.SU2InfiniteVolume.links_perm
+  checking cst:ym.su2_infinite_volume.SU2InfiniteVolume.expect_perm
+  checking cst:ym.su2_infinite_volume.SU2InfiniteVolume.expect_ext
+  checking cst:ym.su2_infinite_volume.SU2InfiniteVolume.expect_scal
+  checking cst:ym.su2_infinite_volume.SU2InfiniteVolume.cv_const
+  checking cst:ym.su2_infinite_volume.SU2InfiniteVolume.half_pow_small
+  checking cst:ym.su2_infinite_volume.SU2InfiniteVolume.geom_increments
+  checking cst:ym.su2_infinite_volume.SU2InfiniteVolume.geom_cauchy
+  checking cst:ym.su2_infinite_volume.SU2InfiniteVolume.mu0
+  checking cst:ym.su2_infinite_volume.SU2InfiniteVolume.ln16_pos
+  checking cst:ym.su2_infinite_volume.SU2InfiniteVolume.mu0_nonneg
+  checking cst:ym.su2_infinite_volume.SU2InfiniteVolume.exp_ln16
+  checking cst:ym.su2_infinite_volume.SU2InfiniteVolume.exp_mu0
+  checking cst:ym.su2_infinite_volume.SU2InfiniteVolume.small_168
+  checking cst:ym.su2_infinite_volume.SU2InfiniteVolume.small_63
+  checking cst:ym.su2_infinite_volume.SU2InfiniteVolume.haar_volume_dependence
+  checking cst:ym.su2_infinite_volume.SU2InfiniteVolume.Acst
+  checking cst:ym.su2_infinite_volume.SU2InfiniteVolume.Kcst
+  checking cst:ym.su2_infinite_volume.SU2InfiniteVolume.Kcst_nonneg
+  checking cst:ym.su2_infinite_volume.SU2InfiniteVolume.far_term
+  checking cst:ym.su2_infinite_volume.SU2InfiniteVolume.step_bound
+  checking cst:ym.su2_infinite_volume.SU2InfiniteVolume.thermo_limit_bounded
+  checking cst:ym.su2_infinite_volume.SU2InfiniteVolume.su2_thermodynamic_limit
+  checking cst:ym.su2_infinite_volume.SU2InfiniteVolume.su2_infinite_volume_clustering
+  checking cst:ym.su2_infinite_volume.SU2InfiniteVolume.cover_plaq
+  checking cst:ym.su2_infinite_volume.SU2InfiniteVolume.cover_wf
+  checking cst:ym.su2_infinite_volume.SU2InfiniteVolume.cover_In
+  checking cst:ym.su2_infinite_volume.SU2InfiniteVolume.su2_infinite_volume_area_law
+  checking cst:ym.su2_infinite_volume.SU2InfiniteVolume.su2_infinite_volume_plaquette_clustering
+Checking library: verification.VerifySU2InfiniteVolume
+  checking module: verification.VerifySU2InfiniteVolume
+  checking module: verification.VerifySU2InfiniteVolume.VerifySU2InfiniteVolume
+  checking cst:verification.VerifySU2InfiniteVolume.VerifySU2InfiniteVolume.verified_su2gauge4D_volume_dependence
+  checking cst:verification.VerifySU2InfiniteVolume.VerifySU2InfiniteVolume.verified_su2gauge4D_thermodynamic_limit
+  checking cst:verification.VerifySU2InfiniteVolume.VerifySU2InfiniteVolume.verified_su2gauge4D_infinite_volume_clustering
+  checking cst:verification.VerifySU2InfiniteVolume.VerifySU2InfiniteVolume.verified_su2gauge4D_infinite_volume_area_law
+Checking library: verification.VerifySU2Gauge
+  checking module: verification.VerifySU2Gauge
+  checking module: verification.VerifySU2Gauge.VerifySU2Gauge
+  checking cst:verification.VerifySU2Gauge.VerifySU2Gauge.verified_su2gauge4D_strong_coupling_clustering
+  checking cst:verification.VerifySU2Gauge.VerifySU2Gauge.verified_su2gauge4D_wilson_loop_area_law
+  checking cst:verification.VerifySU2Gauge.VerifySU2Gauge.verified_su2gauge4D_haar_state_exists
+  checking cst:verification.VerifySU2Gauge.VerifySU2Gauge.verified_su2gauge4D_haar_clustering
+  checking cst:verification.VerifySU2Gauge.VerifySU2Gauge.verified_su2gauge4D_haar_wilson_loop_area_law
 Checking library: verification.VerifyZ2AreaLaw
   checking module: verification.VerifyZ2AreaLaw
   checking module: verification.VerifyZ2AreaLaw.VerifyZ2AreaLaw

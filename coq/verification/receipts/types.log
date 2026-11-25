@@ -60,3 +60,39 @@ VerifyZ2AreaLaw.verified_z2gauge4D_wilson_loop_area_law
 :
 ChallengeZ2AreaLaw.Challenge_Z2Gauge4D_WilsonLoopAreaLaw
      : ChallengeZ2AreaLaw.Challenge_Z2Gauge4D_WilsonLoopAreaLaw
+VerifySU2Gauge.verified_su2gauge4D_strong_coupling_clustering
+:
+ChallengeSU2Gauge.Challenge_SU2Gauge4D_StrongCouplingClustering
+     : ChallengeSU2Gauge.Challenge_SU2Gauge4D_StrongCouplingClustering
+VerifySU2Gauge.verified_su2gauge4D_wilson_loop_area_law
+:
+ChallengeSU2Gauge.Challenge_SU2Gauge4D_WilsonLoopAreaLaw
+     : ChallengeSU2Gauge.Challenge_SU2Gauge4D_WilsonLoopAreaLaw
+VerifySU2Gauge.verified_su2gauge4D_haar_state_exists
+:
+ChallengeSU2Gauge.Challenge_SU2Gauge4D_HaarStateExists
+     : ChallengeSU2Gauge.Challenge_SU2Gauge4D_HaarStateExists
+VerifySU2Gauge.verified_su2gauge4D_haar_clustering
+:
+ChallengeSU2Gauge.Challenge_SU2Gauge4D_HaarClustering
+     : ChallengeSU2Gauge.Challenge_SU2Gauge4D_HaarClustering
+VerifySU2Gauge.verified_su2gauge4D_haar_wilson_loop_area_law
+:
+ChallengeSU2Gauge.Challenge_SU2Gauge4D_HaarWilsonLoopAreaLaw
+     : ChallengeSU2Gauge.Challenge_SU2Gauge4D_HaarWilsonLoopAreaLaw
+VerifySU2InfiniteVolume.verified_su2gauge4D_volume_dependence
+:
+ChallengeSU2InfiniteVolume.Challenge_SU2Gauge4D_VolumeDependence
+     : ChallengeSU2InfiniteVolume.Challenge_SU2Gauge4D_VolumeDependence
+VerifySU2InfiniteVolume.verified_su2gauge4D_thermodynamic_limit
+:
+ChallengeSU2InfiniteVolume.Challenge_SU2Gauge4D_ThermodynamicLimit
+     : ChallengeSU2InfiniteVolume.Challenge_SU2Gauge4D_ThermodynamicLimit
+VerifySU2InfiniteVolume.verified_su2gauge4D_infinite_volume_clustering
+:
+ChallengeSU2InfiniteVolume.Challenge_SU2Gauge4D_InfiniteVolumeClustering
+     : ChallengeSU2InfiniteVolume.Challenge_SU2Gauge4D_InfiniteVolumeClustering
+VerifySU2InfiniteVolume.verified_su2gauge4D_infinite_volume_area_law
+:
+ChallengeSU2InfiniteVolume.Challenge_SU2Gauge4D_InfiniteVolumeAreaLaw
+     : ChallengeSU2InfiniteVolume.Challenge_SU2Gauge4D_InfiniteVolumeAreaLaw

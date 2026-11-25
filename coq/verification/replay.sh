@@ -1,9 +1,12 @@
 #!/usr/bin/env bash
 # Reproducible 3-step verification replay for the frozen polymer decay challenge
 # (Targets 1-6c, verification/Challenge.v), the frozen 4D Z_2 lattice gauge
-# theory challenge (Targets 7a-7d, verification/ChallengeZ2Gauge.v) and the
+# theory challenge (Targets 7a-7d, verification/ChallengeZ2Gauge.v), the
 # frozen Wilson-loop area-law challenge (Target 7e,
-# verification/ChallengeZ2AreaLaw.v).
+# verification/ChallengeZ2AreaLaw.v), the frozen 4D SU(2) lattice gauge
+# theory challenge (Targets 8a-8e, verification/ChallengeSU2Gauge.v) and the
+# frozen infinite-volume challenge for that theory (Targets 9a-9d,
+# verification/ChallengeSU2InfiniteVolume.v).
 # Usage (from Windows):
 #   wsl -e bash -lc 'bash /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/verification/replay.sh'
 set -euo pipefail
@@ -33,8 +36,10 @@ echo "=== 1. Toolchain & Source Provenance ==="
 
 # Entries 1-16 are the byte-identical Targets 1-6c cone pinned by
 # Zenodo 10.5281/zenodo.24507324; entries 1-27 (adding the Targets 7a-7d cone)
-# are the byte-identical cone pinned by Zenodo 10.5281/zenodo.24512861; the
-# last 8 entries are the Target 7e cone.
+# are the byte-identical cone pinned by Zenodo 10.5281/zenodo.24512861;
+# entries 1-35 (adding the Target 7e cone) are the byte-identical cone of the
+# 16-target release; entries 36-46 are the Target 8 cone and the last 8
+# entries are the Target 9 cone.
 # The order is a valid compilation order (replay.py compiles in this order).
 CONE_SOURCES=(
   "verification/Challenge.v"
@@ -72,6 +77,25 @@ CONE_SOURCES=(
   "verification/VerifyZ2AreaLaw.v"
   "verification/CheckTypesZ2AreaLaw.v"
   "verification/CheckAxiomsZ2AreaLaw.v"
+  "verification/ChallengeSU2Gauge.v"
+  "rg/product_measure.v"
+  "ym/su2_algebra.v"
+  "ym/su2_clustering.v"
+  "ym/su2_area_law.v"
+  "ym/su2_continuity.v"
+  "ym/su2_haar_grid.v"
+  "ym/su2_haar_limit.v"
+  "verification/VerifySU2Gauge.v"
+  "verification/CheckTypesSU2Gauge.v"
+  "verification/CheckAxiomsSU2Gauge.v"
+  "verification/ChallengeSU2InfiniteVolume.v"
+  "rg/product_measure_perm.v"
+  "ym/su2_volume.v"
+  "ym/lattice_boxes.v"
+  "ym/su2_infinite_volume.v"
+  "verification/VerifySU2InfiniteVolume.v"
+  "verification/CheckTypesSU2InfiniteVolume.v"
+  "verification/CheckAxiomsSU2InfiniteVolume.v"
 )
 
 sha256sum "${CONE_SOURCES[@]}" | tee "$RECEIPTS/sources.sha256"
@@ -104,6 +128,21 @@ GUARD_FILES=(
   "ym/z2_min_area.v"
   "ym/z2_area_law.v"
   "verification/VerifyZ2AreaLaw.v"
+  "verification/ChallengeSU2Gauge.v"
+  "rg/product_measure.v"
+  "ym/su2_algebra.v"
+  "ym/su2_clustering.v"
+  "ym/su2_area_law.v"
+  "ym/su2_continuity.v"
+  "ym/su2_haar_grid.v"
+  "ym/su2_haar_limit.v"
+  "verification/VerifySU2Gauge.v"
+  "verification/ChallengeSU2InfiniteVolume.v"
+  "rg/product_measure_perm.v"
+  "ym/su2_volume.v"
+  "ym/lattice_boxes.v"
+  "ym/su2_infinite_volume.v"
+  "verification/VerifySU2InfiniteVolume.v"
 )
 if grep -En '^\s*(Axiom|Axioms|Parameter|Parameters|Conjecture|Admitted|admit)\b' "${GUARD_FILES[@]}"; then
   echo "FAIL: Forbidden declaration found in guarded verification files" >&2
@@ -111,10 +150,11 @@ if grep -En '^\s*(Axiom|Axioms|Parameter|Parameters|Conjecture|Admitted|admit)\b
 fi
 echo "PASS: Zero Axiom/Parameter/Conjecture/Admitted declarations across all ${#GUARD_FILES[@]} guarded files."
 
-# The frozen Target 7 statement files may import ONLY the Coq standard library
-# and the frozen statement files that precede them (Challenge.v for
-# ChallengeZ2Gauge.v; Challenge.v and ChallengeZ2Gauge.v for
-# ChallengeZ2AreaLaw.v), and may contain no proof scripts.
+# The frozen Target 7, Target 8 and Target 9 statement files may import ONLY
+# the Coq standard library and the frozen statement files that precede them
+# (Challenge.v for ChallengeZ2Gauge.v; Challenge.v and ChallengeZ2Gauge.v for
+# ChallengeZ2AreaLaw.v; those three for ChallengeSU2Gauge.v; those four for
+# ChallengeSU2InfiniteVolume.v), and may contain no proof scripts.
 if grep -En '^\s*(Require|From)\b' verification/ChallengeZ2Gauge.v \
      | grep -Ev '(From Coq Require Import|Require Import verification\.Challenge\.)'; then
   echo "FAIL: verification/ChallengeZ2Gauge.v imports a non-stdlib, non-Challenge module" >&2
@@ -125,7 +165,17 @@ if grep -En '^\s*(Require|From)\b' verification/ChallengeZ2AreaLaw.v \
   echo "FAIL: verification/ChallengeZ2AreaLaw.v imports a module other than the stdlib and the frozen challenge files" >&2
   exit 1
 fi
-for frozen in verification/ChallengeZ2Gauge.v verification/ChallengeZ2AreaLaw.v; do
+if grep -En '^\s*(Require|From)\b' verification/ChallengeSU2Gauge.v \
+     | grep -Ev '(From Coq Require Import|Require Import verification\.Challenge\.|Require Import verification\.ChallengeZ2Gauge\.|Require Import verification\.ChallengeZ2AreaLaw\.)'; then
+  echo "FAIL: verification/ChallengeSU2Gauge.v imports a module other than the stdlib and the frozen challenge files" >&2
+  exit 1
+fi
+if grep -En '^\s*(Require|From)\b' verification/ChallengeSU2InfiniteVolume.v \
+     | grep -Ev '(From Coq Require Import|Require Import verification\.Challenge\.|Require Import verification\.ChallengeZ2Gauge\.|Require Import verification\.ChallengeZ2AreaLaw\.|Require Import verification\.ChallengeSU2Gauge\.)'; then
+  echo "FAIL: verification/ChallengeSU2InfiniteVolume.v imports a module other than the stdlib and the frozen challenge files" >&2
+  exit 1
+fi
+for frozen in verification/ChallengeZ2Gauge.v verification/ChallengeZ2AreaLaw.v verification/ChallengeSU2Gauge.v verification/ChallengeSU2InfiniteVolume.v; do
   if grep -En '^\s*(Proof|Qed|Defined|Theorem|Lemma|Corollary|Hypothesis|Hypotheses|Variable|Variables|Context)\b' "$frozen"; then
     echo "FAIL: $frozen contains a proof script or a section assumption" >&2
     exit 1
@@ -133,6 +183,8 @@ for frozen in verification/ChallengeZ2Gauge.v verification/ChallengeZ2AreaLaw.v;
 done
 echo "PASS: verification/ChallengeZ2Gauge.v imports only the Coq stdlib + frozen Challenge.v and contains definitions only."
 echo "PASS: verification/ChallengeZ2AreaLaw.v imports only the Coq stdlib + frozen Challenge.v/ChallengeZ2Gauge.v and contains definitions only."
+echo "PASS: verification/ChallengeSU2Gauge.v imports only the Coq stdlib + frozen Challenge.v/ChallengeZ2Gauge.v/ChallengeZ2AreaLaw.v and contains definitions only."
+echo "PASS: verification/ChallengeSU2InfiniteVolume.v imports only the Coq stdlib + the four frozen files above and contains definitions only."
 
 echo ""
 echo "=== 3. Clean Wipe of Verification Cone Build Artifacts ==="
@@ -150,14 +202,18 @@ echo "PASS: verification/Challenge.v compiled cleanly before any project module 
 echo "PASS: verification/ChallengeZ2Gauge.v compiled cleanly with only Challenge.vo present (no proof module existed)."
 "$COQC" -R . '' -q verification/ChallengeZ2AreaLaw.v
 echo "PASS: verification/ChallengeZ2AreaLaw.v compiled cleanly with only Challenge.vo and ChallengeZ2Gauge.vo present (no proof module existed)."
+"$COQC" -R . '' -q verification/ChallengeSU2Gauge.v
+echo "PASS: verification/ChallengeSU2Gauge.v compiled cleanly with only Challenge.vo, ChallengeZ2Gauge.vo and ChallengeZ2AreaLaw.vo present (no proof module existed)."
+"$COQC" -R . '' -q verification/ChallengeSU2InfiniteVolume.v
+echo "PASS: verification/ChallengeSU2InfiniteVolume.v compiled cleanly with only the four earlier frozen .vo files present (no proof module existed)."
 
 echo ""
 echo "=== 5. Step 2: Compile Submitted Proof Cone & Verify Files ==="
-for src in "rg/polymer_types.v" "rg/cluster_expansion.v" "rg/penrose_tree_bound.v" "rg/poly_exp_bound.v" "rg/tree_cut_bijection.v" "rg/kotecky_preiss.v" "rg/exp_series_limit.v" "rg/cluster_log_partition.v" "ym/geometry_frontier.v" "ym/lattice.v" "ym/lattice_4d_coordination.v" "ym/lattice_4d_kp.v" "verification/Verify.v" "rg/dup_clustering.v" "rg/polymer_representation.v" "rg/connected_subset_bound.v" "ym/z2_gauge_expansion.v" "ym/z2_gauge_clustering.v" "ym/z2_polymer_gas.v" "ym/z2_free_energy.v" "verification/VerifyZ2Gauge.v" "rg/rooted_polymer_bound.v" "ym/z2_even_holonomy.v" "ym/z2_min_area.v" "ym/z2_area_law.v" "verification/VerifyZ2AreaLaw.v"; do
+for src in "rg/polymer_types.v" "rg/cluster_expansion.v" "rg/penrose_tree_bound.v" "rg/poly_exp_bound.v" "rg/tree_cut_bijection.v" "rg/kotecky_preiss.v" "rg/exp_series_limit.v" "rg/cluster_log_partition.v" "ym/geometry_frontier.v" "ym/lattice.v" "ym/lattice_4d_coordination.v" "ym/lattice_4d_kp.v" "verification/Verify.v" "rg/dup_clustering.v" "rg/polymer_representation.v" "rg/connected_subset_bound.v" "ym/z2_gauge_expansion.v" "ym/z2_gauge_clustering.v" "ym/z2_polymer_gas.v" "ym/z2_free_energy.v" "verification/VerifyZ2Gauge.v" "rg/rooted_polymer_bound.v" "ym/z2_even_holonomy.v" "ym/z2_min_area.v" "ym/z2_area_law.v" "verification/VerifyZ2AreaLaw.v" "rg/product_measure.v" "ym/su2_algebra.v" "ym/su2_clustering.v" "ym/su2_area_law.v" "ym/su2_continuity.v" "ym/su2_haar_grid.v" "ym/su2_haar_limit.v" "verification/VerifySU2Gauge.v" "rg/product_measure_perm.v" "ym/su2_volume.v" "ym/lattice_boxes.v" "ym/su2_infinite_volume.v" "verification/VerifySU2InfiniteVolume.v"; do
   echo "  coqc $src"
   "$COQC" -R . '' -q "$src"
 done
-echo "PASS: All submitted proof modules, verification/Verify.v, verification/VerifyZ2Gauge.v and verification/VerifyZ2AreaLaw.v compiled cleanly."
+echo "PASS: All submitted proof modules, verification/Verify.v, verification/VerifyZ2Gauge.v, verification/VerifyZ2AreaLaw.v, verification/VerifySU2Gauge.v and verification/VerifySU2InfiniteVolume.v compiled cleanly."
 
 echo ""
 echo "=== 6. Step 2b: Check Target Types, Print Assumptions & Enforce Stdlib-Only Allowlist ==="
@@ -165,11 +221,15 @@ echo "=== 6. Step 2b: Check Target Types, Print Assumptions & Enforce Stdlib-Onl
   "$COQC" -R . '' -q verification/CheckTypes.v 2>&1
   "$COQC" -R . '' -q verification/CheckTypesZ2Gauge.v 2>&1
   "$COQC" -R . '' -q verification/CheckTypesZ2AreaLaw.v 2>&1
+  "$COQC" -R . '' -q verification/CheckTypesSU2Gauge.v 2>&1
+  "$COQC" -R . '' -q verification/CheckTypesSU2InfiniteVolume.v 2>&1
 } | tee "$RECEIPTS/types.log"
 {
   "$COQC" -R . '' -q verification/CheckAxioms.v 2>&1
   "$COQC" -R . '' -q verification/CheckAxiomsZ2Gauge.v 2>&1
   "$COQC" -R . '' -q verification/CheckAxiomsZ2AreaLaw.v 2>&1
+  "$COQC" -R . '' -q verification/CheckAxiomsSU2Gauge.v 2>&1
+  "$COQC" -R . '' -q verification/CheckAxiomsSU2InfiniteVolume.v 2>&1
 } | tee "$RECEIPTS/axioms.log"
 python3 verification/check_allowlist.py "$RECEIPTS/axioms.log" | tee "$RECEIPTS/allowlist.log"
 
@@ -177,7 +237,9 @@ echo ""
 echo "=== 7. Step 3: Independent Kernel Replay (coqchk) ==="
 "$COQCHK" -R . '' verification.Challenge verification.Verify \
   verification.ChallengeZ2Gauge verification.VerifyZ2Gauge \
-  verification.ChallengeZ2AreaLaw verification.VerifyZ2AreaLaw 2>&1 | tee "$RECEIPTS/coqchk.log"
+  verification.ChallengeZ2AreaLaw verification.VerifyZ2AreaLaw \
+  verification.ChallengeSU2Gauge verification.VerifySU2Gauge \
+  verification.ChallengeSU2InfiniteVolume verification.VerifySU2InfiniteVolume 2>&1 | tee "$RECEIPTS/coqchk.log"
 if ! grep -q "Modules were successfully checked" "$RECEIPTS/coqchk.log"; then
   echo "FAIL: coqchk did not report 'Modules were successfully checked'" >&2
   exit 1
@@ -187,4 +249,6 @@ echo ""
 echo "=== ALL 3 VERIFICATION STEPS PASSED ==="
 sha256sum verification/Challenge.vo verification/Verify.vo \
   verification/ChallengeZ2Gauge.vo verification/VerifyZ2Gauge.vo \
-  verification/ChallengeZ2AreaLaw.vo verification/VerifyZ2AreaLaw.vo | tee "$RECEIPTS/artifacts.sha256"
+  verification/ChallengeZ2AreaLaw.vo verification/VerifyZ2AreaLaw.vo \
+  verification/ChallengeSU2Gauge.vo verification/VerifySU2Gauge.vo \
+  verification/ChallengeSU2InfiniteVolume.vo verification/VerifySU2InfiniteVolume.vo | tee "$RECEIPTS/artifacts.sha256"

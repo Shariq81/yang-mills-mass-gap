@@ -17,17 +17,23 @@ RECEIPTS = VERIFICATION / "receipts"
 
 # Frozen statement files, compiled first and in this order, before any proof
 # module exists: Challenge.v imports only the Coq standard library,
-# ChallengeZ2Gauge.v imports only the Coq standard library and Challenge.v, and
-# ChallengeZ2AreaLaw.v imports only the Coq standard library and those two.
+# ChallengeZ2Gauge.v imports only the Coq standard library and Challenge.v,
+# ChallengeZ2AreaLaw.v imports only the Coq standard library and those two,
+# ChallengeSU2Gauge.v imports only the Coq standard library and those three,
+# and ChallengeSU2InfiniteVolume.v imports only the Coq standard library and
+# those four.
 FROZEN = [
     Path("verification/Challenge.v"),
     Path("verification/ChallengeZ2Gauge.v"),
     Path("verification/ChallengeZ2AreaLaw.v"),
+    Path("verification/ChallengeSU2Gauge.v"),
+    Path("verification/ChallengeSU2InfiniteVolume.v"),
 ]
 # 16 files of Targets 1-6c (Zenodo 10.5281/zenodo.24507324), 11 files of
-# Targets 7a-7d (27 files pinned by Zenodo 10.5281/zenodo.24512861), and
-# 8 files of Target 7e.
-EXPECTED_SOURCES = 35
+# Targets 7a-7d (27 files pinned by Zenodo 10.5281/zenodo.24512861),
+# 8 files of Target 7e, 11 files of Targets 8a-8e, and 8 files of
+# Targets 9a-9d.
+EXPECTED_SOURCES = 54
 CHECKED_MODULES = [
     "verification.Challenge",
     "verification.Verify",
@@ -35,6 +41,10 @@ CHECKED_MODULES = [
     "verification.VerifyZ2Gauge",
     "verification.ChallengeZ2AreaLaw",
     "verification.VerifyZ2AreaLaw",
+    "verification.ChallengeSU2Gauge",
+    "verification.VerifySU2Gauge",
+    "verification.ChallengeSU2InfiniteVolume",
+    "verification.VerifySU2InfiniteVolume",
 ]
 
 
