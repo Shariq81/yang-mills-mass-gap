@@ -1,8 +1,8 @@
-Date (UTC): 2026-11-25T03:48:01Z
+Date (UTC): 2026-11-25T08:43:06Z
 Host: Linux IDZ 6.18.33.2-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Thu Jun 18 21:54:43 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux
 COQC: /usr/bin/coqc
 The Coq Proof Assistant, version 8.18.0
 compiled with OCaml 4.14.1
 COQCHK: /usr/bin/coqchk
 The Coq Proof Checker, version 8.18.0
-Git HEAD: bae325eb7e49b084cfb17483d0110a63fce9e8b1
+Git HEAD: 92e5cc0025ea92cbae476d0b66b471425ccb1d87

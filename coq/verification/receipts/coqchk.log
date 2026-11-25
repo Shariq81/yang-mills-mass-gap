@@ -1,8 +1,17 @@
 Welcome to Chicken 8.18.0
-[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/verification/VerifySU2InfiniteVolume.vo ...
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/verification/VerifySU2MassGap.vo ...
  done]
 
-[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/su2_infinite_volume.vo ...
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/su2_mass_gap.vo ...
+ done]
+
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/su2_reflection_positivity.vo ...
+ done]
+
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/su2_covariance.vo ...
+ done]
+
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/lattice_symmetry.vo ...
  done]
 
 [intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/lattice_boxes.vo ...
@@ -995,13 +1004,7 @@ Welcome to Chicken 8.18.0
 [intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/verification/ChallengeZ2AreaLaw.vo ...
  done]
 
-[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/su2_volume.vo ...
- done]
-
-[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/su2_area_law.vo ...
- done]
-
-[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/su2_clustering.vo ...
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/su2_continuity.vo ...
  done]
 
 [intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/su2_algebra.vo ...
@@ -1011,6 +1014,15 @@ Welcome to Chicken 8.18.0
  done]
 
 [intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/rg/polymer_representation.vo ...
+ done]
+
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/verification/ChallengeSU2MassGap.vo ...
+ done]
+
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/su2_area_law.vo ...
+ done]
+
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/su2_clustering.vo ...
  done]
 
 [intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/rg/product_measure.vo ...
@@ -1034,7 +1046,19 @@ Welcome to Chicken 8.18.0
 [intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/rg/rooted_polymer_bound.vo ...
  done]
 
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/rg/product_measure_relabel.vo ...
+ done]
+
 [intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/rg/product_measure_perm.vo ...
+ done]
+
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/su2_volume.vo ...
+ done]
+
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/su2_multi_clustering.vo ...
+ done]
+
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/su2_infinite_volume.vo ...
  done]
 
 [intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/su2_haar_limit.vo ...
@@ -1043,7 +1067,19 @@ Welcome to Chicken 8.18.0
 [intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/su2_haar_grid.vo ...
  done]
 
-[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/su2_continuity.vo ...
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/su2_uniqueness.vo ...
+ done]
+
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/lattice_boxes_tail.vo ...
+ done]
+
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/su2_haar_grid_conj.vo ...
+ done]
+
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/rg/cauchy_schwarz_gap.vo ...
+ done]
+
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/verification/VerifySU2InfiniteVolume.vo ...
  done]
 
 [intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/verification/VerifySU2Gauge.vo ...
@@ -1390,6 +1426,9 @@ Ordered list:
   rg.polymer_representation
   ym.z2_polymer_gas
   ym.su2_algebra
+  ym.su2_continuity
+  verification.ChallengeSU2MassGap
+  ym.lattice_symmetry
   rg.product_measure
   ym.su2_clustering
   ym.z2_even_holonomy
@@ -1400,11 +1439,20 @@ Ordered list:
   ym.z2_area_law
   ym.su2_area_law
   rg.product_measure_perm
+  rg.product_measure_relabel
+  ym.su2_covariance
   ym.su2_volume
+  ym.su2_reflection_positivity
   ym.su2_haar_grid
-  ym.su2_continuity
   ym.su2_haar_limit
   ym.su2_infinite_volume
+  ym.su2_multi_clustering
+  ym.lattice_boxes_tail
+  ym.su2_uniqueness
+  ym.su2_haar_grid_conj
+  rg.cauchy_schwarz_gap
+  ym.su2_mass_gap
+  verification.VerifySU2MassGap
   verification.VerifySU2InfiniteVolume
   verification.VerifySU2Gauge
   verification.VerifyZ2AreaLaw
@@ -50563,6 +50611,118 @@ Checking library: ym.su2_algebra
   checking cst:ym.su2_algebra.SU2Algebra.boltzmann_rprod
   checking cst:ym.su2_algebra.SU2Algebra.su2_sum_csum
   checking cst:ym.su2_algebra.SU2Algebra.expect_csum
+Checking library: ym.su2_continuity
+  checking module: ym.su2_continuity
+  checking module: ym.su2_continuity.SU2Continuity
+  checking cst:ym.su2_continuity.SU2Continuity.close_refl
+  checking cst:ym.su2_continuity.SU2Continuity.close_mono
+  checking cst:ym.su2_continuity.SU2Continuity.close_conj
+  checking cst:ym.su2_continuity.SU2Continuity.abs_prod_close
+  checking cst:ym.su2_continuity.SU2Continuity.close_mul
+  checking cst:ym.su2_continuity.SU2Continuity.close_path
+  checking cst:ym.su2_continuity.SU2Continuity.segment_length
+  checking cst:ym.su2_continuity.SU2Continuity.close_rect
+  checking cst:ym.su2_continuity.SU2Continuity.wilson_lipschitz
+  checking cst:ym.su2_continuity.SU2Continuity.bc_ext
+  checking cst:ym.su2_continuity.SU2Continuity.bc_const
+  checking cst:ym.su2_continuity.SU2Continuity.bc_plus
+  checking cst:ym.su2_continuity.SU2Continuity.bc_mult
+  checking cst:ym.su2_continuity.SU2Continuity.bc_scal
+  checking cst:ym.su2_continuity.SU2Continuity.bc_opp
+  checking cst:ym.su2_continuity.SU2Continuity.bc_minus
+  checking cst:ym.su2_continuity.SU2Continuity.bc_fold_sum
+  checking cst:ym.su2_continuity.SU2Continuity.bc_rsum
+  checking cst:ym.su2_continuity.SU2Continuity.bc_rprod
+  checking cst:ym.su2_continuity.SU2Continuity.exp_le_mono
+  checking cst:ym.su2_continuity.SU2Continuity.exp_minus_one_bound
+  checking cst:ym.su2_continuity.SU2Continuity.bc_exp
+  checking cst:ym.su2_continuity.SU2Continuity.bc_wilson_loop
+  checking cst:ym.su2_continuity.SU2Continuity.bc_plaq
+  checking cst:ym.su2_continuity.SU2Continuity.bc_neg_action
+  checking cst:ym.su2_continuity.SU2Continuity.bc_action
+  checking cst:ym.su2_continuity.SU2Continuity.bc_boltzmann
+Checking library: verification.ChallengeSU2MassGap
+  checking module: verification.ChallengeSU2MassGap
+  checking module: verification.ChallengeSU2MassGap.ChallengeSU2MassGap
+  checking cst:verification.ChallengeSU2MassGap.ChallengeSU2MassGap.link_shift
+  checking cst:verification.ChallengeSU2MassGap.ChallengeSU2MassGap.su2_translate
+  checking cst:verification.ChallengeSU2MassGap.ChallengeSU2MassGap.obs_translate
+  checking cst:verification.ChallengeSU2MassGap.ChallengeSU2MassGap.obs_translate_n
+  checking cst:verification.ChallengeSU2MassGap.ChallengeSU2MassGap.site_reflect
+  checking cst:verification.ChallengeSU2MassGap.ChallengeSU2MassGap.link_reflect
+  checking cst:verification.ChallengeSU2MassGap.ChallengeSU2MassGap.su2_reflect
+  checking cst:verification.ChallengeSU2MassGap.ChallengeSU2MassGap.obs_reflect
+  checking cst:verification.ChallengeSU2MassGap.ChallengeSU2MassGap.pos_time_plaq
+  checking cst:verification.ChallengeSU2MassGap.ChallengeSU2MassGap.Challenge_SU2Gauge4D_InfiniteVolumeUniqueness
+  checking cst:verification.ChallengeSU2MassGap.ChallengeSU2MassGap.Challenge_SU2Gauge4D_InfiniteVolumeSymmetry
+  checking cst:verification.ChallengeSU2MassGap.ChallengeSU2MassGap.Challenge_SU2Gauge4D_ReflectionPositivity
+  checking cst:verification.ChallengeSU2MassGap.ChallengeSU2MassGap.Challenge_SU2Gauge4D_MultiPlaquetteClustering
+  checking cst:verification.ChallengeSU2MassGap.ChallengeSU2MassGap.Challenge_SU2Gauge4D_TransferMatrixMassGap
+  checking cst:verification.ChallengeSU2MassGap.ChallengeSU2MassGap.Challenge_SU2Gauge4D_TransferMatrixNormBound
+Checking library: ym.lattice_symmetry
+  checking module: ym.lattice_symmetry
+  checking module: ym.lattice_symmetry.LatticeSymmetry
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.site_unshift
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.link_unshift
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.plaq_shift
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.plaq_unshift
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.plaq_reflect
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.refl_sigma
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.site_eq
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.link_eq
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.plaq_eq
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.shift_comm
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.site_unshift_shift
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.site_shift_unshift
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.unshift_shift_comm
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.site_reflect_invol
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.link_unshift_shift
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.link_shift_unshift
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.link_reflect_invol
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.snd_link_reflect
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.qconj_invol
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.su2_reflect_sigma
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.refl_sigma_invol
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.su2_reflect_invol
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.translate_unit
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.refl_sigma_unit
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.reflect_unit
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.shift_reflect_shift
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.translate_reflect_translate_cfg
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.plaq_shift_unshift
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.plaq_unshift_shift
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.plaq_reflect_invol
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.plaq_shift_wf
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.plaq_unshift_wf
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.plaq_reflect_wf
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.links_plaq_shift
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.links_plaq_unshift
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.in_map_reflect
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.links_plaq_reflect
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.plaq_formula
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.plaq_translate
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.plaq_reflect_cov
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.action_translate
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.action_reflect
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.local_translate
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.local_reflect
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.bc_translate
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.refl_sigma_close
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.bc_reflect
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.obs_reflect_invol
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.local_translate_n
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.bc_translate_n
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.obs_translate_n_add
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.obs_translate_n_S
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.translate_reflect_translate
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.iter_shift_wf
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.iter_shift_time
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.pos_iter_shift
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.reflect_time_nonpos
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.dist_reflect_shift
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.box_shift
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.box_unshift
+  checking cst:ym.lattice_symmetry.LatticeSymmetry.box_reflect
 Checking library: rg.product_measure
   checking module: rg.product_measure
   checking module: rg.product_measure.ProductMeasure
@@ -50862,6 +51022,37 @@ Checking library: rg.product_measure_perm
   checking cst:rg.product_measure_perm.ProductMeasurePerm.csum_perm
   checking cst:rg.product_measure_perm.ProductMeasurePerm.csum_local_const
   checking cst:rg.product_measure_perm.ProductMeasurePerm.csum_extra
+Checking library: rg.product_measure_relabel
+  checking module: rg.product_measure_relabel
+  checking module: rg.product_measure_relabel.ProductMeasureRelabel
+  checking cst:rg.product_measure_relabel.ProductMeasureRelabel.csum_nonneg
+  checking cst:rg.product_measure_relabel.ProductMeasureRelabel.csum_local_base
+  checking cst:rg.product_measure_relabel.ProductMeasureRelabel.csum_factor_out
+  checking cst:rg.product_measure_relabel.ProductMeasureRelabel.pull
+  checking cst:rg.product_measure_relabel.ProductMeasureRelabel.pull_upd
+  checking cst:rg.product_measure_relabel.ProductMeasureRelabel.csum_relabel
+  checking cst:rg.product_measure_relabel.ProductMeasureRelabel.phi_pos
+  checking cst:rg.product_measure_relabel.ProductMeasureRelabel.Xpull_local
+  checking cst:rg.product_measure_relabel.ProductMeasureRelabel.mirror_sum
+  checking cst:rg.product_measure_relabel.ProductMeasureRelabel.mirror_sum_local
+  checking cst:rg.product_measure_relabel.ProductMeasureRelabel.csum_reflection_identity
+  checking cst:rg.product_measure_relabel.ProductMeasureRelabel.csum_reflection_positive
+Checking library: ym.su2_covariance
+  checking module: ym.su2_covariance
+  checking module: ym.su2_covariance.SU2Covariance
+  checking cst:ym.su2_covariance.SU2Covariance.NoDup_map_inj
+  checking cst:ym.su2_covariance.SU2Covariance.link_unshift_inj
+  checking cst:ym.su2_covariance.SU2Covariance.link_reflect_inj
+  checking cst:ym.su2_covariance.SU2Covariance.links_unshift_perm
+  checking cst:ym.su2_covariance.SU2Covariance.links_reflect_perm
+  checking cst:ym.su2_covariance.SU2Covariance.action_unshift
+  checking cst:ym.su2_covariance.SU2Covariance.csum_translate
+  checking cst:ym.su2_covariance.SU2Covariance.expect_translate
+  checking cst:ym.su2_covariance.SU2Covariance.action_unreflect
+  checking cst:ym.su2_covariance.SU2Covariance.refl_sigma_sum
+  checking cst:ym.su2_covariance.SU2Covariance.pull_reflect_one
+  checking cst:ym.su2_covariance.SU2Covariance.csum_reflect
+  checking cst:ym.su2_covariance.SU2Covariance.expect_reflect
 Checking library: ym.su2_volume
   checking module: ym.su2_volume
   checking module: ym.su2_volume.SU2Volume
@@ -50903,6 +51094,51 @@ Checking library: ym.su2_volume
   checking cst:ym.su2_volume.SU2Volume.one_step
   checking cst:ym.su2_volume.SU2Volume.volume_dependence
   checking cst:ym.su2_volume.SU2Volume.su2_volume_dependence
+Checking library: ym.su2_reflection_positivity
+  checking module: ym.su2_reflection_positivity
+  checking module: ym.su2_reflection_positivity.SU2ReflectionPositivity
+  checking cst:ym.su2_reflection_positivity.SU2ReflectionPositivity.link_time
+  checking cst:ym.su2_reflection_positivity.SU2ReflectionPositivity.spatialb
+  checking cst:ym.su2_reflection_positivity.SU2ReflectionPositivity.is0
+  checking cst:ym.su2_reflection_positivity.SU2ReflectionPositivity.isP
+  checking cst:ym.su2_reflection_positivity.SU2ReflectionPositivity.isM
+  checking cst:ym.su2_reflection_positivity.SU2ReflectionPositivity.is0_fixed
+  checking cst:ym.su2_reflection_positivity.SU2ReflectionPositivity.isP_isM_reflect
+  checking cst:ym.su2_reflection_positivity.SU2ReflectionPositivity.is0_not_P
+  checking cst:ym.su2_reflection_positivity.SU2ReflectionPositivity.is0_not_M
+  checking cst:ym.su2_reflection_positivity.SU2ReflectionPositivity.isP_not_M
+  checking cst:ym.su2_reflection_positivity.SU2ReflectionPositivity.nonneg_cases
+  checking cst:ym.su2_reflection_positivity.SU2ReflectionPositivity.link_cases
+  checking cst:ym.su2_reflection_positivity.SU2ReflectionPositivity.plaq0
+  checking cst:ym.su2_reflection_positivity.SU2ReflectionPositivity.plaqP
+  checking cst:ym.su2_reflection_positivity.SU2ReflectionPositivity.plaq0_links
+  checking cst:ym.su2_reflection_positivity.SU2ReflectionPositivity.plaq0_reflect
+  checking cst:ym.su2_reflection_positivity.SU2ReflectionPositivity.pos_links
+  checking cst:ym.su2_reflection_positivity.SU2ReflectionPositivity.E0
+  checking cst:ym.su2_reflection_positivity.SU2ReflectionPositivity.Ep
+  checking cst:ym.su2_reflection_positivity.SU2ReflectionPositivity.Em
+  checking cst:ym.su2_reflection_positivity.SU2ReflectionPositivity.W0
+  checking cst:ym.su2_reflection_positivity.SU2ReflectionPositivity.X
+  checking cst:ym.su2_reflection_positivity.SU2ReflectionPositivity.pull_reflect
+  checking cst:ym.su2_reflection_positivity.SU2ReflectionPositivity.S0_in
+  checking cst:ym.su2_reflection_positivity.SU2ReflectionPositivity.Sp_in
+  checking cst:ym.su2_reflection_positivity.SU2ReflectionPositivity.vol_wf
+  checking cst:ym.su2_reflection_positivity.SU2ReflectionPositivity.vol_reflect
+  checking cst:ym.su2_reflection_positivity.SU2ReflectionPositivity.links_sym
+  checking cst:ym.su2_reflection_positivity.SU2ReflectionPositivity.links_nodup
+  checking cst:ym.su2_reflection_positivity.SU2ReflectionPositivity.E_perm
+  checking cst:ym.su2_reflection_positivity.SU2ReflectionPositivity.Em_Ep
+  checking cst:ym.su2_reflection_positivity.SU2ReflectionPositivity.action_app
+  checking cst:ym.su2_reflection_positivity.SU2ReflectionPositivity.integrand_eq
+  checking cst:ym.su2_reflection_positivity.SU2ReflectionPositivity.pos_in
+  checking cst:ym.su2_reflection_positivity.SU2ReflectionPositivity.in_vol_0
+  checking cst:ym.su2_reflection_positivity.SU2ReflectionPositivity.in_vol_p
+  checking cst:ym.su2_reflection_positivity.SU2ReflectionPositivity.W0_local
+  checking cst:ym.su2_reflection_positivity.SU2ReflectionPositivity.pos_plaq_link
+  checking cst:ym.su2_reflection_positivity.SU2ReflectionPositivity.X_local
+  checking cst:ym.su2_reflection_positivity.SU2ReflectionPositivity.numerator_nonneg
+  checking cst:ym.su2_reflection_positivity.SU2ReflectionPositivity.instance_reflection_positivity
+  checking cst:ym.su2_reflection_positivity.SU2ReflectionPositivity.reflection_positivity_finite
 Checking library: ym.su2_haar_grid
   checking module: ym.su2_haar_grid
   checking module: ym.su2_haar_grid.SU2HaarGrid
@@ -50966,36 +51202,6 @@ Checking library: ym.su2_haar_grid
   checking cst:ym.su2_haar_grid.SU2HaarGrid.hopf_modulus
   checking cst:ym.su2_haar_grid.SU2HaarGrid.su2_close_same
   checking cst:ym.su2_haar_grid.SU2HaarGrid.grid_average_converges
-Checking library: ym.su2_continuity
-  checking module: ym.su2_continuity
-  checking module: ym.su2_continuity.SU2Continuity
-  checking cst:ym.su2_continuity.SU2Continuity.close_refl
-  checking cst:ym.su2_continuity.SU2Continuity.close_mono
-  checking cst:ym.su2_continuity.SU2Continuity.close_conj
-  checking cst:ym.su2_continuity.SU2Continuity.abs_prod_close
-  checking cst:ym.su2_continuity.SU2Continuity.close_mul
-  checking cst:ym.su2_continuity.SU2Continuity.close_path
-  checking cst:ym.su2_continuity.SU2Continuity.segment_length
-  checking cst:ym.su2_continuity.SU2Continuity.close_rect
-  checking cst:ym.su2_continuity.SU2Continuity.wilson_lipschitz
-  checking cst:ym.su2_continuity.SU2Continuity.bc_ext
-  checking cst:ym.su2_continuity.SU2Continuity.bc_const
-  checking cst:ym.su2_continuity.SU2Continuity.bc_plus
-  checking cst:ym.su2_continuity.SU2Continuity.bc_mult
-  checking cst:ym.su2_continuity.SU2Continuity.bc_scal
-  checking cst:ym.su2_continuity.SU2Continuity.bc_opp
-  checking cst:ym.su2_continuity.SU2Continuity.bc_minus
-  checking cst:ym.su2_continuity.SU2Continuity.bc_fold_sum
-  checking cst:ym.su2_continuity.SU2Continuity.bc_rsum
-  checking cst:ym.su2_continuity.SU2Continuity.bc_rprod
-  checking cst:ym.su2_continuity.SU2Continuity.exp_le_mono
-  checking cst:ym.su2_continuity.SU2Continuity.exp_minus_one_bound
-  checking cst:ym.su2_continuity.SU2Continuity.bc_exp
-  checking cst:ym.su2_continuity.SU2Continuity.bc_wilson_loop
-  checking cst:ym.su2_continuity.SU2Continuity.bc_plaq
-  checking cst:ym.su2_continuity.SU2Continuity.bc_neg_action
-  checking cst:ym.su2_continuity.SU2Continuity.bc_action
-  checking cst:ym.su2_continuity.SU2Continuity.bc_boltzmann
 Checking library: ym.su2_haar_limit
   checking module: ym.su2_haar_limit
   checking module: ym.su2_haar_limit.SU2HaarLimit
@@ -51048,6 +51254,165 @@ Checking library: ym.su2_infinite_volume
   checking cst:ym.su2_infinite_volume.SU2InfiniteVolume.cover_In
   checking cst:ym.su2_infinite_volume.SU2InfiniteVolume.su2_infinite_volume_area_law
   checking cst:ym.su2_infinite_volume.SU2InfiniteVolume.su2_infinite_volume_plaquette_clustering
+Checking library: ym.su2_multi_clustering
+  checking module: ym.su2_multi_clustering
+  checking module: ym.su2_multi_clustering.SU2MultiClustering
+  checking cst:ym.su2_multi_clustering.SU2MultiClustering.touchb_target_app
+  checking cst:ym.su2_multi_clustering.SU2MultiClustering.touchb_target_nil
+  checking cst:ym.su2_multi_clustering.SU2MultiClustering.reach_target_app
+  checking cst:ym.su2_multi_clustering.SU2MultiClustering.reach_target_nil
+  checking cst:ym.su2_multi_clustering.SU2MultiClustering.reach_target_flat
+  checking cst:ym.su2_multi_clustering.SU2MultiClustering.fcl
+  checking cst:ym.su2_multi_clustering.SU2MultiClustering.gcl
+  checking cst:ym.su2_multi_clustering.SU2MultiClustering.fcl_local
+  checking cst:ym.su2_multi_clustering.SU2MultiClustering.gcl_local
+  checking cst:ym.su2_multi_clustering.SU2MultiClustering.fcl_osc
+  checking cst:ym.su2_multi_clustering.SU2MultiClustering.gcl_osc
+  checking cst:ym.su2_multi_clustering.SU2MultiClustering.chain_bound
+  checking cst:ym.su2_multi_clustering.SU2MultiClustering.instance_multi_clustering
+  checking cst:ym.su2_multi_clustering.SU2MultiClustering.su2_multi_clustering_finite
+  checking cst:ym.su2_multi_clustering.SU2MultiClustering.su2_haar_multi_clustering
+  checking cst:ym.su2_multi_clustering.SU2MultiClustering.local_mult
+  checking cst:ym.su2_multi_clustering.SU2MultiClustering.su2_multi_plaquette_clustering
+Checking library: ym.lattice_boxes_tail
+  checking module: ym.lattice_boxes_tail
+  checking module: ym.lattice_boxes_tail.LatticeBoxesTail
+  checking cst:ym.lattice_boxes_tail.LatticeBoxesTail.rsum_incl_le
+  checking cst:ym.lattice_boxes_tail.LatticeBoxesTail.rsum_filter_split
+  checking cst:ym.lattice_boxes_tail.LatticeBoxesTail.inb
+  checking cst:ym.lattice_boxes_tail.LatticeBoxesTail.inb_spec
+  checking cst:ym.lattice_boxes_tail.LatticeBoxesTail.shell_term
+  checking cst:ym.lattice_boxes_tail.LatticeBoxesTail.layers_sum
+  checking cst:ym.lattice_boxes_tail.LatticeBoxesTail.outside_box_sum
+Checking library: ym.su2_uniqueness
+  checking module: ym.su2_uniqueness
+  checking module: ym.su2_uniqueness.SU2Uniqueness
+  checking cst:ym.su2_uniqueness.SU2Uniqueness.expect_plus
+  checking cst:ym.su2_uniqueness.SU2Uniqueness.expect_const
+  checking cst:ym.su2_uniqueness.SU2Uniqueness.haar_ext
+  checking cst:ym.su2_uniqueness.SU2Uniqueness.haar_scal
+  checking cst:ym.su2_uniqueness.SU2Uniqueness.haar_plus
+  checking cst:ym.su2_uniqueness.SU2Uniqueness.haar_const
+  checking cst:ym.su2_uniqueness.SU2Uniqueness.haar_unique
+  checking cst:ym.su2_uniqueness.SU2Uniqueness.inf_ext
+  checking cst:ym.su2_uniqueness.SU2Uniqueness.inf_scal
+  checking cst:ym.su2_uniqueness.SU2Uniqueness.inf_plus
+  checking cst:ym.su2_uniqueness.SU2Uniqueness.inf_const
+  checking cst:ym.su2_uniqueness.SU2Uniqueness.inf_unique
+  checking cst:ym.su2_uniqueness.SU2Uniqueness.Ccst
+  checking cst:ym.su2_uniqueness.SU2Uniqueness.Ccst_nonneg
+  checking cst:ym.su2_uniqueness.SU2Uniqueness.compare_box
+  checking cst:ym.su2_uniqueness.SU2Uniqueness.uniqueness_bounded
+  checking cst:ym.su2_uniqueness.SU2Uniqueness.su2_infinite_volume_uniqueness
+  checking cst:ym.su2_uniqueness.SU2Uniqueness.haar_seq_exists
+  checking cst:ym.su2_uniqueness.SU2Uniqueness.cv_ext_from
+  checking cst:ym.su2_uniqueness.SU2Uniqueness.cv_nonneg_from
+Checking library: ym.su2_haar_grid_conj
+  checking module: ym.su2_haar_grid_conj
+  checking module: ym.su2_haar_grid_conj.SU2HaarGridConj
+  checking cst:ym.su2_haar_grid_conj.SU2HaarGridConj.trig_reflect
+  checking cst:ym.su2_haar_grid_conj.SU2HaarGridConj.hopf_conj
+  checking cst:ym.su2_haar_grid_conj.SU2HaarGridConj.rho
+  checking cst:ym.su2_haar_grid_conj.SU2HaarGridConj.rho_lt
+  checking cst:ym.su2_haar_grid_conj.SU2HaarGridConj.rho_invol
+  checking cst:ym.su2_haar_grid_conj.SU2HaarGridConj.rho_frac
+  checking cst:ym.su2_haar_grid_conj.SU2HaarGridConj.rho_perm
+  checking cst:ym.su2_haar_grid_conj.SU2HaarGridConj.gpt_conj
+  checking cst:ym.su2_haar_grid_conj.SU2HaarGridConj.gridN_conj
+  checking cst:ym.su2_haar_grid_conj.SU2HaarGridConj.grid_conj
+Checking library: rg.cauchy_schwarz_gap
+  checking module: rg.cauchy_schwarz_gap
+  checking module: rg.cauchy_schwarz_gap.CauchySchwarzGap
+  checking cst:rg.cauchy_schwarz_gap.CauchySchwarzGap.quad_disc
+  checking cst:rg.cauchy_schwarz_gap.CauchySchwarzGap.pow2_pos
+  checking cst:rg.cauchy_schwarz_gap.CauchySchwarzGap.pow2_ge
+  checking cst:rg.cauchy_schwarz_gap.CauchySchwarzGap.sqr_mono
+  checking cst:rg.cauchy_schwarz_gap.CauchySchwarzGap.cs_power
+  checking cst:rg.cauchy_schwarz_gap.CauchySchwarzGap.cs_gap
+Checking library: ym.su2_mass_gap
+  checking module: ym.su2_mass_gap
+  checking module: ym.su2_mass_gap.SU2MassGap
+  checking cst:ym.su2_mass_gap.SU2MassGap.box_wf_in
+  checking cst:ym.su2_mass_gap.SU2MassGap.plaq_unshift_inj
+  checking cst:ym.su2_mass_gap.SU2MassGap.unshift_volume_nodup
+  checking cst:ym.su2_mass_gap.SU2MassGap.unshift_volume_wf
+  checking cst:ym.su2_mass_gap.SU2MassGap.unshift_volume_exhaust
+  checking cst:ym.su2_mass_gap.SU2MassGap.reflect_volume_nodup
+  checking cst:ym.su2_mass_gap.SU2MassGap.reflect_volume_wf
+  checking cst:ym.su2_mass_gap.SU2MassGap.reflect_volume_exhaust
+  checking cst:ym.su2_mass_gap.SU2MassGap.b0
+  checking cst:ym.su2_mass_gap.SU2MassGap.bP
+  checking cst:ym.su2_mass_gap.SU2MassGap.b0_spec
+  checking cst:ym.su2_mass_gap.SU2MassGap.bP_spec
+  checking cst:ym.su2_mass_gap.SU2MassGap.pos_class
+  checking cst:ym.su2_mass_gap.SU2MassGap.plaqP_reflect_neg
+  checking cst:ym.su2_mass_gap.SU2MassGap.neg_reflect_plaqP
+  checking cst:ym.su2_mass_gap.SU2MassGap.S0box
+  checking cst:ym.su2_mass_gap.SU2MassGap.Spbox
+  checking cst:ym.su2_mass_gap.SU2MassGap.symbox
+  checking cst:ym.su2_mass_gap.SU2MassGap.S0box_in
+  checking cst:ym.su2_mass_gap.SU2MassGap.Spbox_in
+  checking cst:ym.su2_mass_gap.SU2MassGap.S0box_wf
+  checking cst:ym.su2_mass_gap.SU2MassGap.S0box_fix
+  checking cst:ym.su2_mass_gap.SU2MassGap.Spbox_wf
+  checking cst:ym.su2_mass_gap.SU2MassGap.Spbox_pos
+  checking cst:ym.su2_mass_gap.SU2MassGap.symbox_wf
+  checking cst:ym.su2_mass_gap.SU2MassGap.symbox_nodup
+  checking cst:ym.su2_mass_gap.SU2MassGap.symbox_exhaust
+  checking cst:ym.su2_mass_gap.SU2MassGap.pos_in_symbox
+  checking cst:ym.su2_mass_gap.SU2MassGap.LocObs
+  checking cst:ym.su2_mass_gap.SU2MassGap.PosObs
+  checking cst:ym.su2_mass_gap.SU2MassGap.pos_loc
+  checking cst:ym.su2_mass_gap.SU2MassGap.local_plus
+  checking cst:ym.su2_mass_gap.SU2MassGap.loc_mult
+  checking cst:ym.su2_mass_gap.SU2MassGap.loc_reflect
+  checking cst:ym.su2_mass_gap.SU2MassGap.iter_shift_list_wf
+  checking cst:ym.su2_mass_gap.SU2MassGap.loc_translate_n
+  checking cst:ym.su2_mass_gap.SU2MassGap.pos_translate_n
+  checking cst:ym.su2_mass_gap.SU2MassGap.pos_plus
+  checking cst:ym.su2_mass_gap.SU2MassGap.pos_scal
+  checking cst:ym.su2_mass_gap.SU2MassGap.translate_n_mult
+  checking cst:ym.su2_mass_gap.SU2MassGap.translate_n_minus_const
+  checking cst:ym.su2_mass_gap.SU2MassGap.translate_n_bound
+  checking cst:ym.su2_mass_gap.SU2MassGap.loc_exists
+  checking cst:ym.su2_mass_gap.SU2MassGap.inf_translate
+  checking cst:ym.su2_mass_gap.SU2MassGap.inf_reflect
+  checking cst:ym.su2_mass_gap.SU2MassGap.loc_reflect_inv
+  checking cst:ym.su2_mass_gap.SU2MassGap.loc_translate_inv
+  checking cst:ym.su2_mass_gap.SU2MassGap.pos_rp
+  checking cst:ym.su2_mass_gap.SU2MassGap.inf_seq
+  checking cst:ym.su2_mass_gap.SU2MassGap.form_sym
+  checking cst:ym.su2_mass_gap.SU2MassGap.form_cs
+  checking cst:ym.su2_mass_gap.SU2MassGap.su2_infinite_volume_symmetry
+  checking cst:ym.su2_mass_gap.SU2MassGap.su2_reflection_positivity
+  checking cst:ym.su2_mass_gap.SU2MassGap.psi
+  checking cst:ym.su2_mass_gap.SU2MassGap.f_pos
+  checking cst:ym.su2_mass_gap.SU2MassGap.psi_local
+  checking cst:ym.su2_mass_gap.SU2MassGap.psi_bc
+  checking cst:ym.su2_mass_gap.SU2MassGap.psi_pos
+  checking cst:ym.su2_mass_gap.SU2MassGap.psi_zero
+  checking cst:ym.su2_mass_gap.SU2MassGap.tau_psi
+  checking cst:ym.su2_mass_gap.SU2MassGap.Ha0
+  checking cst:ym.su2_mass_gap.SU2MassGap.a_double
+  checking cst:ym.su2_mass_gap.SU2MassGap.a0_nonneg
+  checking cst:ym.su2_mass_gap.SU2MassGap.a_even_nonneg
+  checking cst:ym.su2_mass_gap.SU2MassGap.a_cs
+  checking cst:ym.su2_mass_gap.SU2MassGap.a_decay
+  checking cst:ym.su2_mass_gap.SU2MassGap.a_value
+  checking cst:ym.su2_mass_gap.SU2MassGap.gap_bound
+  checking cst:ym.su2_mass_gap.SU2MassGap.diag_bound
+  checking cst:ym.su2_mass_gap.SU2MassGap.form_value
+  checking cst:ym.su2_mass_gap.SU2MassGap.su2_transfer_matrix_mass_gap
+  checking cst:ym.su2_mass_gap.SU2MassGap.su2_transfer_matrix_norm_bound
+Checking library: verification.VerifySU2MassGap
+  checking module: verification.VerifySU2MassGap
+  checking module: verification.VerifySU2MassGap.VerifySU2MassGap
+  checking cst:verification.VerifySU2MassGap.VerifySU2MassGap.verified_su2gauge4D_infinite_volume_uniqueness
+  checking cst:verification.VerifySU2MassGap.VerifySU2MassGap.verified_su2gauge4D_infinite_volume_symmetry
+  checking cst:verification.VerifySU2MassGap.VerifySU2MassGap.verified_su2gauge4D_reflection_positivity
+  checking cst:verification.VerifySU2MassGap.VerifySU2MassGap.verified_su2gauge4D_multi_plaquette_clustering
+  checking cst:verification.VerifySU2MassGap.VerifySU2MassGap.verified_su2gauge4D_transfer_matrix_mass_gap
+  checking cst:verification.VerifySU2MassGap.VerifySU2MassGap.verified_su2gauge4D_transfer_matrix_norm_bound
 Checking library: verification.VerifySU2InfiniteVolume
   checking module: verification.VerifySU2InfiniteVolume
   checking module: verification.VerifySU2InfiniteVolume.VerifySU2InfiniteVolume

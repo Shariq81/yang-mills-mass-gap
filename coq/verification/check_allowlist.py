@@ -2,9 +2,10 @@
 """
 Strict Coq stdlib-only axiom allowlist gate for `verification/CheckAxioms.v`
 followed by `verification/CheckAxiomsZ2Gauge.v`,
-`verification/CheckAxiomsZ2AreaLaw.v`, `verification/CheckAxiomsSU2Gauge.v` and
-`verification/CheckAxiomsSU2InfiniteVolume.v` (their outputs are concatenated
-in that order by `replay.sh` / `replay.py`).
+`verification/CheckAxiomsZ2AreaLaw.v`, `verification/CheckAxiomsSU2Gauge.v`,
+`verification/CheckAxiomsSU2InfiniteVolume.v` and
+`verification/CheckAxiomsSU2MassGap.v` (their outputs are concatenated in that
+order by `replay.sh` / `replay.py`).
 
 Because the `CheckAxioms*.v` files emit ONLY `Print Assumptions` output (type
 checks live in `CheckTypes*.v`), this parser NEVER ignores `Verify.*` or
@@ -49,6 +50,12 @@ EXPECTED_THEOREMS = [
     "VerifySU2InfiniteVolume.verified_su2gauge4D_thermodynamic_limit",
     "VerifySU2InfiniteVolume.verified_su2gauge4D_infinite_volume_clustering",
     "VerifySU2InfiniteVolume.verified_su2gauge4D_infinite_volume_area_law",
+    "VerifySU2MassGap.verified_su2gauge4D_infinite_volume_uniqueness",
+    "VerifySU2MassGap.verified_su2gauge4D_infinite_volume_symmetry",
+    "VerifySU2MassGap.verified_su2gauge4D_reflection_positivity",
+    "VerifySU2MassGap.verified_su2gauge4D_multi_plaquette_clustering",
+    "VerifySU2MassGap.verified_su2gauge4D_transfer_matrix_mass_gap",
+    "VerifySU2MassGap.verified_su2gauge4D_transfer_matrix_norm_bound",
 ]
 
 
