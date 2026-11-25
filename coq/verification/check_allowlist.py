@@ -3,9 +3,11 @@
 Strict Coq stdlib-only axiom allowlist gate for `verification/CheckAxioms.v`
 followed by `verification/CheckAxiomsZ2Gauge.v`,
 `verification/CheckAxiomsZ2AreaLaw.v`, `verification/CheckAxiomsSU2Gauge.v`,
-`verification/CheckAxiomsSU2InfiniteVolume.v` and
-`verification/CheckAxiomsSU2MassGap.v` (their outputs are concatenated in that
-order by `replay.sh` / `replay.py`).
+`verification/CheckAxiomsSU2InfiniteVolume.v`,
+`verification/CheckAxiomsSU2MassGap.v`,
+`verification/CheckAxiomsSU2GaugeInvariance.v` and
+`verification/CheckAxiomsSU2TransferPositivity.v` (their outputs are
+concatenated in that order by `replay.sh` / `replay.py`).
 
 Because the `CheckAxioms*.v` files emit ONLY `Print Assumptions` output (type
 checks live in `CheckTypes*.v`), this parser NEVER ignores `Verify.*` or
@@ -56,6 +58,13 @@ EXPECTED_THEOREMS = [
     "VerifySU2MassGap.verified_su2gauge4D_multi_plaquette_clustering",
     "VerifySU2MassGap.verified_su2gauge4D_transfer_matrix_mass_gap",
     "VerifySU2MassGap.verified_su2gauge4D_transfer_matrix_norm_bound",
+    "VerifySU2GaugeInvariance.verified_su2_haar_bi_invariance",
+    "VerifySU2GaugeInvariance.verified_su2gauge4D_haar_gauge_invariance",
+    "VerifySU2GaugeInvariance.verified_su2gauge4D_infinite_volume_gauge_invariance",
+    "VerifySU2TransferPositivity.verified_su2gauge4D_transfer_matrix_positivity",
+    "VerifySU2TransferPositivity.verified_su2gauge4D_transfer_matrix_spectral_bounds",
+    "VerifySU2TransferPositivity.verified_su2gauge4D_transfer_matrix_symmetry",
+    "VerifySU2TransferPositivity.verified_su2gauge4D_transfer_matrix_contraction",
 ]
 
 
