@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """
 Strict Coq stdlib-only axiom allowlist gate for `verification/CheckAxioms.v`
-followed by `verification/CheckAxiomsZ2Gauge.v` (their outputs are concatenated
-in that order by `replay.sh` / `replay.py`).
+followed by `verification/CheckAxiomsZ2Gauge.v` and
+`verification/CheckAxiomsZ2AreaLaw.v` (their outputs are concatenated in that
+order by `replay.sh` / `replay.py`).
 
 Because the `CheckAxioms*.v` files emit ONLY `Print Assumptions` output (type
 checks live in `CheckTypes*.v`), this parser NEVER ignores `Verify.*` or
@@ -37,6 +38,7 @@ EXPECTED_THEOREMS = [
     "VerifyZ2Gauge.verified_z2gauge4D_strong_coupling_clustering",
     "VerifyZ2Gauge.verified_z2gauge4D_surface_polymer_gas",
     "VerifyZ2Gauge.verified_z2gauge4D_free_energy_cluster_expansion",
+    "VerifyZ2AreaLaw.verified_z2gauge4D_wilson_loop_area_law",
 ]
 
 

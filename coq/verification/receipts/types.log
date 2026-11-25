@@ -56,3 +56,7 @@ VerifyZ2Gauge.verified_z2gauge4D_free_energy_cluster_expansion
 :
 ChallengeZ2Gauge.Challenge_Z2Gauge4D_FreeEnergyClusterExpansion
      : ChallengeZ2Gauge.Challenge_Z2Gauge4D_FreeEnergyClusterExpansion
+VerifyZ2AreaLaw.verified_z2gauge4D_wilson_loop_area_law
+:
+ChallengeZ2AreaLaw.Challenge_Z2Gauge4D_WilsonLoopAreaLaw
+     : ChallengeZ2AreaLaw.Challenge_Z2Gauge4D_WilsonLoopAreaLaw

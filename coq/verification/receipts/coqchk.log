@@ -1,8 +1,14 @@
 Welcome to Chicken 8.18.0
-[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/verification/VerifyZ2Gauge.vo ...
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/verification/VerifyZ2AreaLaw.vo ...
  done]
 
-[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/z2_free_energy.vo ...
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/z2_area_law.vo ...
+ done]
+
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/z2_min_area.vo ...
+ done]
+
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/z2_even_holonomy.vo ...
  done]
 
 [intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/z2_polymer_gas.vo ...
@@ -989,7 +995,19 @@ Welcome to Chicken 8.18.0
 [intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/rg/polymer_representation.vo ...
  done]
 
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/verification/ChallengeZ2AreaLaw.vo ...
+ done]
+
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/z2_free_energy.vo ...
+ done]
+
 [intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/rg/connected_subset_bound.vo ...
+ done]
+
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/rg/rooted_polymer_bound.vo ...
+ done]
+
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/verification/VerifyZ2Gauge.vo ...
  done]
 
 
@@ -1322,8 +1340,14 @@ Ordered list:
   ym.z2_gauge_clustering
   rg.polymer_representation
   ym.z2_polymer_gas
+  ym.z2_even_holonomy
+  verification.ChallengeZ2AreaLaw
+  ym.z2_min_area
   rg.connected_subset_bound
   ym.z2_free_energy
+  rg.rooted_polymer_bound
+  ym.z2_area_law
+  verification.VerifyZ2AreaLaw
   verification.VerifyZ2Gauge
   
 Checking library: Coq.Init.Ltac
@@ -50346,6 +50370,54 @@ Checking library: ym.z2_polymer_gas
   checking cst:ym.z2_polymer_gas.Z2PolymerGas.polymers_eq
   checking cst:ym.z2_polymer_gas.Z2PolymerGas.surface_sum_polymer
   checking cst:ym.z2_polymer_gas.Z2PolymerGas.z2_surface_polymer_gas
+Checking library: ym.z2_even_holonomy
+  checking module: ym.z2_even_holonomy
+  checking module: ym.z2_even_holonomy.Z2EvenHolonomy
+  checking cst:ym.z2_even_holonomy.Z2EvenHolonomy.reset
+  checking cst:ym.z2_even_holonomy.Z2EvenHolonomy.link4D_eqb_refl
+  checking cst:ym.z2_even_holonomy.Z2EvenHolonomy.link4D_eqb_neq
+  checking cst:ym.z2_even_holonomy.Z2EvenHolonomy.reset_notin
+  checking cst:ym.z2_even_holonomy.Z2EvenHolonomy.reset_in
+  checking cst:ym.z2_even_holonomy.Z2EvenHolonomy.z2_sign_pm1
+  checking cst:ym.z2_even_holonomy.Z2EvenHolonomy.pm1_pow_even
+  checking cst:ym.z2_even_holonomy.Z2EvenHolonomy.holonomy_reset
+  checking cst:ym.z2_even_holonomy.Z2EvenHolonomy.even_holonomy
+  checking cst:ym.z2_even_holonomy.Z2EvenHolonomy.allEven
+  checking cst:ym.z2_even_holonomy.Z2EvenHolonomy.allEven_iff
+  checking cst:ym.z2_even_holonomy.Z2EvenHolonomy.allEven_holonomy
+  checking cst:ym.z2_even_holonomy.Z2EvenHolonomy.holonomy_flat_map
+  checking cst:ym.z2_even_holonomy.Z2EvenHolonomy.rprod_minus_one_exists
+Checking library: verification.ChallengeZ2AreaLaw
+  checking module: verification.ChallengeZ2AreaLaw
+  checking module: verification.ChallengeZ2AreaLaw.ChallengeZ2AreaLaw
+  checking cst:verification.ChallengeZ2AreaLaw.ChallengeZ2AreaLaw.shift4D_n
+  checking cst:verification.ChallengeZ2AreaLaw.ChallengeZ2AreaLaw.z2_segment
+  checking cst:verification.ChallengeZ2AreaLaw.ChallengeZ2AreaLaw.z2_rect_loop
+  checking cst:verification.ChallengeZ2AreaLaw.ChallengeZ2AreaLaw.Challenge_Z2Gauge4D_WilsonLoopAreaLaw
+Checking library: ym.z2_min_area
+  checking module: ym.z2_min_area
+  checking module: ym.z2_min_area.Z2MinArea
+  checking cst:ym.z2_min_area.Z2MinArea.coord
+  checking cst:ym.z2_min_area.Z2MinArea.coord_shift_same
+  checking cst:ym.z2_min_area.Z2MinArea.coord_shift_other
+  checking cst:ym.z2_min_area.Z2MinArea.coord_shift_n_same
+  checking cst:ym.z2_min_area.Z2MinArea.coord_shift_n_other
+  checking cst:ym.z2_min_area.Z2MinArea.dir4D_eqb_reflect
+  checking cst:ym.z2_min_area.Z2MinArea.dir4D_eqb_refl
+  checking cst:ym.z2_min_area.Z2MinArea.dir4D_eqb_neq
+  checking cst:ym.z2_min_area.Z2MinArea.probe
+  checking cst:ym.z2_min_area.Z2MinArea.sign_pair_step
+  checking cst:ym.z2_min_area.Z2MinArea.sign_pair_same
+  checking cst:ym.z2_min_area.Z2MinArea.probe_plaq_links
+  checking cst:ym.z2_min_area.Z2MinArea.wf_plaq_dirs_neq
+  checking cst:ym.z2_min_area.Z2MinArea.probe_plaq
+  checking cst:ym.z2_min_area.Z2MinArea.holonomy_all_false
+  checking cst:ym.z2_min_area.Z2MinArea.holonomy_seq_single
+  checking cst:ym.z2_min_area.Z2MinArea.probe_rect_loop
+  checking cst:ym.z2_min_area.Z2MinArea.column_plaquette
+  checking cst:ym.z2_min_area.Z2MinArea.NoDup_app_disjoint
+  checking cst:ym.z2_min_area.Z2MinArea.NoDup_list_prod
+  checking cst:ym.z2_min_area.Z2MinArea.rect_min_area
 Checking library: rg.connected_subset_bound
   checking module: rg.connected_subset_bound
   checking module: rg.connected_subset_bound.ConnectedSubsetBound
@@ -50411,6 +50483,70 @@ Checking library: ym.z2_free_energy
   checking cst:ym.z2_free_energy.Z2FreeEnergy.incl_wf
   checking cst:ym.z2_free_energy.Z2FreeEnergy.free_energy_expansion
   checking cst:ym.z2_free_energy.Z2FreeEnergy.z2_free_energy_cluster_expansion
+Checking library: rg.rooted_polymer_bound
+  checking module: rg.rooted_polymer_bound
+  checking module: rg.rooted_polymer_bound.RootedPolymerBound
+  checking cst:rg.rooted_polymer_bound.RootedPolymerBound.tree_sum_upto_kp_series
+  checking cst:rg.rooted_polymer_bound.RootedPolymerBound.kp_rooted_connected_subset_bound
+  checking cst:rg.rooted_polymer_bound.RootedPolymerBound.rooted_expansion
+Checking library: ym.z2_area_law
+  checking module: ym.z2_area_law
+  checking module: ym.z2_area_law.Z2AreaLaw
+  checking cst:ym.z2_area_law.Z2AreaLaw.rprod_filter_split
+  checking cst:ym.z2_area_law.Z2AreaLaw.filter_length_mono
+  checking cst:ym.z2_area_law.Z2AreaLaw.filter_orb_length
+  checking cst:ym.z2_area_law.Z2AreaLaw.pow_le_exponent
+  checking cst:ym.z2_area_law.Z2AreaLaw.rsum_sublists_filter_le
+  checking cst:ym.z2_area_law.Z2AreaLaw.sublist_wf
+  checking cst:ym.z2_area_law.Z2AreaLaw.eta
+  checking cst:ym.z2_area_law.Z2AreaLaw.eta_plaq
+  checking cst:ym.z2_area_law.Z2AreaLaw.closed_size_parity
+  checking cst:ym.z2_area_law.Z2AreaLaw.pow_abs_parity
+  checking cst:ym.z2_area_law.Z2AreaLaw.surface_sum_closed_rho
+  checking cst:ym.z2_area_law.Z2AreaLaw.surface_sum_closed_abs
+  checking cst:ym.z2_area_law.Z2AreaLaw.surface_sum_closed_nonneg
+  checking cst:ym.z2_area_law.Z2AreaLaw.surface_sum_abs_le
+  checking cst:ym.z2_area_law.Z2AreaLaw.count_flat_split
+  checking cst:ym.z2_area_law.Z2AreaLaw.allEven_split
+  checking cst:ym.z2_area_law.Z2AreaLaw.link_plaq_count
+  checking cst:ym.z2_area_law.Z2AreaLaw.loop_touch_count
+  checking cst:ym.z2_area_law.Z2AreaLaw.xent
+  checking cst:ym.z2_area_law.Z2AreaLaw.a0e
+  checking cst:ym.z2_area_law.Z2AreaLaw.xent_pos
+  checking cst:ym.z2_area_law.Z2AreaLaw.a0e_bounds
+  checking cst:ym.z2_area_law.Z2AreaLaw.xexp_bound
+  checking cst:ym.z2_area_law.Z2AreaLaw.unit_kp_num
+  checking cst:ym.z2_area_law.Z2AreaLaw.esupp
+  checking cst:ym.z2_area_law.Z2AreaLaw.eeqb
+  checking cst:ym.z2_area_law.Z2AreaLaw.eeqb_spec
+  checking cst:ym.z2_area_law.Z2AreaLaw.esupp_nonempty
+  checking cst:ym.z2_area_law.Z2AreaLaw.ewt
+  checking cst:ym.z2_area_law.Z2AreaLaw.erho
+  checking cst:ym.z2_area_law.Z2AreaLaw.erho_factor
+  checking cst:ym.z2_area_law.Z2AreaLaw.erho_nonneg
+  checking cst:ym.z2_area_law.Z2AreaLaw.flat_map_esupp_some
+  checking cst:ym.z2_area_law.Z2AreaLaw.rprod_map_some
+  checking cst:ym.z2_area_law.Z2AreaLaw.erho_root
+  checking cst:ym.z2_area_law.Z2AreaLaw.erho_closed
+  checking cst:ym.z2_area_law.Z2AreaLaw.bdry_allEven
+  checking cst:ym.z2_area_law.Z2AreaLaw.surface_sum_root
+  checking cst:ym.z2_area_law.Z2AreaLaw.nodup_root
+  checking cst:ym.z2_area_law.Z2AreaLaw.root_decomposition
+  checking cst:ym.z2_area_law.Z2AreaLaw.wE
+  checking cst:ym.z2_area_law.Z2AreaLaw.aE
+  checking cst:ym.z2_area_law.Z2AreaLaw.aE_nonneg
+  checking cst:ym.z2_area_law.Z2AreaLaw.kp_some
+  checking cst:ym.z2_area_law.Z2AreaLaw.kp_none
+  checking cst:ym.z2_area_law.Z2AreaLaw.loop_entropy
+  checking cst:ym.z2_area_law.Z2AreaLaw.loop_area_decay
+  checking cst:ym.z2_area_law.Z2AreaLaw.loop_surface_bound
+  checking cst:ym.z2_area_law.Z2AreaLaw.rect_loop_length
+  checking cst:ym.z2_area_law.Z2AreaLaw.surface_area_law
+  checking cst:ym.z2_area_law.Z2AreaLaw.z2_wilson_loop_area_law
+Checking library: verification.VerifyZ2AreaLaw
+  checking module: verification.VerifyZ2AreaLaw
+  checking module: verification.VerifyZ2AreaLaw.VerifyZ2AreaLaw
+  checking cst:verification.VerifyZ2AreaLaw.VerifyZ2AreaLaw.verified_z2gauge4D_wilson_loop_area_law
 Checking library: verification.VerifyZ2Gauge
   checking module: verification.VerifyZ2Gauge
   checking module: verification.VerifyZ2Gauge.VerifyZ2Gauge

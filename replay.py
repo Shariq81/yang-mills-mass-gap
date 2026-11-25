@@ -16,16 +16,25 @@ VERIFICATION = COQ / "verification"
 RECEIPTS = VERIFICATION / "receipts"
 
 # Frozen statement files, compiled first and in this order, before any proof
-# module exists: Challenge.v imports only the Coq standard library, and
-# ChallengeZ2Gauge.v imports only the Coq standard library and Challenge.v.
-FROZEN = [Path("verification/Challenge.v"), Path("verification/ChallengeZ2Gauge.v")]
-# 16 files of Targets 1-6c (Zenodo 10.5281/zenodo.24507324) + 11 files of Target 7.
-EXPECTED_SOURCES = 27
+# module exists: Challenge.v imports only the Coq standard library,
+# ChallengeZ2Gauge.v imports only the Coq standard library and Challenge.v, and
+# ChallengeZ2AreaLaw.v imports only the Coq standard library and those two.
+FROZEN = [
+    Path("verification/Challenge.v"),
+    Path("verification/ChallengeZ2Gauge.v"),
+    Path("verification/ChallengeZ2AreaLaw.v"),
+]
+# 16 files of Targets 1-6c (Zenodo 10.5281/zenodo.24507324), 11 files of
+# Targets 7a-7d (27 files pinned by Zenodo 10.5281/zenodo.24512861), and
+# 8 files of Target 7e.
+EXPECTED_SOURCES = 35
 CHECKED_MODULES = [
     "verification.Challenge",
     "verification.Verify",
     "verification.ChallengeZ2Gauge",
     "verification.VerifyZ2Gauge",
+    "verification.ChallengeZ2AreaLaw",
+    "verification.VerifyZ2AreaLaw",
 ]
 
 
