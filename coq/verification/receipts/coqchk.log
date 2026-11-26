@@ -1,5 +1,8 @@
 Welcome to Chicken 8.18.0
-[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/verification/VerifySU2HilbertSpace.vo ...
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/verification/VerifySU2TransferSpectrum.vo ...
+ done]
+
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/su2_transfer_spectrum.vo ...
  done]
 
 [intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/su2_os_hilbert_space.vo ...
@@ -1130,6 +1133,15 @@ Welcome to Chicken 8.18.0
 [intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/verification/ChallengeSU2HilbertSpace.vo ...
  done]
 
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/rg/hilbert_resolvent.vo ...
+ done]
+
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/verification/ChallengeSU2TransferSpectrum.vo ...
+ done]
+
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/verification/VerifySU2HilbertSpace.vo ...
+ done]
+
 [intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/verification/VerifySU2TransferPositivity.vo ...
  done]
 
@@ -1529,6 +1541,10 @@ Ordered list:
   rg.hilbert_completion
   verification.ChallengeSU2HilbertSpace
   ym.su2_os_hilbert_space
+  rg.hilbert_resolvent
+  verification.ChallengeSU2TransferSpectrum
+  ym.su2_transfer_spectrum
+  verification.VerifySU2TransferSpectrum
   verification.VerifySU2HilbertSpace
   verification.VerifySU2TransferPositivity
   verification.VerifySU2GaugeInvariance
@@ -52057,6 +52073,71 @@ Checking library: ym.su2_os_hilbert_space
   checking cst:ym.su2_os_hilbert_space.SU2OSHilbertSpace.vacuum_gap
   checking cst:ym.su2_os_hilbert_space.SU2OSHilbertSpace.os_hilbert_space
   checking cst:ym.su2_os_hilbert_space.SU2OSHilbertSpace.su2_os_hilbert_space
+Checking library: rg.hilbert_resolvent
+  checking module: rg.hilbert_resolvent
+  checking module: rg.hilbert_resolvent.HilbertResolvent
+  checking cst:rg.hilbert_resolvent.HilbertResolvent.complete
+  checking cst:rg.hilbert_resolvent.HilbertResolvent.cv_shift
+  checking cst:rg.hilbert_resolvent.HilbertResolvent.geo_aux
+  checking cst:rg.hilbert_resolvent.HilbertResolvent.sq_le_cancel
+  checking cst:rg.hilbert_resolvent.HilbertResolvent.lim_of
+  checking cst:rg.hilbert_resolvent.HilbertResolvent.lim_weak
+  checking cst:rg.hilbert_resolvent.HilbertResolvent.ps
+  checking cst:rg.hilbert_resolvent.HilbertResolvent.D_pos
+  checking cst:rg.hilbert_resolvent.HilbertResolvent.D_eq
+  checking cst:rg.hilbert_resolvent.HilbertResolvent.ps_0
+  checking cst:rg.hilbert_resolvent.HilbertResolvent.ps_S
+  checking cst:rg.hilbert_resolvent.HilbertResolvent.ps_comm
+  checking cst:rg.hilbert_resolvent.HilbertResolvent.ps_sym
+  checking cst:rg.hilbert_resolvent.HilbertResolvent.ps_bd
+  checking cst:rg.hilbert_resolvent.HilbertResolvent.ps_step
+  checking cst:rg.hilbert_resolvent.HilbertResolvent.ps_diff
+  checking cst:rg.hilbert_resolvent.HilbertResolvent.ps_cauchy
+  checking cst:rg.hilbert_resolvent.HilbertResolvent.S_ex
+  checking cst:rg.hilbert_resolvent.HilbertResolvent.Sx
+  checking cst:rg.hilbert_resolvent.HilbertResolvent.S_cv
+  checking cst:rg.hilbert_resolvent.HilbertResolvent.S_sym
+  checking cst:rg.hilbert_resolvent.HilbertResolvent.S_eq
+  checking cst:rg.hilbert_resolvent.HilbertResolvent.S_bd
+  checking cst:rg.hilbert_resolvent.HilbertResolvent.neumann
+  checking cst:rg.hilbert_resolvent.HilbertResolvent.form_to_norm
+  checking cst:rg.hilbert_resolvent.HilbertResolvent.resolvent_above
+  checking cst:rg.hilbert_resolvent.HilbertResolvent.resolvent_form_above
+  checking cst:rg.hilbert_resolvent.HilbertResolvent.resolvent_below
+  checking cst:rg.hilbert_resolvent.HilbertResolvent.AOm_r
+  checking cst:rg.hilbert_resolvent.HilbertResolvent.Ared
+  checking cst:rg.hilbert_resolvent.HilbertResolvent.Ared_sym
+  checking cst:rg.hilbert_resolvent.HilbertResolvent.Ared_val
+  checking cst:rg.hilbert_resolvent.HilbertResolvent.perp_facts
+  checking cst:rg.hilbert_resolvent.HilbertResolvent.Ared_pos
+  checking cst:rg.hilbert_resolvent.HilbertResolvent.Ared_le
+  checking cst:rg.hilbert_resolvent.HilbertResolvent.Ared_Om
+  checking cst:rg.hilbert_resolvent.HilbertResolvent.resolvent_gap
+  checking cst:rg.hilbert_resolvent.HilbertResolvent.eigen_no_inverse
+  checking cst:rg.hilbert_resolvent.HilbertResolvent.inverse_of_weak
+Checking library: verification.ChallengeSU2TransferSpectrum
+  checking module: verification.ChallengeSU2TransferSpectrum
+  checking module: verification.ChallengeSU2TransferSpectrum.ChallengeSU2TransferSpectrum
+  checking cst:verification.ChallengeSU2TransferSpectrum.ChallengeSU2TransferSpectrum.hs_bounded_inverse
+  checking cst:verification.ChallengeSU2TransferSpectrum.ChallengeSU2TransferSpectrum.hs_in_resolvent_set
+  checking cst:verification.ChallengeSU2TransferSpectrum.ChallengeSU2TransferSpectrum.su2_os_transfer_spectrum
+  checking cst:verification.ChallengeSU2TransferSpectrum.ChallengeSU2TransferSpectrum.Challenge_SU2Gauge4D_TransferSpectrum
+Checking library: ym.su2_transfer_spectrum
+  checking module: ym.su2_transfer_spectrum
+  checking module: ym.su2_transfer_spectrum.SU2TransferSpectrum
+  checking cst:ym.su2_transfer_spectrum.SU2TransferSpectrum.HF
+  checking cst:ym.su2_transfer_spectrum.SU2TransferSpectrum.HC
+  checking cst:ym.su2_transfer_spectrum.SU2TransferSpectrum.T_le1
+  checking cst:ym.su2_transfer_spectrum.SU2TransferSpectrum.to_resolvent
+  checking cst:ym.su2_transfer_spectrum.SU2TransferSpectrum.resolvent_negative
+  checking cst:ym.su2_transfer_spectrum.SU2TransferSpectrum.resolvent_in_gap
+  checking cst:ym.su2_transfer_spectrum.SU2TransferSpectrum.one_in_spectrum
+  checking cst:ym.su2_transfer_spectrum.SU2TransferSpectrum.transfer_spectrum
+  checking cst:ym.su2_transfer_spectrum.SU2TransferSpectrum.su2_transfer_spectrum
+Checking library: verification.VerifySU2TransferSpectrum
+  checking module: verification.VerifySU2TransferSpectrum
+  checking module: verification.VerifySU2TransferSpectrum.VerifySU2TransferSpectrum
+  checking cst:verification.VerifySU2TransferSpectrum.VerifySU2TransferSpectrum.verified_su2gauge4D_transfer_spectrum
 Checking library: verification.VerifySU2HilbertSpace
   checking module: verification.VerifySU2HilbertSpace
   checking module: verification.VerifySU2HilbertSpace.VerifySU2HilbertSpace

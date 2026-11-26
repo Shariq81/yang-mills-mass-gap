@@ -152,3 +152,7 @@ VerifySU2HilbertSpace.verified_su2gauge4D_os_hilbert_space
 :
 ChallengeSU2HilbertSpace.Challenge_SU2Gauge4D_OSHilbertSpace
      : ChallengeSU2HilbertSpace.Challenge_SU2Gauge4D_OSHilbertSpace
+VerifySU2TransferSpectrum.verified_su2gauge4D_transfer_spectrum
+:
+ChallengeSU2TransferSpectrum.Challenge_SU2Gauge4D_TransferSpectrum
+     : ChallengeSU2TransferSpectrum.Challenge_SU2Gauge4D_TransferSpectrum
