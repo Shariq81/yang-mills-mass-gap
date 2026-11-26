@@ -148,3 +148,7 @@ VerifySU2TransferPositivity.verified_su2gauge4D_transfer_matrix_contraction
 :
 ChallengeSU2TransferPositivity.Challenge_SU2Gauge4D_TransferMatrixContraction
      : ChallengeSU2TransferPositivity.Challenge_SU2Gauge4D_TransferMatrixContraction
+VerifySU2HilbertSpace.verified_su2gauge4D_os_hilbert_space
+:
+ChallengeSU2HilbertSpace.Challenge_SU2Gauge4D_OSHilbertSpace
+     : ChallengeSU2HilbertSpace.Challenge_SU2Gauge4D_OSHilbertSpace

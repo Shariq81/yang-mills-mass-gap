@@ -24,7 +24,8 @@ RECEIPTS = VERIFICATION / "receipts"
 # those four, ChallengeSU2MassGap.v imports only the Coq standard library
 # and those five, ChallengeSU2GaugeInvariance.v imports only the Coq
 # standard library and the first five, and ChallengeSU2TransferPositivity.v
-# imports only the Coq standard library and the first six.
+# and ChallengeSU2HilbertSpace.v import only the Coq standard library and
+# the first six.
 FROZEN = [
     Path("verification/Challenge.v"),
     Path("verification/ChallengeZ2Gauge.v"),
@@ -34,13 +35,15 @@ FROZEN = [
     Path("verification/ChallengeSU2MassGap.v"),
     Path("verification/ChallengeSU2GaugeInvariance.v"),
     Path("verification/ChallengeSU2TransferPositivity.v"),
+    Path("verification/ChallengeSU2HilbertSpace.v"),
 ]
 # 16 files of Targets 1-6c (Zenodo 10.5281/zenodo.24507324), 11 files of
 # Targets 7a-7d (27 files pinned by Zenodo 10.5281/zenodo.24512861),
 # 8 files of Target 7e, 11 files of Targets 8a-8e, 8 files of
 # Targets 9a-9d, 14 files of Targets 10a-10f, 11 files of
-# Targets 11a-11c, and 9 files of Targets 12a-12d.
-EXPECTED_SOURCES = 88
+# Targets 11a-11c, 9 files of Targets 12a-12d (88 files pinned by Zenodo
+# 10.5281/zenodo.24545906), and 6 files of Target 13.
+EXPECTED_SOURCES = 94
 CHECKED_MODULES = [
     "verification.Challenge",
     "verification.Verify",
@@ -58,6 +61,8 @@ CHECKED_MODULES = [
     "verification.VerifySU2GaugeInvariance",
     "verification.ChallengeSU2TransferPositivity",
     "verification.VerifySU2TransferPositivity",
+    "verification.ChallengeSU2HilbertSpace",
+    "verification.VerifySU2HilbertSpace",
 ]
 
 

@@ -1,5 +1,8 @@
 Welcome to Chicken 8.18.0
-[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/verification/VerifySU2TransferPositivity.vo ...
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/verification/VerifySU2HilbertSpace.vo ...
+ done]
+
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/su2_os_hilbert_space.vo ...
  done]
 
 [intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/su2_transfer_positivity.vo ...
@@ -1121,6 +1124,15 @@ Welcome to Chicken 8.18.0
 [intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/verification/ChallengeSU2TransferPositivity.vo ...
  done]
 
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/rg/hilbert_completion.vo ...
+ done]
+
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/verification/ChallengeSU2HilbertSpace.vo ...
+ done]
+
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/verification/VerifySU2TransferPositivity.vo ...
+ done]
+
 [intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/verification/VerifySU2GaugeInvariance.vo ...
  done]
 
@@ -1514,6 +1526,10 @@ Ordered list:
   rg.product_measure_two_copy
   verification.ChallengeSU2TransferPositivity
   ym.su2_transfer_positivity
+  rg.hilbert_completion
+  verification.ChallengeSU2HilbertSpace
+  ym.su2_os_hilbert_space
+  verification.VerifySU2HilbertSpace
   verification.VerifySU2TransferPositivity
   verification.VerifySU2GaugeInvariance
   verification.VerifySU2MassGap
@@ -51913,6 +51929,138 @@ Checking library: ym.su2_transfer_positivity
   checking cst:ym.su2_transfer_positivity.SU2TransferPositivity.su2_transfer_matrix_spectral_bounds
   checking cst:ym.su2_transfer_positivity.SU2TransferPositivity.su2_transfer_matrix_symmetry
   checking cst:ym.su2_transfer_positivity.SU2TransferPositivity.su2_transfer_matrix_contraction
+Checking library: rg.hilbert_completion
+  checking module: rg.hilbert_completion
+  checking module: rg.hilbert_completion.HilbertCompletion
+  checking cst:rg.hilbert_completion.HilbertCompletion.cv_ext
+  checking cst:rg.hilbert_completion.HilbertCompletion.cv_const
+  checking cst:rg.hilbert_completion.HilbertCompletion.cv_le_from
+  checking cst:rg.hilbert_completion.HilbertCompletion.cv_ge_from
+  checking cst:rg.hilbert_completion.HilbertCompletion.cv_le
+  checking cst:rg.hilbert_completion.HilbertCompletion.cv_scal
+  checking cst:rg.hilbert_completion.HilbertCompletion.inv_small
+  checking cst:rg.hilbert_completion.HilbertCompletion.sq_abs_le
+  checking cst:rg.hilbert_completion.HilbertCompletion.sub
+  checking cst:rg.hilbert_completion.HilbertCompletion.form_axioms
+  checking cst:rg.hilbert_completion.HilbertCompletion.B_sym
+  checking cst:rg.hilbert_completion.HilbertCompletion.B_add
+  checking cst:rg.hilbert_completion.HilbertCompletion.B_scal
+  checking cst:rg.hilbert_completion.HilbertCompletion.B_pos
+  checking cst:rg.hilbert_completion.HilbertCompletion.B_add_r
+  checking cst:rg.hilbert_completion.HilbertCompletion.B_scal_r
+  checking cst:rg.hilbert_completion.HilbertCompletion.B_sub
+  checking cst:rg.hilbert_completion.HilbertCompletion.B_sub_r
+  checking cst:rg.hilbert_completion.HilbertCompletion.Q_sub
+  checking cst:rg.hilbert_completion.HilbertCompletion.Q_self
+  checking cst:rg.hilbert_completion.HilbertCompletion.Q_sub_sym
+  checking cst:rg.hilbert_completion.HilbertCompletion.Q_scal
+  checking cst:rg.hilbert_completion.HilbertCompletion.Q_add
+  checking cst:rg.hilbert_completion.HilbertCompletion.cs
+  checking cst:rg.hilbert_completion.HilbertCompletion.abs_bound
+  checking cst:rg.hilbert_completion.HilbertCompletion.Q_add2
+  checking cst:rg.hilbert_completion.HilbertCompletion.Q_bound
+  checking cst:rg.hilbert_completion.HilbertCompletion.Q_tri2
+  checking cst:rg.hilbert_completion.HilbertCompletion.Q_tri3
+  checking cst:rg.hilbert_completion.HilbertCompletion.Q_addsub
+  checking cst:rg.hilbert_completion.HilbertCompletion.Q_scalsub
+  checking cst:rg.hilbert_completion.HilbertCompletion.null_weak
+  checking cst:rg.hilbert_completion.HilbertCompletion.null_weak_inv
+  checking cst:rg.hilbert_completion.HilbertCompletion.Q_weak
+  checking cst:rg.hilbert_completion.HilbertCompletion.null_Q
+  checking cst:rg.hilbert_completion.HilbertCompletion.A_sub_weak
+  checking cst:rg.hilbert_completion.HilbertCompletion.A_Q_sub
+  checking cst:rg.hilbert_completion.HilbertCompletion.A_add_null
+  checking cst:rg.hilbert_completion.HilbertCompletion.A_scal_null
+  checking cst:rg.hilbert_completion.HilbertCompletion.A_form
+  checking cst:rg.hilbert_completion.HilbertCompletion.A_orth
+  checking cst:rg.hilbert_completion.HilbertCompletion.norm_gap
+  checking cst:rg.hilbert_completion.HilbertCompletion.iter_orth
+  checking cst:rg.hilbert_completion.HilbertCompletion.iter_gap
+  checking cst:rg.hilbert_completion.HilbertCompletion.vacuum_unique
+  checking cst:rg.hilbert_completion.HilbertCompletion.cauchy
+  checking cst:rg.hilbert_completion.HilbertCompletion.Hc
+  checking cst:rg.hilbert_completion.HilbertCompletion.seq
+  checking cst:rg.hilbert_completion.HilbertCompletion.cauchy_bounded
+  checking cst:rg.hilbert_completion.HilbertCompletion.ip_cauchy
+  checking cst:rg.hilbert_completion.HilbertCompletion.ip
+  checking cst:rg.hilbert_completion.HilbertCompletion.ip_cv
+  checking cst:rg.hilbert_completion.HilbertCompletion.ip_val
+  checking cst:rg.hilbert_completion.HilbertCompletion.cauchy_add
+  checking cst:rg.hilbert_completion.HilbertCompletion.cauchy_scal
+  checking cst:rg.hilbert_completion.HilbertCompletion.cauchy_const
+  checking cst:rg.hilbert_completion.HilbertCompletion.hadd
+  checking cst:rg.hilbert_completion.HilbertCompletion.hscal
+  checking cst:rg.hilbert_completion.HilbertCompletion.emb
+  checking cst:rg.hilbert_completion.HilbertCompletion.H_form
+  checking cst:rg.hilbert_completion.HilbertCompletion.ip_emb
+  checking cst:rg.hilbert_completion.HilbertCompletion.nrm_cv
+  checking cst:rg.hilbert_completion.HilbertCompletion.nrm_emb
+  checking cst:rg.hilbert_completion.HilbertCompletion.dense
+  checking cst:rg.hilbert_completion.HilbertCompletion.complete
+  checking cst:rg.hilbert_completion.HilbertCompletion.cauchy_T
+  checking cst:rg.hilbert_completion.HilbertCompletion.Text
+  checking cst:rg.hilbert_completion.HilbertCompletion.Text_sym
+  checking cst:rg.hilbert_completion.HilbertCompletion.Text_contr
+  checking cst:rg.hilbert_completion.HilbertCompletion.Text_pos
+  checking cst:rg.hilbert_completion.HilbertCompletion.Text_emb
+  checking cst:rg.hilbert_completion.HilbertCompletion.Text_gap
+Checking library: verification.ChallengeSU2HilbertSpace
+  checking module: verification.ChallengeSU2HilbertSpace
+  checking module: verification.ChallengeSU2HilbertSpace.ChallengeSU2HilbertSpace
+  checking cst:verification.ChallengeSU2HilbertSpace.ChallengeSU2HilbertSpace.su2_pos_time_observable
+  checking cst:verification.ChallengeSU2HilbertSpace.ChallengeSU2HilbertSpace.hs_sub
+  checking cst:verification.ChallengeSU2HilbertSpace.ChallengeSU2HilbertSpace.hs_null
+  checking cst:verification.ChallengeSU2HilbertSpace.ChallengeSU2HilbertSpace.hs_hilbert_space
+  checking cst:verification.ChallengeSU2HilbertSpace.ChallengeSU2HilbertSpace.su2_os_embedding
+  checking cst:verification.ChallengeSU2HilbertSpace.ChallengeSU2HilbertSpace.su2_os_transfer_operator
+  checking cst:verification.ChallengeSU2HilbertSpace.ChallengeSU2HilbertSpace.su2_os_vacuum_gap
+  checking cst:verification.ChallengeSU2HilbertSpace.ChallengeSU2HilbertSpace.Challenge_SU2Gauge4D_OSHilbertSpace
+Checking library: ym.su2_os_hilbert_space
+  checking module: ym.su2_os_hilbert_space
+  checking module: ym.su2_os_hilbert_space.SU2OSHilbertSpace
+  checking cst:ym.su2_os_hilbert_space.SU2OSHilbertSpace.obs_pos
+  checking cst:ym.su2_os_hilbert_space.SU2OSHilbertSpace.pos_obs
+  checking cst:ym.su2_os_hilbert_space.SU2OSHilbertSpace.one_pos
+  checking cst:ym.su2_os_hilbert_space.SU2OSHilbertSpace.exp_iter
+  checking cst:ym.su2_os_hilbert_space.SU2OSHilbertSpace.V
+  checking cst:ym.su2_os_hilbert_space.SU2OSHilbertSpace.fn
+  checking cst:ym.su2_os_hilbert_space.SU2OSHilbertSpace.vadd
+  checking cst:ym.su2_os_hilbert_space.SU2OSHilbertSpace.vscal
+  checking cst:ym.su2_os_hilbert_space.SU2OSHilbertSpace.T0
+  checking cst:ym.su2_os_hilbert_space.SU2OSHilbertSpace.Om0
+  checking cst:ym.su2_os_hilbert_space.SU2OSHilbertSpace.Hbeta
+  checking cst:ym.su2_os_hilbert_space.SU2OSHilbertSpace.form_ex
+  checking cst:ym.su2_os_hilbert_space.SU2OSHilbertSpace.BV
+  checking cst:ym.su2_os_hilbert_space.SU2OSHilbertSpace.BV_spec
+  checking cst:ym.su2_os_hilbert_space.SU2OSHilbertSpace.BV_val
+  checking cst:ym.su2_os_hilbert_space.SU2OSHilbertSpace.BV_ext
+  checking cst:ym.su2_os_hilbert_space.SU2OSHilbertSpace.HV
+  checking cst:ym.su2_os_hilbert_space.SU2OSHilbertSpace.T0_sym
+  checking cst:ym.su2_os_hilbert_space.SU2OSHilbertSpace.T0_contr
+  checking cst:ym.su2_os_hilbert_space.SU2OSHilbertSpace.T0_pos
+  checking cst:ym.su2_os_hilbert_space.SU2OSHilbertSpace.Om_norm
+  checking cst:ym.su2_os_hilbert_space.SU2OSHilbertSpace.BV_Om
+  checking cst:ym.su2_os_hilbert_space.SU2OSHilbertSpace.T0_Om
+  checking cst:ym.su2_os_hilbert_space.SU2OSHilbertSpace.T0_gap
+  checking cst:ym.su2_os_hilbert_space.SU2OSHilbertSpace.Hs
+  checking cst:ym.su2_os_hilbert_space.SU2OSHilbertSpace.emF
+  checking cst:ym.su2_os_hilbert_space.SU2OSHilbertSpace.emF_pos
+  checking cst:ym.su2_os_hilbert_space.SU2OSHilbertSpace.null_seq
+  checking cst:ym.su2_os_hilbert_space.SU2OSHilbertSpace.hilbert_space
+  checking cst:ym.su2_os_hilbert_space.SU2OSHilbertSpace.embedding
+  checking cst:ym.su2_os_hilbert_space.SU2OSHilbertSpace.TT_sym
+  checking cst:ym.su2_os_hilbert_space.SU2OSHilbertSpace.TT_pos
+  checking cst:ym.su2_os_hilbert_space.SU2OSHilbertSpace.transfer_operator
+  checking cst:ym.su2_os_hilbert_space.SU2OSHilbertSpace.Om_fix
+  checking cst:ym.su2_os_hilbert_space.SU2OSHilbertSpace.H_gap
+  checking cst:ym.su2_os_hilbert_space.SU2OSHilbertSpace.cgap_pos
+  checking cst:ym.su2_os_hilbert_space.SU2OSHilbertSpace.vacuum_gap
+  checking cst:ym.su2_os_hilbert_space.SU2OSHilbertSpace.os_hilbert_space
+  checking cst:ym.su2_os_hilbert_space.SU2OSHilbertSpace.su2_os_hilbert_space
+Checking library: verification.VerifySU2HilbertSpace
+  checking module: verification.VerifySU2HilbertSpace
+  checking module: verification.VerifySU2HilbertSpace.VerifySU2HilbertSpace
+  checking cst:verification.VerifySU2HilbertSpace.VerifySU2HilbertSpace.verified_su2gauge4D_os_hilbert_space
 Checking library: verification.VerifySU2TransferPositivity
   checking module: verification.VerifySU2TransferPositivity
   checking module: verification.VerifySU2TransferPositivity.VerifySU2TransferPositivity

@@ -1,8 +1,9 @@
-# Preserve exact byte-for-byte encoding/line endings for the 88 pinned Coq
+# Preserve exact byte-for-byte encoding/line endings for the 94 pinned Coq
 # sources (16 of Targets 1-6c, Zenodo 10.5281/zenodo.24507324, plus 11 of
 # Targets 7a-7d, Zenodo 10.5281/zenodo.24512861, plus 8 of Target 7e, plus
 # 11 of Targets 8a-8e, plus 8 of Targets 9a-9d, plus 14 of Targets 10a-10f,
-# plus 11 of Targets 11a-11c, plus 9 of Targets 12a-12d),
+# plus 11 of Targets 11a-11c, plus 9 of Targets 12a-12d, Zenodo
+# 10.5281/zenodo.24545906, plus 6 of Target 13),
 # verification harness, and receipts so `python replay.py` matches
 # `coq/verification/receipts/sources.sha256` across Windows, Linux, and macOS
 # regardless of core.autocrlf.
@@ -63,4 +64,6 @@ coq/rg/product_measure_two_copy.v -text
 coq/ym/su2_link_translate.v -text
 coq/ym/lattice_link_reflection.v -text
 coq/ym/su2_transfer_positivity.v -text
+coq/rg/hilbert_completion.v -text
+coq/ym/su2_os_hilbert_space.v -text
 replay.py text eol=lf
