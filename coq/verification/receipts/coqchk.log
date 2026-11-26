@@ -1,5 +1,8 @@
 Welcome to Chicken 8.18.0
-[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/verification/VerifySU2TransferSpectrum.vo ...
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/verification/VerifySU2GaugeSymmetry.vo ...
+ done]
+
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/su2_gauge_symmetry.vo ...
  done]
 
 [intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/ym/su2_transfer_spectrum.vo ...
@@ -1139,6 +1142,15 @@ Welcome to Chicken 8.18.0
 [intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/verification/ChallengeSU2TransferSpectrum.vo ...
  done]
 
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/rg/hilbert_isometry.vo ...
+ done]
+
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/verification/ChallengeSU2GaugeSymmetry.vo ...
+ done]
+
+[intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/verification/VerifySU2TransferSpectrum.vo ...
+ done]
+
 [intern /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/verification/VerifySU2HilbertSpace.vo ...
  done]
 
@@ -1544,6 +1556,10 @@ Ordered list:
   rg.hilbert_resolvent
   verification.ChallengeSU2TransferSpectrum
   ym.su2_transfer_spectrum
+  rg.hilbert_isometry
+  verification.ChallengeSU2GaugeSymmetry
+  ym.su2_gauge_symmetry
+  verification.VerifySU2GaugeSymmetry
   verification.VerifySU2TransferSpectrum
   verification.VerifySU2HilbertSpace
   verification.VerifySU2TransferPositivity
@@ -52134,6 +52150,93 @@ Checking library: ym.su2_transfer_spectrum
   checking cst:ym.su2_transfer_spectrum.SU2TransferSpectrum.one_in_spectrum
   checking cst:ym.su2_transfer_spectrum.SU2TransferSpectrum.transfer_spectrum
   checking cst:ym.su2_transfer_spectrum.SU2TransferSpectrum.su2_transfer_spectrum
+Checking library: rg.hilbert_isometry
+  checking module: rg.hilbert_isometry
+  checking module: rg.hilbert_isometry.HilbertIsometry
+  checking cst:rg.hilbert_isometry.HilbertIsometry.zero_of_small
+  checking cst:rg.hilbert_isometry.HilbertIsometry.null_sym
+  checking cst:rg.hilbert_isometry.HilbertIsometry.null_trans
+  checking cst:rg.hilbert_isometry.HilbertIsometry.lim_unique
+  checking cst:rg.hilbert_isometry.HilbertIsometry.B_cv
+  checking cst:rg.hilbert_isometry.HilbertIsometry.iso_Q_sub
+  checking cst:rg.hilbert_isometry.HilbertIsometry.iso_null
+  checking cst:rg.hilbert_isometry.HilbertIsometry.iso_add
+  checking cst:rg.hilbert_isometry.HilbertIsometry.iso_scal
+  checking cst:rg.hilbert_isometry.HilbertIsometry.agree_dense
+  checking cst:rg.hilbert_isometry.HilbertIsometry.approx_ex
+  checking cst:rg.hilbert_isometry.HilbertIsometry.approx
+  checking cst:rg.hilbert_isometry.HilbertIsometry.approx_spec
+  checking cst:rg.hilbert_isometry.HilbertIsometry.approx_lim
+  checking cst:rg.hilbert_isometry.HilbertIsometry.W0_Q
+  checking cst:rg.hilbert_isometry.HilbertIsometry.W0_cauchy
+  checking cst:rg.hilbert_isometry.HilbertIsometry.Wext_ex
+  checking cst:rg.hilbert_isometry.HilbertIsometry.Wext
+  checking cst:rg.hilbert_isometry.HilbertIsometry.Wext_lim
+  checking cst:rg.hilbert_isometry.HilbertIsometry.Wext_iso
+  checking cst:rg.hilbert_isometry.HilbertIsometry.Wext_e
+Checking library: verification.ChallengeSU2GaugeSymmetry
+  checking module: verification.ChallengeSU2GaugeSymmetry
+  checking module: verification.ChallengeSU2GaugeSymmetry.ChallengeSU2GaugeSymmetry
+  checking cst:verification.ChallengeSU2GaugeSymmetry.ChallengeSU2GaugeSymmetry.su2_gauge_fn
+  checking cst:verification.ChallengeSU2GaugeSymmetry.ChallengeSU2GaugeSymmetry.obs_gauge
+  checking cst:verification.ChallengeSU2GaugeSymmetry.ChallengeSU2GaugeSymmetry.su2_os_gauge_action
+  checking cst:verification.ChallengeSU2GaugeSymmetry.ChallengeSU2GaugeSymmetry.Challenge_SU2Gauge4D_GaugeSymmetry
+Checking library: ym.su2_gauge_symmetry
+  checking module: ym.su2_gauge_symmetry
+  checking module: ym.su2_gauge_symmetry.SU2GaugeSymmetry
+  checking cst:ym.su2_gauge_symmetry.SU2GaugeSymmetry.shift_time
+  checking cst:ym.su2_gauge_symmetry.SU2GaugeSymmetry.gauge_agree
+  checking cst:ym.su2_gauge_symmetry.SU2GaugeSymmetry.gauge_pos_agree
+  checking cst:ym.su2_gauge_symmetry.SU2GaugeSymmetry.local_gauge
+  checking cst:ym.su2_gauge_symmetry.SU2GaugeSymmetry.pos_gauge
+  checking cst:ym.su2_gauge_symmetry.SU2GaugeSymmetry.reflect_gauge
+  checking cst:ym.su2_gauge_symmetry.SU2GaugeSymmetry.gauge_comp
+  checking cst:ym.su2_gauge_symmetry.SU2GaugeSymmetry.gauge_one
+  checking cst:ym.su2_gauge_symmetry.SU2GaugeSymmetry.gauge_translate
+  checking cst:ym.su2_gauge_symmetry.SU2GaugeSymmetry.obs_gauge_one
+  checking cst:ym.su2_gauge_symmetry.SU2GaugeSymmetry.obs_gauge_comp
+  checking cst:ym.su2_gauge_symmetry.SU2GaugeSymmetry.obs_gauge_translate
+  checking cst:ym.su2_gauge_symmetry.SU2GaugeSymmetry.gauge_fn_one
+  checking cst:ym.su2_gauge_symmetry.SU2GaugeSymmetry.gauge_fn_mul
+  checking cst:ym.su2_gauge_symmetry.SU2GaugeSymmetry.glue
+  checking cst:ym.su2_gauge_symmetry.SU2GaugeSymmetry.glue_fn
+  checking cst:ym.su2_gauge_symmetry.SU2GaugeSymmetry.glue_pos
+  checking cst:ym.su2_gauge_symmetry.SU2GaugeSymmetry.glue_refl
+  checking cst:ym.su2_gauge_symmetry.SU2GaugeSymmetry.reflect_glue
+  checking cst:ym.su2_gauge_symmetry.SU2GaugeSymmetry.HF
+  checking cst:ym.su2_gauge_symmetry.SU2GaugeSymmetry.HC
+  checking cst:ym.su2_gauge_symmetry.SU2GaugeSymmetry.emb_form
+  checking cst:ym.su2_gauge_symmetry.SU2GaugeSymmetry.T_sym
+  checking cst:ym.su2_gauge_symmetry.SU2GaugeSymmetry.T_contr
+  checking cst:ym.su2_gauge_symmetry.SU2GaugeSymmetry.T_emb
+  checking cst:ym.su2_gauge_symmetry.SU2GaugeSymmetry.T_nonexp
+  checking cst:ym.su2_gauge_symmetry.SU2GaugeSymmetry.T_null
+  checking cst:ym.su2_gauge_symmetry.SU2GaugeSymmetry.form_gauge
+  checking cst:ym.su2_gauge_symmetry.SU2GaugeSymmetry.emb_gauge_null
+  checking cst:ym.su2_gauge_symmetry.SU2GaugeSymmetry.V
+  checking cst:ym.su2_gauge_symmetry.SU2GaugeSymmetry.e
+  checking cst:ym.su2_gauge_symmetry.SU2GaugeSymmetry.e_dense
+  checking cst:ym.su2_gauge_symmetry.SU2GaugeSymmetry.W0
+  checking cst:ym.su2_gauge_symmetry.SU2GaugeSymmetry.W0_iso
+  checking cst:ym.su2_gauge_symmetry.SU2GaugeSymmetry.W_ex
+  checking cst:ym.su2_gauge_symmetry.SU2GaugeSymmetry.W
+  checking cst:ym.su2_gauge_symmetry.SU2GaugeSymmetry.W_iso
+  checking cst:ym.su2_gauge_symmetry.SU2GaugeSymmetry.W_emb
+  checking cst:ym.su2_gauge_symmetry.SU2GaugeSymmetry.W_nonexp
+  checking cst:ym.su2_gauge_symmetry.SU2GaugeSymmetry.W_null
+  checking cst:ym.su2_gauge_symmetry.SU2GaugeSymmetry.W_one
+  checking cst:ym.su2_gauge_symmetry.SU2GaugeSymmetry.W_comp
+  checking cst:ym.su2_gauge_symmetry.SU2GaugeSymmetry.W_time_zero
+  checking cst:ym.su2_gauge_symmetry.SU2GaugeSymmetry.pos_translate
+  checking cst:ym.su2_gauge_symmetry.SU2GaugeSymmetry.W_T_static
+  checking cst:ym.su2_gauge_symmetry.SU2GaugeSymmetry.static
+  checking cst:ym.su2_gauge_symmetry.SU2GaugeSymmetry.W_T
+  checking cst:ym.su2_gauge_symmetry.SU2GaugeSymmetry.gauge_action_ex
+  checking cst:ym.su2_gauge_symmetry.SU2GaugeSymmetry.su2_gauge_symmetry
+Checking library: verification.VerifySU2GaugeSymmetry
+  checking module: verification.VerifySU2GaugeSymmetry
+  checking module: verification.VerifySU2GaugeSymmetry.VerifySU2GaugeSymmetry
+  checking cst:verification.VerifySU2GaugeSymmetry.VerifySU2GaugeSymmetry.verified_su2gauge4D_gauge_symmetry
 Checking library: verification.VerifySU2TransferSpectrum
   checking module: verification.VerifySU2TransferSpectrum
   checking module: verification.VerifySU2TransferSpectrum.VerifySU2TransferSpectrum

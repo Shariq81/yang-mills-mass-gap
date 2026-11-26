@@ -156,3 +156,7 @@ VerifySU2TransferSpectrum.verified_su2gauge4D_transfer_spectrum
 :
 ChallengeSU2TransferSpectrum.Challenge_SU2Gauge4D_TransferSpectrum
      : ChallengeSU2TransferSpectrum.Challenge_SU2Gauge4D_TransferSpectrum
+VerifySU2GaugeSymmetry.verified_su2gauge4D_gauge_symmetry
+:
+ChallengeSU2GaugeSymmetry.Challenge_SU2Gauge4D_GaugeSymmetry
+     : ChallengeSU2GaugeSymmetry.Challenge_SU2Gauge4D_GaugeSymmetry

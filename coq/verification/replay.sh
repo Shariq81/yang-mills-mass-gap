@@ -14,9 +14,11 @@
 # operator positivity challenge (Targets 12a-12d,
 # verification/ChallengeSU2TransferPositivity.v), the frozen
 # Osterwalder-Schrader Hilbert space challenge (Target 13,
-# verification/ChallengeSU2HilbertSpace.v) and the frozen transfer
+# verification/ChallengeSU2HilbertSpace.v), the frozen transfer
 # operator spectrum challenge (Target 14,
-# verification/ChallengeSU2TransferSpectrum.v).
+# verification/ChallengeSU2TransferSpectrum.v) and the frozen gauge
+# symmetry challenge (Target 15,
+# verification/ChallengeSU2GaugeSymmetry.v).
 # Usage (from Windows):
 #   wsl -e bash -lc 'bash /mnt/c/GitHub/reimannhypothesis/yang-mills-final-proof/coq/verification/replay.sh'
 set -euo pipefail
@@ -51,7 +53,8 @@ echo "=== 1. Toolchain & Source Provenance ==="
 # 16-target release; entries 36-46 are the Target 8 cone, entries 47-54 are
 # the Target 9 cone, entries 55-68 are the Target 10 cone, entries 69-79 are
 # the Target 11 cone, entries 80-88 are the Target 12 cone, entries 89-94
-# are the Target 13 cone and the last 6 entries are the Target 14 cone.
+# are the Target 13 cone, entries 95-100 are the Target 14 cone and the
+# last 6 entries are the Target 15 cone.
 # The order is a valid compilation order (replay.py compiles in this order).
 CONE_SOURCES=(
   "verification/Challenge.v"
@@ -154,6 +157,12 @@ CONE_SOURCES=(
   "verification/VerifySU2TransferSpectrum.v"
   "verification/CheckTypesSU2TransferSpectrum.v"
   "verification/CheckAxiomsSU2TransferSpectrum.v"
+  "verification/ChallengeSU2GaugeSymmetry.v"
+  "rg/hilbert_isometry.v"
+  "ym/su2_gauge_symmetry.v"
+  "verification/VerifySU2GaugeSymmetry.v"
+  "verification/CheckTypesSU2GaugeSymmetry.v"
+  "verification/CheckAxiomsSU2GaugeSymmetry.v"
 )
 
 sha256sum "${CONE_SOURCES[@]}" | tee "$RECEIPTS/sources.sha256"
@@ -237,6 +246,10 @@ GUARD_FILES=(
   "rg/hilbert_resolvent.v"
   "ym/su2_transfer_spectrum.v"
   "verification/VerifySU2TransferSpectrum.v"
+  "verification/ChallengeSU2GaugeSymmetry.v"
+  "rg/hilbert_isometry.v"
+  "ym/su2_gauge_symmetry.v"
+  "verification/VerifySU2GaugeSymmetry.v"
 )
 if grep -En '^\s*(Axiom|Axioms|Parameter|Parameters|Conjecture|Admitted|admit)\b' "${GUARD_FILES[@]}"; then
   echo "FAIL: Forbidden declaration found in guarded verification files" >&2
@@ -252,7 +265,10 @@ echo "PASS: Zero Axiom/Parameter/Conjecture/Admitted declarations across all ${#
 # five for ChallengeSU2MassGap.v and for ChallengeSU2GaugeInvariance.v; the
 # first six for ChallengeSU2TransferPositivity.v and for
 # ChallengeSU2HilbertSpace.v; the first six and ChallengeSU2HilbertSpace.v
-# for ChallengeSU2TransferSpectrum.v), and may contain no proof scripts.
+# for ChallengeSU2TransferSpectrum.v; the first six,
+# ChallengeSU2GaugeInvariance.v, ChallengeSU2HilbertSpace.v and
+# ChallengeSU2TransferSpectrum.v for ChallengeSU2GaugeSymmetry.v), and may
+# contain no proof scripts.
 if grep -En '^\s*(Require|From)\b' verification/ChallengeZ2Gauge.v \
      | grep -Ev '(From Coq Require Import|Require Import verification\.Challenge\.)'; then
   echo "FAIL: verification/ChallengeZ2Gauge.v imports a non-stdlib, non-Challenge module" >&2
@@ -298,7 +314,12 @@ if grep -En '^\s*(Require|From)\b' verification/ChallengeSU2TransferSpectrum.v \
   echo "FAIL: verification/ChallengeSU2TransferSpectrum.v imports a module other than the stdlib and the frozen challenge files" >&2
   exit 1
 fi
-for frozen in verification/ChallengeZ2Gauge.v verification/ChallengeZ2AreaLaw.v verification/ChallengeSU2Gauge.v verification/ChallengeSU2InfiniteVolume.v verification/ChallengeSU2MassGap.v verification/ChallengeSU2GaugeInvariance.v verification/ChallengeSU2TransferPositivity.v verification/ChallengeSU2HilbertSpace.v verification/ChallengeSU2TransferSpectrum.v; do
+if grep -En '^\s*(Require|From)\b' verification/ChallengeSU2GaugeSymmetry.v \
+     | grep -Ev '(From Coq Require Import|Require Import verification\.Challenge\.|Require Import verification\.ChallengeZ2Gauge\.|Require Import verification\.ChallengeZ2AreaLaw\.|Require Import verification\.ChallengeSU2Gauge\.|Require Import verification\.ChallengeSU2InfiniteVolume\.|Require Import verification\.ChallengeSU2MassGap\.|Require Import verification\.ChallengeSU2GaugeInvariance\.|Require Import verification\.ChallengeSU2HilbertSpace\.|Require Import verification\.ChallengeSU2TransferSpectrum\.)'; then
+  echo "FAIL: verification/ChallengeSU2GaugeSymmetry.v imports a module other than the stdlib and the frozen challenge files" >&2
+  exit 1
+fi
+for frozen in verification/ChallengeZ2Gauge.v verification/ChallengeZ2AreaLaw.v verification/ChallengeSU2Gauge.v verification/ChallengeSU2InfiniteVolume.v verification/ChallengeSU2MassGap.v verification/ChallengeSU2GaugeInvariance.v verification/ChallengeSU2TransferPositivity.v verification/ChallengeSU2HilbertSpace.v verification/ChallengeSU2TransferSpectrum.v verification/ChallengeSU2GaugeSymmetry.v; do
   if grep -En '^\s*(Proof|Qed|Defined|Theorem|Lemma|Corollary|Hypothesis|Hypotheses|Variable|Variables|Context)\b' "$frozen"; then
     echo "FAIL: $frozen contains a proof script or a section assumption" >&2
     exit 1
@@ -313,6 +334,7 @@ echo "PASS: verification/ChallengeSU2GaugeInvariance.v imports only the Coq stdl
 echo "PASS: verification/ChallengeSU2TransferPositivity.v imports only the Coq stdlib + the first six frozen files and contains definitions only."
 echo "PASS: verification/ChallengeSU2HilbertSpace.v imports only the Coq stdlib + the first six frozen files and contains definitions only."
 echo "PASS: verification/ChallengeSU2TransferSpectrum.v imports only the Coq stdlib + the first six frozen files and ChallengeSU2HilbertSpace.v and contains definitions only."
+echo "PASS: verification/ChallengeSU2GaugeSymmetry.v imports only the Coq stdlib + the first six frozen files, ChallengeSU2GaugeInvariance.v, ChallengeSU2HilbertSpace.v and ChallengeSU2TransferSpectrum.v and contains definitions only."
 
 echo ""
 echo "=== 3. Clean Wipe of Verification Cone Build Artifacts ==="
@@ -344,14 +366,16 @@ echo "PASS: verification/ChallengeSU2TransferPositivity.v compiled cleanly with 
 echo "PASS: verification/ChallengeSU2HilbertSpace.v compiled cleanly with only the eight earlier frozen .vo files present (no proof module existed)."
 "$COQC" -R . '' -q verification/ChallengeSU2TransferSpectrum.v
 echo "PASS: verification/ChallengeSU2TransferSpectrum.v compiled cleanly with only the nine earlier frozen .vo files present (no proof module existed)."
+"$COQC" -R . '' -q verification/ChallengeSU2GaugeSymmetry.v
+echo "PASS: verification/ChallengeSU2GaugeSymmetry.v compiled cleanly with only the ten earlier frozen .vo files present (no proof module existed)."
 
 echo ""
 echo "=== 5. Step 2: Compile Submitted Proof Cone & Verify Files ==="
-for src in "rg/polymer_types.v" "rg/cluster_expansion.v" "rg/penrose_tree_bound.v" "rg/poly_exp_bound.v" "rg/tree_cut_bijection.v" "rg/kotecky_preiss.v" "rg/exp_series_limit.v" "rg/cluster_log_partition.v" "ym/geometry_frontier.v" "ym/lattice.v" "ym/lattice_4d_coordination.v" "ym/lattice_4d_kp.v" "verification/Verify.v" "rg/dup_clustering.v" "rg/polymer_representation.v" "rg/connected_subset_bound.v" "ym/z2_gauge_expansion.v" "ym/z2_gauge_clustering.v" "ym/z2_polymer_gas.v" "ym/z2_free_energy.v" "verification/VerifyZ2Gauge.v" "rg/rooted_polymer_bound.v" "ym/z2_even_holonomy.v" "ym/z2_min_area.v" "ym/z2_area_law.v" "verification/VerifyZ2AreaLaw.v" "rg/product_measure.v" "ym/su2_algebra.v" "ym/su2_clustering.v" "ym/su2_area_law.v" "ym/su2_continuity.v" "ym/su2_haar_grid.v" "ym/su2_haar_limit.v" "verification/VerifySU2Gauge.v" "rg/product_measure_perm.v" "ym/su2_volume.v" "ym/lattice_boxes.v" "ym/su2_infinite_volume.v" "verification/VerifySU2InfiniteVolume.v" "rg/product_measure_relabel.v" "rg/cauchy_schwarz_gap.v" "ym/lattice_boxes_tail.v" "ym/su2_haar_grid_conj.v" "ym/lattice_symmetry.v" "ym/su2_covariance.v" "ym/su2_multi_clustering.v" "ym/su2_uniqueness.v" "ym/su2_reflection_positivity.v" "ym/su2_mass_gap.v" "verification/VerifySU2MassGap.v" "ym/su2_haar_mean.v" "ym/su2_haar_moments.v" "ym/su2_haar_torus.v" "ym/su2_haar_orbit.v" "ym/su2_haar_poly.v" "ym/su2_haar_invariance.v" "ym/su2_gauge_invariance.v" "verification/VerifySU2GaugeInvariance.v" "rg/positive_kernel.v" "rg/product_measure_two_copy.v" "ym/su2_link_translate.v" "ym/lattice_link_reflection.v" "ym/su2_transfer_positivity.v" "verification/VerifySU2TransferPositivity.v" "rg/hilbert_completion.v" "ym/su2_os_hilbert_space.v" "verification/VerifySU2HilbertSpace.v" "rg/hilbert_resolvent.v" "ym/su2_transfer_spectrum.v" "verification/VerifySU2TransferSpectrum.v"; do
+for src in "rg/polymer_types.v" "rg/cluster_expansion.v" "rg/penrose_tree_bound.v" "rg/poly_exp_bound.v" "rg/tree_cut_bijection.v" "rg/kotecky_preiss.v" "rg/exp_series_limit.v" "rg/cluster_log_partition.v" "ym/geometry_frontier.v" "ym/lattice.v" "ym/lattice_4d_coordination.v" "ym/lattice_4d_kp.v" "verification/Verify.v" "rg/dup_clustering.v" "rg/polymer_representation.v" "rg/connected_subset_bound.v" "ym/z2_gauge_expansion.v" "ym/z2_gauge_clustering.v" "ym/z2_polymer_gas.v" "ym/z2_free_energy.v" "verification/VerifyZ2Gauge.v" "rg/rooted_polymer_bound.v" "ym/z2_even_holonomy.v" "ym/z2_min_area.v" "ym/z2_area_law.v" "verification/VerifyZ2AreaLaw.v" "rg/product_measure.v" "ym/su2_algebra.v" "ym/su2_clustering.v" "ym/su2_area_law.v" "ym/su2_continuity.v" "ym/su2_haar_grid.v" "ym/su2_haar_limit.v" "verification/VerifySU2Gauge.v" "rg/product_measure_perm.v" "ym/su2_volume.v" "ym/lattice_boxes.v" "ym/su2_infinite_volume.v" "verification/VerifySU2InfiniteVolume.v" "rg/product_measure_relabel.v" "rg/cauchy_schwarz_gap.v" "ym/lattice_boxes_tail.v" "ym/su2_haar_grid_conj.v" "ym/lattice_symmetry.v" "ym/su2_covariance.v" "ym/su2_multi_clustering.v" "ym/su2_uniqueness.v" "ym/su2_reflection_positivity.v" "ym/su2_mass_gap.v" "verification/VerifySU2MassGap.v" "ym/su2_haar_mean.v" "ym/su2_haar_moments.v" "ym/su2_haar_torus.v" "ym/su2_haar_orbit.v" "ym/su2_haar_poly.v" "ym/su2_haar_invariance.v" "ym/su2_gauge_invariance.v" "verification/VerifySU2GaugeInvariance.v" "rg/positive_kernel.v" "rg/product_measure_two_copy.v" "ym/su2_link_translate.v" "ym/lattice_link_reflection.v" "ym/su2_transfer_positivity.v" "verification/VerifySU2TransferPositivity.v" "rg/hilbert_completion.v" "ym/su2_os_hilbert_space.v" "verification/VerifySU2HilbertSpace.v" "rg/hilbert_resolvent.v" "ym/su2_transfer_spectrum.v" "verification/VerifySU2TransferSpectrum.v" "rg/hilbert_isometry.v" "ym/su2_gauge_symmetry.v" "verification/VerifySU2GaugeSymmetry.v"; do
   echo "  coqc $src"
   "$COQC" -R . '' -q "$src"
 done
-echo "PASS: All submitted proof modules, verification/Verify.v, verification/VerifyZ2Gauge.v, verification/VerifyZ2AreaLaw.v, verification/VerifySU2Gauge.v, verification/VerifySU2InfiniteVolume.v, verification/VerifySU2MassGap.v, verification/VerifySU2GaugeInvariance.v, verification/VerifySU2TransferPositivity.v, verification/VerifySU2HilbertSpace.v and verification/VerifySU2TransferSpectrum.v compiled cleanly."
+echo "PASS: All submitted proof modules, verification/Verify.v, verification/VerifyZ2Gauge.v, verification/VerifyZ2AreaLaw.v, verification/VerifySU2Gauge.v, verification/VerifySU2InfiniteVolume.v, verification/VerifySU2MassGap.v, verification/VerifySU2GaugeInvariance.v, verification/VerifySU2TransferPositivity.v, verification/VerifySU2HilbertSpace.v, verification/VerifySU2TransferSpectrum.v and verification/VerifySU2GaugeSymmetry.v compiled cleanly."
 
 echo ""
 echo "=== 6. Step 2b: Check Target Types, Print Assumptions & Enforce Stdlib-Only Allowlist ==="
@@ -366,6 +390,7 @@ echo "=== 6. Step 2b: Check Target Types, Print Assumptions & Enforce Stdlib-Onl
   "$COQC" -R . '' -q verification/CheckTypesSU2TransferPositivity.v 2>&1
   "$COQC" -R . '' -q verification/CheckTypesSU2HilbertSpace.v 2>&1
   "$COQC" -R . '' -q verification/CheckTypesSU2TransferSpectrum.v 2>&1
+  "$COQC" -R . '' -q verification/CheckTypesSU2GaugeSymmetry.v 2>&1
 } | tee "$RECEIPTS/types.log"
 {
   "$COQC" -R . '' -q verification/CheckAxioms.v 2>&1
@@ -378,6 +403,7 @@ echo "=== 6. Step 2b: Check Target Types, Print Assumptions & Enforce Stdlib-Onl
   "$COQC" -R . '' -q verification/CheckAxiomsSU2TransferPositivity.v 2>&1
   "$COQC" -R . '' -q verification/CheckAxiomsSU2HilbertSpace.v 2>&1
   "$COQC" -R . '' -q verification/CheckAxiomsSU2TransferSpectrum.v 2>&1
+  "$COQC" -R . '' -q verification/CheckAxiomsSU2GaugeSymmetry.v 2>&1
 } | tee "$RECEIPTS/axioms.log"
 python3 verification/check_allowlist.py "$RECEIPTS/axioms.log" | tee "$RECEIPTS/allowlist.log"
 
@@ -392,7 +418,8 @@ echo "=== 7. Step 3: Independent Kernel Replay (coqchk) ==="
   verification.ChallengeSU2GaugeInvariance verification.VerifySU2GaugeInvariance \
   verification.ChallengeSU2TransferPositivity verification.VerifySU2TransferPositivity \
   verification.ChallengeSU2HilbertSpace verification.VerifySU2HilbertSpace \
-  verification.ChallengeSU2TransferSpectrum verification.VerifySU2TransferSpectrum 2>&1 | tee "$RECEIPTS/coqchk.log"
+  verification.ChallengeSU2TransferSpectrum verification.VerifySU2TransferSpectrum \
+  verification.ChallengeSU2GaugeSymmetry verification.VerifySU2GaugeSymmetry 2>&1 | tee "$RECEIPTS/coqchk.log"
 if ! grep -q "Modules were successfully checked" "$RECEIPTS/coqchk.log"; then
   echo "FAIL: coqchk did not report 'Modules were successfully checked'" >&2
   exit 1
@@ -409,4 +436,5 @@ sha256sum verification/Challenge.vo verification/Verify.vo \
   verification/ChallengeSU2GaugeInvariance.vo verification/VerifySU2GaugeInvariance.vo \
   verification/ChallengeSU2TransferPositivity.vo verification/VerifySU2TransferPositivity.vo \
   verification/ChallengeSU2HilbertSpace.vo verification/VerifySU2HilbertSpace.vo \
-  verification/ChallengeSU2TransferSpectrum.vo verification/VerifySU2TransferSpectrum.vo | tee "$RECEIPTS/artifacts.sha256"
+  verification/ChallengeSU2TransferSpectrum.vo verification/VerifySU2TransferSpectrum.vo \
+  verification/ChallengeSU2GaugeSymmetry.vo verification/VerifySU2GaugeSymmetry.vo | tee "$RECEIPTS/artifacts.sha256"

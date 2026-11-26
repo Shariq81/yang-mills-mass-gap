@@ -7,8 +7,9 @@ followed by `verification/CheckAxiomsZ2Gauge.v`,
 `verification/CheckAxiomsSU2MassGap.v`,
 `verification/CheckAxiomsSU2GaugeInvariance.v`,
 `verification/CheckAxiomsSU2TransferPositivity.v`,
-`verification/CheckAxiomsSU2HilbertSpace.v` and
-`verification/CheckAxiomsSU2TransferSpectrum.v` (their outputs are
+`verification/CheckAxiomsSU2HilbertSpace.v`,
+`verification/CheckAxiomsSU2TransferSpectrum.v` and
+`verification/CheckAxiomsSU2GaugeSymmetry.v` (their outputs are
 concatenated in that order by `replay.sh` / `replay.py`).
 
 Because the `CheckAxioms*.v` files emit ONLY `Print Assumptions` output (type
@@ -69,6 +70,7 @@ EXPECTED_THEOREMS = [
     "VerifySU2TransferPositivity.verified_su2gauge4D_transfer_matrix_contraction",
     "VerifySU2HilbertSpace.verified_su2gauge4D_os_hilbert_space",
     "VerifySU2TransferSpectrum.verified_su2gauge4D_transfer_spectrum",
+    "VerifySU2GaugeSymmetry.verified_su2gauge4D_gauge_symmetry",
 ]
 
 
